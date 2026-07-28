@@ -1153,7 +1153,7 @@ nav a.active::after {
                         <img src="depoimento1.jpg" alt="Patricia Costa">
                     </div>
                     <h3>Patricia Costa</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">28 anos – São Paulo/S.P</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">38 anos – São Paulo/S.P</p>
                     <div class="stars">★★★★★</div>
                     <p>"Passei a tomar decisões com mais clareza e confiança, o que refletiu positivamente na minha vida profissional."</p>
                 </div>
@@ -1209,30 +1209,29 @@ nav a.active::after {
     </section>
 
     <!-- Seção Contato -->
-    <section id="contato" class="contact">
-        <div class="container">
-            <h2 style="text-align:center;">Entre em Contato</h2>
-            <p style="text-align:center;">Tem alguma dúvida específica? Envie sua mensagem e responderemos em breve.</p>
-            <div class="contact-form">
-                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
-                    <div class="form-group">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" required placeholder="Seu nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" required placeholder="Seu e-mail">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" rows="4" required placeholder="Como podemos ajudar?"></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width:100%;">Enviar Mensagem</button>
-                </form>
-            </div>
+<section id="contato" class="contact">
+    <div class="container">
+        <h2 style="text-align:center;">Entre em Contato</h2>
+        <p style="text-align:center;">Tem alguma dúvida específica? Envie sua mensagem e responderemos em breve.</p>
+        <div class="contact-form">
+            <form action="https://formspree.io/f/xkodyzeq" method="POST">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" required placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required placeholder="Seu e-mail">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Como podemos ajudar?"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width:100%;">Enviar Mensagem</button>
+            </form>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- Seção FAQ -->
     <section id="faq" class="faq">
         <div class="container">
