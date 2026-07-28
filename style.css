@@ -120,42 +120,71 @@ ul {
    3. CABEÇALHO & NAVEGAÇÃO
    ========================================================================== */
 header {
-    background-color: rgba(11, 16, 33, 0.85);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    padding: 12px 0;
+    background: linear-gradient(
+        90deg,
+        rgba(8, 12, 24, 0.94) 0%,
+        rgba(16, 22, 42, 0.90) 45%,
+        rgba(10, 15, 29, 0.94) 100%
+    );
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    padding: 18px 0;
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: 1px solid rgba(226,176,55,.25);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    box-shadow: 
+        0 10px 35px rgba(0, 0, 0, 0.35),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.03);
+    transition: all 0.35s ease;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 12% 50%, rgba(212, 175, 55, 0.08), transparent 55%),
+        radial-gradient(circle at 88% 50%, rgba(90, 70, 170, 0.08), transparent 55%);
+    pointer-events: none;
 }
 
 header .container {
+    position: relative;
+    z-index: 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo img {
-    height: 70px;
+    height: 72px;
     display: block;
     filter: drop-shadow(0 0 8px rgba(226, 176, 55, 0.4));
+    transition: transform 0.35s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
 }
 
 nav ul {
     display: flex;
-    gap: 22px;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
-    color: var(--white);
-    font-weight: 600;
+    color: var(--white, var(--text-light));
+    font-weight: 500;
     font-size: 0.95rem;
     position: relative;
-    transition: var(--transition);
+    text-decoration: none;
+    transition: color 0.30s ease;
 }
 
 nav a::after {
@@ -163,18 +192,25 @@ nav a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -4px;
+    bottom: -6px;
     left: 0;
-    background-color: var(--primary-color);
-    transition: var(--transition);
+    border-radius: 2px;
+    background: linear-gradient(
+        90deg,
+        var(--primary-color),
+        #F7D878
+    );
+    transition: width 0.35s ease;
 }
 
-nav a:hover::after {
-    width: 100%;
-}
-
-nav a:hover {
+nav a:hover,
+nav a.active {
     color: var(--primary-color);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
 }
         /* ==========================================================================
    4. SEÇÃO HERO
