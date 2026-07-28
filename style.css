@@ -181,12 +181,21 @@ header .container {
    Logo
 -------------------------------------------------------------------------- */
 
-.logo img {
-    height: 100px; 
-    width: auto; 
-    display: block;
+.logo {
+    display: flex;
+    align-items: center;
+}
 
+.logo img {
+    height: 80px;          /* Ideal para desktop */
+    width: auto;
+    display: block;
+    object-fit: contain;
     transition: transform .35s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.04);
 }
 
 /* --------------------------------------------------------------------------
