@@ -117,91 +117,147 @@ ul {
 }
 
 /* ==========================================================================
-   3. CABEÇALHO & NAVEGAÇÃO
+   3. CABEÇALHO & NAVEGAÇÃO (PREMIUM)
    ========================================================================== */
+
 header {
+    /* CORRIGIDO: relative faz o menu rolar e sumir junto com a página */
     position: relative;
-    background-color: var(--bg-deep); 
-    
-    padding: 18px 0;
     width: 100%;
     z-index: 1000;
+
+    padding: 18px 0;
+
+    background-color: var(--bg-deep);
+
     border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-    box-shadow: 
+
+    box-shadow:
         0 10px 35px rgba(0, 0, 0, 0.35),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.03);
-    transition: all 0.35s ease;
+        inset 0 -1px 0 rgba(255,255,255,.03);
+
+    transition: all .35s ease;
 }
+
+/* --------------------------------------------------------------------------
+   Brilho suave no cabeçalho
+-------------------------------------------------------------------------- */
 
 header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: 
-        radial-gradient(circle at 12% 50%, rgba(212, 175, 55, 0.04), transparent 55%),
-        radial-gradient(circle at 88% 50%, rgba(90, 70, 170, 0.04), transparent 55%);
+
+    background:
+        radial-gradient(
+            circle at 12% 50%,
+            rgba(212,175,55,.08),
+            transparent 55%
+        ),
+
+        radial-gradient(
+            circle at 88% 50%,
+            rgba(90,70,170,.08),
+            transparent 55%
+        );
+
     pointer-events: none;
 }
+
+/* --------------------------------------------------------------------------
+   Container
+-------------------------------------------------------------------------- */
 
 header .container {
     position: relative;
     z-index: 2;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* --------------------------------------------------------------------------
+   Logo
+-------------------------------------------------------------------------- */
+
 .logo img {
     height: 72px;
     display: block;
-    filter: drop-shadow(0 0 8px rgba(226, 176, 55, 0.4));
-    transition: transform 0.35s ease;
+
+    transition: transform .35s ease;
 }
 
 .logo img:hover {
     transform: scale(1.05);
 }
 
+/* --------------------------------------------------------------------------
+   Menu
+-------------------------------------------------------------------------- */
+
 nav ul {
     display: flex;
     align-items: center;
     gap: 24px;
+
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 nav a {
-    color: var(--white, var(--text-light));
-    font-weight: 500;
-    font-size: 0.95rem;
     position: relative;
+
+    color: var(--text-light);
+
+    font-size: .95rem;
+    font-weight: 500;
+
     text-decoration: none;
-    transition: color 0.30s ease;
+
+    transition: color .30s ease;
 }
 
+/* Linha dourada */
+
 nav a::after {
-    content: '';
+    content: "";
+
     position: absolute;
+    left: 0;
+    bottom: -6px;
+
     width: 0;
     height: 2px;
-    bottom: -6px;
-    left: 0;
+
     border-radius: 2px;
+
     background: linear-gradient(
         90deg,
         var(--primary-color),
         #F7D878
     );
-    transition: width 0.35s ease;
+
+    transition: width .35s ease;
 }
 
-nav a:hover,
+/* Hover */
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Link ativo */
+
 nav a.active {
     color: var(--primary-color);
 }
 
-nav a:hover::after,
 nav a.active::after {
     width: 100%;
 }
