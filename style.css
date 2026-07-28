@@ -182,8 +182,8 @@ header .container {
 -------------------------------------------------------------------------- */
 
 .logo img {
-    height: 90px; /* Aumente este valor (era 72px) */
-    width: auto;  /* Garante que a largura se ajuste sem esticar a imagem */
+    height: 72px; 
+    width: auto; 
     display: block;
 
     transition: transform .35s ease;
