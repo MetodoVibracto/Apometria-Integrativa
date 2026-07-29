@@ -14,7 +14,7 @@
     --text-color: #f0f4f8;
     --text-muted: #b3c2d4;
     --white: #ffffff;
-    --border-color: rgba(226, 176, 55, 0.2); /* <-- Adicionado para não quebrar as bordas */
+    --border-color: rgba(226, 176, 55, 0.2);
     --shadow-gold: 0 0 25px rgba(226, 176, 55, 0.35);
     --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.4);
@@ -132,7 +132,8 @@ ul {
 header {
     background-color: rgba(10, 14, 23, 0.95);
     backdrop-filter: blur(10px);
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
     padding: 12px 0;
@@ -192,7 +193,6 @@ nav a:hover {
     transition: all 0.3s ease;
 }
 
-/* Animação do ícone ao abrir */
 .hamburger-btn.active span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -203,44 +203,6 @@ nav a:hover {
 
 .hamburger-btn.active span:nth-child(3) {
     transform: translateY(-10px) rotate(-45deg);
-}
-
-/* ==========================================================================
-   4. REGRAS RESPONSIVAS (DISPOSITIVOS MÓVEIS - CELULAR)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .hamburger-btn {
-        display: flex; /* Exibe o botão no celular */
-    }
-
-    .logo img {
-        height: 65px; /* Tamanho proporcional ideal para celular */
-    }
-
-    nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--bg-deep-blue);
-        border-bottom: 1px solid var(--border-color);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-in-out;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-    }
-
-    /* Expande a gaveta quando ativa via JS */
-    nav.active {
-        max-height: 450px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        padding: 25px 0;
-        gap: 18px;
-    }
 }
 
 /* ==========================================================================
@@ -874,7 +836,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   12. RESPONSIVIDADE
+   12. RESPONSIVIDADE (MEDIA QUERIES UNIFICADAS)
    ========================================================================== */
 @media (max-width: 992px) {
     .hero-content, 
@@ -891,15 +853,38 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
+    .hamburger-btn {
+        display: flex; /* Exibe o botão hambúrguer no celular */
+    }
+
     .logo img {
-        height: 60px; /* <--- AJUSTE ESTE VALOR PARA O TAMANHO NO CELULAR */
+        height: 60px; /* Tamanho proporcional para celular */
     }
-   
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-deep-blue);
+        border-bottom: 1px solid var(--border-color);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    nav.active {
+        max-height: 450px;
+    }
+
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px 18px;
+        flex-direction: column;
+        align-items: center;
+        padding: 25px 0;
+        gap: 18px;
     }
+
     .steps-grid { grid-template-columns: 1fr; }
     .hero-highlights-banner { grid-template-columns: 1fr; }
     .contact-form { padding: 25px 20px; }
