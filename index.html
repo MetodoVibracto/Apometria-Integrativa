@@ -100,48 +100,37 @@
             position: relative;
         }
 
-        /* ==========================================================================
-           3. CABEÇALHO / NAVBAR
-           ========================================================================== */
-        header {
-            background-color: rgba(10, 14, 23, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px 0;
-        }
+        <!-- 3. CABEÇALHO / NAVBAR -->
+<header>
+    <div class="container">
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <img src="caminho-da-sua-logo.png" alt="Logo">
+        </a>
 
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        <!-- Botão Hambúrguer (aparece no celular) -->
+        <button class="hamburger-btn" aria-label="Menu Mobile">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-        .logo img {
-            max-height: 50px;
-            width: auto;
-            display: block;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
+        <!-- Navegação / Menu -->
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#problemas">Problemas</a></li>
+                <li><a href="#o-que-e">O que é</a></li>
+                <li><a href="#passos">Passo a Passo</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#terapeuta">Terapeuta</a></li>
+                <li><a href="#valores">Valores</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
         /* ==========================================================================
            4. SEÇÃO HERO
