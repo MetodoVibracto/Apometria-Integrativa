@@ -1052,70 +1052,32 @@ nav a.active::after{
    10. BOTÕES DA CTA
    ========================================================================== */
 
-.btn-whatsapp-group{
+.btn-whatsapp-group {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+    min-width: 340px;
+    padding: 18px 38px;
 
-    min-width:340px;
-    padding:18px 38px;
+    background: rgba(255, 255, 255, .03);
 
-    background:rgba(255,255,255,.03);
+    border: 5px solid #e2b037;
+    border-radius: 60px;
 
-    border:5px solid #e2b037;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
 
-    border-radius:60px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-sizing: border-box;
 
-    color:#fff;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    position:relative;
-
-    overflow:hidden;
-
-    z-index:1;
-
-    box-sizing:border-box;
-
-    box-shadow:
-        0 0 8px rgba(226,176,55,.35),
-        0 0 20px rgba(226,176,55,.20);
-
+    box-shadow: 
+        0 0 8px rgba(226, 176, 55, .35),
+        0 0 20px rgba(226, 176, 55, .20);
 }
-
-.btn-whatsapp-group{
-    display:inline-block;
-    padding:18px 38px;
-
-    background:rgba(255,255,255,.03);
-
-    border:5px solid #e2b037;
-
-    border-radius:60px;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    position:relative;
-
-    overflow:hidden;
-
-    z-index:1;
-
-    box-sizing:border-box;
-
-    box-shadow:
-        0 0 8px rgba(226,176,55,.35),
-        0 0 20px rgba(226,176,55,.20);
-}
-
         /* ==========================================================================
            10. BOTÃO FLUTUANTE DO WHATSAPP
            ========================================================================== */
