@@ -1052,6 +1052,17 @@ nav a.active::after{
    10. BOTÕES DA CTA
    ========================================================================== */
 
+/* Organiza e alinha os dois botões lado a lado no site */
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Faz os botões empilharem no celular se a tela for pequena */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Cria um espaço perfeito de 20px entre o botão amarelo e o dourado */
+    margin-top: 30px;
+}
+
+/* Estilo do botão da Comunidade WhatsApp */
 .btn-whatsapp-group {
     display: inline-flex;
     align-items: center;
@@ -1077,6 +1088,16 @@ nav a.active::after{
     box-shadow: 
         0 0 8px rgba(226, 176, 55, .35),
         0 0 20px rgba(226, 176, 55, .20);
+
+    transition: all 0.3s ease;
+}
+
+/* Ajuste opcional para celulares finos (evita que o botão quebre a tela em aparelhos pequenos) */
+@media (max-width: 480px) {
+    .btn-whatsapp-group {
+        min-width: 100%;
+        padding: 18px 20px;
+    }
 }
         /* ==========================================================================
            10. BOTÃO FLUTUANTE DO WHATSAPP
