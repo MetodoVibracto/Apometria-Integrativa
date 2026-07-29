@@ -1,259 +1,644 @@
-<!-- Seção Passo a Passo -->
-    <section id="como-funciona" class="steps">
-        <div class="container">
-            <h2 style="text-align:center;">Como funciona a sessão? Passo a Passo</h2>
-            <div class="steps-grid">
-                <div class="step-item">
-                    <span class="step-number">01</span>
-                    <h3>Você escolhe a modalidade</h3>
-                    <p>Sessão de Apometria a distância conforme seu momento.</p>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">02</span>
-                    <h3>Identificação dos Bloqueios</h3>
-                    <p>Mapeamos padrões, influências e questões que podem estar impactando sua vida.</p>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">03</span>
-                    <h3>Sessão Apométrica</h3>
-                    <p>Harmonização emocional, energética e espiritual.</p>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">04</span>
-                    <h3>Integração e Orientações</h3>
-                    <p>Você recebe o relatório de apometria com o que foi trabalhado no seu campo energético.</p>
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Método Vibracto - Apometria Integrativa & Terapias</title>
+  <style>
+    /* Reset e Variáveis Globais */
+    :root {
+      --primary: #4A2E80;
+      --primary-light: #6B46C1;
+      --accent: #25D366; /* WhatsApp Green */
+      --text-dark: #2D3748;
+      --text-muted: #718096;
+      --bg-light: #F7FAFC;
+      --bg-card: #FFFFFF;
+      --border-color: #E2E8F0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary-light);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Componentes de Botão */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1ebc57;
+      transform: translateY(-2px);
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    /* Seção 4: Passo a Passo */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      position: relative;
+      border-top: 4px solid var(--primary-light);
+    }
+
+    .step-number {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .step-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    /* Seção 5: Depoimentos */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .testimonial-stars {
+      color: #F6AD55;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+    }
+
+    .testimonial-author {
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .cta-center {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Seção 6: Terapeuta */
+    .terapeuta-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    @media(min-width: 768px) {
+      .terapeuta-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
+    .terapeuta-img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--primary-light);
+      flex-shrink: 0;
+    }
+
+    .terapeuta-content h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .terapeuta-content p {
+      margin-bottom: 15px;
+      color: var(--text-dark);
+    }
+
+    /* Seção 7: Opções de Atendimento (Preços) */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--primary-light);
+      transform: scale(1.02);
+    }
+
+    .badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--primary-light);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .pricing-header h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .pricing-price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--text-dark);
+      margin: 15px 0;
+    }
+
+    .pricing-desc {
+      color: var(--text-muted);
+      margin-bottom: 25px;
+      flex-grow: 1;
+    }
+
+    /* Seção 8: Formulário de Contato */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Seção 9: FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-card);
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
+      color: var(--primary);
+    }
+
+    .faq-answer {
+      padding: 0 20px 20px 20px;
+      color: var(--text-dark);
+      display: none;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* Seção 10: CTA Final & Rodapé */
+    .cta-final {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .cta-final h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-final p {
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    footer {
+      background: #1A202C;
+      color: #A0AEC0;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #CBD5E0;
+    }
+
+    /* Botão Flutuante do WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--accent);
+      color: #fff;
+      border-radius: 50px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 4. Passo a Passo -->
+  <section id="como-funciona">
+    <div class="container">
+      <h2 class="section-title">Como Funciona a Sessão? Passo a Passo</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Você Escolhe a Modalidade</h3>
+          <p>Sessão de Apometria a distância conforme seu momento.</p>
         </div>
-    </section>
-
-    <!-- Seção Depoimentos -->
-    <section id="depoimentos" class="testimonials">
-        <div class="container">
-            <h2 style="text-align:center;">Vidas Transformadas</h2>
-            <div class="testimonials-grid">
-                <!-- Amanda -->
-                <div class="testimonial-item">
-                    <div class="testimonial-image">
-                        <img src="depoimento3.jpg" alt="Amanda R.">
-                    </div>
-                    <h3>Amanda R.</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">27 anos – Praia Grande/SP</p>
-                    <div class="stars">★★★★★</div>
-                    <p>"A cada sessão de Apometria Integrativa, percebo o quanto tenho me libertado de padrões que antes limitavam minha vida. É um processo de transformação que me fortalece e me permite seguir em frente com mais consciência. Sou profundamente grata por essa ferramenta."</p>
-                </div>
-                <!-- Ricardo -->
-                <div class="testimonial-item">
-                    <div class="testimonial-image">
-                        <img src="depoimento2.jpg" alt="Ricardo Mendonça">
-                    </div>
-                    <h3>Ricardo Mendonça</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">42 anos – São Paulo/S.P</p>
-                    <div class="stars">★★★★★</div>
-                    <p>"Percebi mudanças na forma como lidava com situações que antes me causavam sofrimento. Passei a enxergar minha vida com mais clareza e tranquilidade."</p>
-                </div>
-                <!-- Patricia -->
-                <div class="testimonial-item">
-                    <div class="testimonial-image">
-                        <img src="depoimento1.jpg" alt="Patricia Costa">
-                    </div>
-                    <h3>Patricia Costa</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted);">38 anos – São Paulo/S.P</p>
-                    <div class="stars">★★★★★</div>
-                    <p>"Passei a tomar decisões com mais clareza e confiança, o que refletiu positivamente na minha vida profissional."</p>
-                </div>
-            </div>
-            <div style="text-align:center; margin-top:40px;">
-                <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn">Falar com o terapeuta</a>
-            </div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Identificação dos Bloqueios</h3>
+          <p>Mapeamos padrões, influências e questões que podem estar impactando sua vida.</p>
         </div>
-    </section>
-
-    <!-- Seção Terapeuta -->
-    <section id="terapeuta" class="therapist">
-        <div class="container">
-            <div class="therapist-grid">
-                <div class="therapist-image">
-                    <img src="adauto-sueter.jpg" alt="Adauto Santana Terapeuta">
-                </div>
-                <div>
-                    <h2>Quem é Adauto Santana</h2>
-                    <p>Acredito que toda transformação verdadeira começa quando conseguimos compreender aquilo que está além dos sintomas.</p>
-                    <p>Há mais de 15 anos, auxilio pessoas em seus processos de desenvolvimento pessoal, emocional, energético e espiritual. Sua trajetória começou na Dança de Salão, onde o contato com centenas de histórias de vida despertou uma profunda busca pela compreensão dos padrões emocionais, dos relacionamentos e dos bloqueios que impedem muitas pessoas de avançar em suas vidas.</p>
-                    <p>Ao longo dessa jornada, aprofundou seus estudos em Hipnose, Reiki, Apometria e outras abordagens energéticas integrativas.</p>
-                    <p>Da integração desses conhecimentos nasceu o Método Vibracto, uma abordagem exclusiva que une recursos emocionais, energéticos e espirituais para identificar e transformar bloqueios relacionados a relacionamentos, prosperidade, autoestima, equilíbrio emocional e desenvolvimento espiritual.</p>
-                    <p>Atualmente, realiza atendimentos individuais, cursos e vivências transformadoras, oferecendo um espaço de acolhimento, consciência e reconexão com a essência de cada pessoa.</p>
-                </div>
-            </div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Sessão Apométrica</h3>
+          <p>Harmonização emocional, energética e espiritual.</p>
         </div>
-    </section>
-
-    <!-- Seção Preços -->
-    <section id="precos" class="pricing">
-        <div class="container">
-            <h2 style="text-align:center;">Opções de Atendimento</h2>
-            <div class="pricing-grid">
-                <div class="pricing-item">
-                    <div>
-                        <h3>Sessão Avulsa</h3>
-                        <p>Atendimento individual focado na resolução imediata de bloqueios pontuais.</p>
-                        <div class="price">R$ 180,00</div>
-                    </div>
-                    <a href="https://wa.me/5511987063494?text=Quero%20agendar%20uma%20Sess%C3%A3o%20Avulsa." target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="margin-top:20px;">Agendar Sessão</a>
-                </div>
-                <div class="pricing-item featured">
-                    <div>
-                        <h3>Acompanhamento Completo</h3>
-                        <p>Processo contínuo para transformação profunda de padrões repetitivos.</p>
-                        <div class="price">R$ 480,00</div>
-                    </div>
-                    <a href="https://wa.me/5511987063494?text=Quero%20agendar%20o%20Acompanhamento%20Completo." target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="margin-top:20px;">Agendar Tratamento</a>
-                </div>
-            </div>
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h3>Integração e Orientações</h3>
+          <p>Você recebe o relatório de apometria com o que foi trabalhado no seu campo energético.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Seção Contato -->
-    <section id="contato" class="contact">
-        <div class="container">
-            <h2 style="text-align:center;">Entre em Contato</h2>
-            <p style="text-align:center;">Tem alguma dúvida específica? Envie sua mensagem e responderemos em breve.</p>
-            <div class="contact-form">
-                <form action="https://formspree.io/f/xkodyzeq" method="POST">
-                    <div class="form-group">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" name="name" required placeholder="Seu nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required placeholder="Seu e-mail">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" name="message" rows="4" required placeholder="Como podemos ajudar?"></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width:100%;">Enviar Mensagem</button>
-                </form>
-            </div>
+  <!-- 5. Depoimentos -->
+  <section id="depoimentos" style="background-color: #EDF2F7;">
+    <div class="container">
+      <h2 class="section-title">Vidas Transformadas</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"A cada sessão de Apometria Integrativa, percebo o quanto tenho me libertado de padrões que antes limitavam minha vida. É um processo de transformação que me fortalece e me permite seguir em frente com mais consciência. Sou profundamente grata por essa ferramenta."</p>
+          </div>
+          <div class="testimonial-author">Amanda R. (27 anos – Praia Grande/SP)</div>
         </div>
-    </section>
-
-    <!-- Seção FAQ -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <h2 style="text-align:center;">Dúvidas Frequentes</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question">A sessão é a distância ou presencial?</button>
-                    <div class="faq-answer">
-                        <p>Sim. Os atendimentos acontecem à distância, com privacidade e acolhimento.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Preciso acreditar em espiritualidade?</button>
-                    <div class="faq-answer">
-                        <p>Não. O processo respeita a experiência e as crenças individuais.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Quantas sessões são necessárias?</button>
-                    <div class="faq-answer">
-                        <p>Cada pessoa possui necessidades diferentes. Isso é avaliado individualmente.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">A apometria substitui tratamento médico ou psicológico?</button>
-                    <div class="faq-answer">
-                        <p>Não. A Apometria Integrativa é uma prática complementar e não substitui acompanhamentos médicos ou psicológicos quando necessários.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Preciso de algum preparo no dia da sessão marcado?</button>
-                    <div class="faq-answer">
-                        <p>Não. No dia da realização do tratamento, você pode manter sua rotina normal de trabalho, estudo ou outras atividades às quais precise se dedicar.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Qual o primeiro passo após agendar a sessão?</button>
-                    <div class="faq-answer">
-                        <p>Primeiramente, é feito um relatório inicial com perguntas sobre o seu caso, estado físico, mental, emocional e espiritual, além das questões que você deseja que sejam trabalhadas. Após colher suas queixas, faço um estudo aprofundado para tratar o seu caso da melhor maneira possível.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">Como fico sabendo dos resultados do tratamento apométrico?</button>
-                    <div class="faq-answer">
-                        <p>Ao final de cada sessão, você recebe um retorno detalhado sobre o trabalho realizado. Compartilho, por meio de áudio e/ou mensagem, os principais aspectos observados durante o atendimento, os padrões identificados e os pontos que receberam maior atenção ao longo do processo.</p>
-                        <p>Além disso, apresento minhas percepções como terapeuta e as orientações que podem contribuir para a continuidade do seu desenvolvimento e integração das experiências vivenciadas na sessão.</p>
-                        <p>No pós-sessão, você também recebe recomendações práticas para favorecer a manutenção do seu equilíbrio emocional, energético e espiritual, como cuidados com o descanso, hidratação, momentos de introspecção, observação das emoções e atitudes que fortaleçam seu bem-estar no dia a dia.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"Percebi mudanças na forma como lidava com situações que antes me causavam sofrimento. Passei a enxergar minha vida com mais clareza e tranquilidade."</p>
+          </div>
+          <div class="testimonial-author">Ricardo Mendonça (42 anos – São Paulo/SP)</div>
         </div>
-    </section>
-
-    <!-- Call to Action Final -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Pronto para iniciar sua transformação?</h2>
-            <p style="margin-top: 15px;">
-                O Método Vibracto tem ajudado pessoas a superar bloqueios,
-                ressignificar experiências e construir uma vida com mais equilíbrio,
-                consciência e bem-estar.
-            </p>
-            <p style="font-weight: 600; margin-top: 10px;">Faça parte dessa transformação.</p>
-
-            <div class="cta-buttons">
-                <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20quero%20iniciar%20minha%20transforma%C3%A7%C3%A3o."
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn btn-large">
-                    Agendar via WhatsApp
-                </a>
-
-                <a href="https://chat.whatsapp.com/GluwyDBearHERxa67b8f9o?s=em&p=a&ilr=0&amv=3"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn-whatsapp-group">
-                    ✨ Comunidade Método Vibracto
-                </a>
-            </div>
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">"Passei a tomar decisões com mais clareza e confiança, o que refletiu positivamente na minha vida profissional."</p>
+          </div>
+          <div class="testimonial-author">Patricia Costa (38 anos – São Paulo/SP)</div>
         </div>
-    </section>
+      </div>
+      <div class="cta-center">
+        <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Falar com o terapeuta</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <p style="margin-bottom: 8px;">Método Vibracto Terapias - Todos os direitos reservados.</p>
-            <p>@metodovibracto</p>
+  <!-- 6. Sobre o Terapeuta -->
+  <section id="terapeuta">
+    <div class="container">
+      <h2 class="section-title">Quem é Adauto Santana</h2>
+      <div class="terapeuta-wrapper">
+        <img src="adauto-sueter.jpg" alt="Adauto Santana" class="terapeuta-img" />
+        <div class="terapeuta-content">
+          <p><em>"Acredito que toda transformação verdadeira começa quando conseguimos compreender aquilo que está além dos sintomas."</em></p>
+          <p>Há mais de 15 anos, auxilio pessoas em seus processos de desenvolvimento pessoal, emocional, energético e espiritual. Minha trajetória começou na Dança de Salão, onde o contato com centenas de histórias de vida despertou uma profunda busca pela compreensão dos padrões emocionais, dos relacionamentos e dos bloqueios que impedem muitas pessoas de avançar em suas vidas.</p>
+          <p>Ao longo dessa jornada, aprofundei meus estudos em <strong>Hipnose</strong>, <strong>Reiki</strong>, <strong>Apometria</strong> e outras abordagens energéticas integrativas.</p>
+          <p>Da integração desses conhecimentos nasceu o <strong>Método Vibracto</strong>, uma abordagem exclusiva que une recursos emocionais, energéticos e espirituais para identificar e transformar bloqueios relacionados a relacionamentos, prosperidade, autoestima, equilíbrio emocional e desenvolvimento espiritual.</p>
+          <p>Atualmente, realizo atendimentos individuais, cursos e vivências transformadoras, oferecendo um espaço de acolhimento, consciência e reconexão com a essência de cada pessoa.</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20M%C3%A9todo%20Vibracto." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Atendimento via WhatsApp">
-        <svg viewBox="0 0 32 32">
-            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.135-2.133c2.351 1.284 5.019 1.961 7.865 1.961 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.35c-2.45 0-4.85-0.65-6.96-1.89l-0.5-0.3-5.17 1.35 1.38-5.04-0.33-0.52c-1.36-2.17-2.07-4.68-2.07-7.25 0-7.53 6.12-13.65 13.65-13.65s13.65 6.12 13.65 13.65-6.12 13.65-13.65 13.65zM22.51 19.38c-0.36-0.18-2.12-1.05-2.45-1.17s-0.57-0.18-0.81 0.18c-0.24 0.36-0.93 1.17-1.14 1.41s-0.42 0.27-0.78 0.09c-0.36-0.18-1.52-0.56-2.9-1.79-1.07-0.96-1.8-2.14-2.01-2.5-0.21-0.36-0.02-0.56 0.16-0.74 0.16-0.16 0.36-0.42 0.54-0.63s0.24-0.36 0.36-0.6c0.12-0.24 0.06-0.45-0.03-0.63s-0.81-1.95-1.11-2.67c-0.3-0.72-0.6-0.62-0.81-0.63h-0.69c-0.24 0-0.63 0.09-0.96 0.45s-1.26 1.23-1.26 3 1.29 3.48 1.47 3.72c0.18 0.24 2.54 3.88 6.15 5.44 0.86 0.37 1.53 0.59 2.05 0.76 0.86 0.27 1.65 0.23 2.27 0.14 0.69-0.1 2.12-0.87 2.42-1.71s0.3-1.56 0.21-1.71c-0.09-0.15-0.33-0.24-0.69-0.42z"></path>
-        </svg>
-        <span>Fale Conosco</span>
-    </a>
+  <!-- 7. Opções de Atendimento -->
+  <section id="precos" style="background-color: #EDF2F7;">
+    <div class="container">
+      <h2 class="section-title">Opções de Atendimento</h2>
+      <div class="pricing-grid">
+        <!-- Plano 1 -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Sessão Avulsa</h3>
+            <div class="pricing-price">R$ 180,00</div>
+          </div>
+          <p class="pricing-desc">Atendimento individual focado na resolução imediata de bloqueios pontuais.</p>
+          <a href="https://wa.me/5511987063494?text=Quero%20agendar%20uma%20Sess%C3%A3o%20Avulsa." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Agendar Sessão</a>
+        </div>
+        <!-- Plano 2 -->
+        <div class="pricing-card featured">
+          <span class="badge">Destaque</span>
+          <div class="pricing-header">
+            <h3>Acompanhamento Completo</h3>
+            <div class="pricing-price">R$ 480,00</div>
+          </div>
+          <p class="pricing-desc">Processo contínuo para transformação profunda de padrões repetitivos.</p>
+          <a href="https://wa.me/5511987063494?text=Quero%20agendar%20o%20Acompanhamento%20Completo." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-full">Agendar Tratamento</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Interatividade com Javascript -->
-    <script>
-        // Lógica do FAQ (Accordion)
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                
-                // Fecha outros itens abertos
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                    }
-                });
+  <!-- 8. Formulário de Contato -->
+  <section id="contato">
+    <div class="container">
+      <h2 class="section-title">Entre em Contato</h2>
+      <div class="contact-form">
+        <p style="text-align: center; margin-bottom: 20px; color: var(--text-muted);">Tem alguma dúvida específica? Envie sua mensagem e responderemos em breve.</p>
+        <form action="https://formspree.io/f/xkodyzeq" method="POST">
+          <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="name" required placeholder="Seu nome completo" />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required placeholder="Seu e-mail principal" />
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="message" required placeholder="Como posso te ajudar?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Enviar Mensagem</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-                // Alterna o estado do item clicado
-                faqItem.classList.toggle('active');
-            });
+  <!-- 9. Perguntas Frequentes -->
+  <section id="faq" style="background-color: #EDF2F7;">
+    <div class="container">
+      <h2 class="section-title">Dúvidas Frequentes</h2>
+      <div class="faq-list">
+        
+        <div class="faq-item">
+          <button class="faq-question">A sessão é a distância ou presencial? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Sim. Os atendimentos acontecem à distância, com privacidade e acolhimento.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Preciso acreditar em espiritualidade? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Não. O processo respeita a experiência e as crenças individuais.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Quantas sessões são necessárias? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Cada pessoa possui necessidades diferentes. Isso é avaliado individualmente.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">A apometria substitui tratamento médico ou psicológico? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Não. A Apometria Integrativa é uma prática complementar e não substitui acompanhamentos médicos ou psicológicos quando necessários.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Preciso de algum preparo no dia da sessão marcado? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Não. No dia da realização do tratamento, você pode manter sua rotina normal de trabalho, estudo ou outras atividades às quais precise se dedicar.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Qual o primeiro passo após agendar a sessão? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Primeiramente, é feito um relatório inicial com perguntas sobre o seu caso, estado físico, mental, emocional e espiritual, além das questões que você deseja que sejam trabalhadas. Após colher suas queixas, faço um estudo aprofundado para tratar o seu caso da melhor maneira possível.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Como fico sabendo dos resultados do tratamento apométrico? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Ao final de cada sessão, você recebe um retorno detalhado sobre o trabalho realizado. Compartilho, por meio de áudio e/ou mensagem, os principais aspectos observados durante o atendimento, os padrões identificados e os pontos que receberam maior atenção ao longo do processo.</p>
+            <p style="margin-top: 10px;">Além disso, apresento minhas percepções como terapeuta e as orientações que podem contribuir para a continuidade do seu desenvolvimento e integração das experiências vivenciadas na sessão.</p>
+            <p style="margin-top: 10px;">No pós-sessão, você também recebe recomendações práticas para favorecer a manutenção do seu equilíbrio emocional, energético e espiritual, como cuidados com o descanso, hidratação, momentos de introspecção, observação das emoções e atitudes que fortaleçam seu bem-estar no dia a dia.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Chamada para Ação Final -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>Pronto para iniciar sua transformação?</h2>
+      <p>O Método Vibracto tem ajudado pessoas a superar bloqueios, ressignificar experiências e construir uma vida com mais equilíbrio, consciência e bem-estar. Faça parte dessa transformação.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20quero%20iniciar%20minha%20transforma%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Agendar via WhatsApp</a>
+        <a href="https://chat.whatsapp.com/GluwyDBearHERxa67b8f9o?s=em&p=a&ilr=0&amv=3" target="_blank" rel="noopener noreferrer" class="btn btn-primary">✨ Comunidade Método Vibracto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container">
+      <p>Método Vibracto Terapias - Todos os direitos reservados.</p>
+      <p style="margin-top: 5px;">Siga-nos no Instagram: <a href="https://instagram.com/metodovibracto" target="_blank" rel="noopener noreferrer">@metodovibracto</a></p>
+    </div>
+  </footer>
+
+  <!-- Widget Flutuante WhatsApp -->
+  <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20M%C3%A9todo%20Vibracto." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <span>Fale Conosco</span>
+  </a>
+
+  <!-- Script para Sanfona (Accordion) das FAQ -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // Fecha todos os itens abertos
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
+          const span = item.querySelector('.faq-question span');
+          if (span) span.textContent = '+';
         });
-    </script>
+
+        // Alterna o estado do item clicado
+        if (!isActive) {
+          faqItem.classList.add('active');
+          button.querySelector('span').textContent = '-';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
