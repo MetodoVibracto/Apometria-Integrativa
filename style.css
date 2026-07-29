@@ -154,15 +154,7 @@ header{
     box-shadow:
         0 10px 35px rgba(0,0,0,.35),
         inset 0 -1px 0 rgba(255,255,255,.03);
-
-}
-
-    border-bottom:1px solid rgba(226,176,55,.15);
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,.35),
-        inset 0 -1px 0 rgba(255,255,255,.03);
-
+   
     transition:all .35s ease;
 }
 
@@ -177,25 +169,10 @@ header::before{
     inset:0;
 
     background:
-
-        radial-gradient(
-            circle at 15% 50%,
-            rgba(212,175,55,.03),
-            transparent 60%
-        ),
-
-        radial-gradient(
-            circle at 85% 50%,
-            rgba(90,70,170,.03),
-            transparent 60%
-        );
+        radial-gradient(...),
+        radial-gradient(...);
 
     pointer-events:none;
-
-}
-
-    pointer-events:none;
-
 }
 
 /* --------------------------------------------------------------------------
@@ -1137,6 +1114,8 @@ nav a.active::after{
     box-shadow:
         0 0 8px rgba(226,176,55,.35),
         0 0 20px rgba(226,176,55,.20);
+}
+
         /* ==========================================================================
            10. BOTÃO FLUTUANTE DO WHATSAPP
            ========================================================================== */
