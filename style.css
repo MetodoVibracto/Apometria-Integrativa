@@ -1086,7 +1086,7 @@ nav a.active::after{
 
     background:rgba(255,255,255,.03);
 
-    border:2px solid #e2b037;
+    border:5px solid #e2b037;
 
     border-radius:60px;
 
