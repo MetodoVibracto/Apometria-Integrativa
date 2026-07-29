@@ -33,22 +33,39 @@ html {
     box-sizing: border-box;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background: linear-gradient(180deg, var(--bg-deep-blue) 0%, var(--bg-mid-blue) 50%, var(--bg-deep-blue) 100%);
-    background-image: 
-        radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 160px 120px, rgba(226,176,55,0.9), rgba(0,0,0,0)),
-        radial-gradient(1.5px 1.5px at 230px 190px, #ffffff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 300px 80px, rgba(255,255,255,0.7), rgba(0,0,0,0));
-    background-repeat: repeat;
-    background-size: 350px 350px;
-    overflow-x: hidden;
-    position: relative;
+body{
+
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+
+    line-height:1.6;
+
+    color:var(--text-light);
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            rgba(80,100,200,.08),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at bottom,
+            rgba(212,175,55,.04),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            180deg,
+            var(--bg-deep) 0%,
+            var(--bg-mid) 50%,
+            var(--bg-deep) 100%
+        );
+
+    overflow-x:hidden;
+
+    position:relative;
+
 }
 
 h1, h2, h3, h4 {
@@ -301,16 +318,14 @@ nav a.active::after{
 .hero{
 
     position:relative;
+
     overflow:hidden;
 
     padding:80px 0 60px;
 
-    background:
-        linear-gradient(
-            180deg,
-            var(--bg-deep-blue) 0%,
-            var(--bg-mid-blue) 100%
-        );
+    background:transparent;
+
+    z-index:1;
 
 }
 
@@ -412,7 +427,6 @@ nav a.active::after{
     align-items:center;
 
 }
-
 /* --------------------------------------------------------------------------
    Texto
 -------------------------------------------------------------------------- */
