@@ -179,16 +179,20 @@ header::before{
     background:
 
         radial-gradient(
-            circle at 12% 50%,
-            rgba(226,176,55,.08),
-            transparent 55%
+            circle at 15% 50%,
+            rgba(212,175,55,.03),
+            transparent 60%
         ),
 
         radial-gradient(
-            circle at 88% 50%,
-            rgba(90,70,170,.08),
-            transparent 55%
+            circle at 85% 50%,
+            rgba(90,70,170,.03),
+            transparent 60%
         );
+
+    pointer-events:none;
+
+}
 
     pointer-events:none;
 
