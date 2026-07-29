@@ -144,7 +144,7 @@ header .container {
 }
 
 .logo img {
-    height: 90px; /* Tamanho para computador */
+    height: 80px; 
     width: auto;
     display: block;
     object-fit: contain;
