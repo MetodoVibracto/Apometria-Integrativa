@@ -5,468 +5,712 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Método Vibracto - Apometria Integrativa & Terapias</title>
   <style>
-    /* Reset e Variáveis Globais */
+    /* ==========================================================================
+       1. VARIÁVEIS E ESTILOS GLOBAIS
+       ========================================================================== */
     :root {
-      --primary: #4A2E80;
-      --primary-light: #6B46C1;
-      --accent: #25D366; /* WhatsApp Green */
-      --text-dark: #2D3748;
-      --text-muted: #718096;
-      --bg-light: #F7FAFC;
-      --bg-card: #FFFFFF;
-      --border-color: #E2E8F0;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        --bg-deep: #0B1021;
+        --text-light: #F0F4F8;
+        --primary-color: #e2b037;
+        --primary-hover: #fcd561;
+        --bg-deep-blue: #0b1021;
+        --bg-mid-blue: #111a33;
+        --bg-card-blue: rgba(22, 33, 62, 0.75);
+        --text-color: #f0f4f8;
+        --text-muted: #b3c2d4;
+        --white: #ffffff;
+        --shadow-gold: 0 0 25px rgba(226, 176, 55, 0.35);
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.4);
+        --shadow-lg: 0 12px 35px rgba(0, 0, 0, 0.6);
+        --radius: 12px;
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     html {
-      scroll-behavior: smooth;
+        scroll-behavior: smooth;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     body {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text-light);
+        background:
+            radial-gradient(
+                circle at top,
+                rgba(80, 100, 200, .08),
+                transparent 50%
+            ),
+            radial-gradient(
+                circle at bottom,
+                rgba(212, 175, 55, .04),
+                transparent 45%
+            ),
+            linear-gradient(
+                180deg,
+                var(--bg-deep-blue) 0%,
+                var(--bg-mid-blue) 50%,
+                var(--bg-deep-blue) 100%
+            );
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    h1, h2, h3, h4 {
+        color: var(--white);
+        margin-bottom: 15px;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    p {
+        margin-bottom: 15px;
+        color: var(--text-muted);
     }
 
     a {
-      text-decoration: none;
-      color: inherit;
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    ul {
+        list-style: none;
     }
 
     .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        position: relative;
+        z-index: 2;
     }
 
-    section {
-      padding: 60px 0;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      color: var(--primary);
-      text-align: center;
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: var(--primary-light);
-      margin: 10px auto 0;
-      border-radius: 2px;
-    }
-
-    /* Botões */
+    /* ==========================================================================
+       2. BOTÕES
+       ========================================================================== */
     .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: 600;
-      text-align: center;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 30px;
+        background: linear-gradient(135deg, var(--primary-color) 0%, #b8860b 100%);
+        color: #0b1021;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        border: none;
+        cursor: pointer;
+        box-shadow: var(--shadow-gold);
+        transition: var(--transition);
     }
 
-    .btn-primary {
-      background-color: var(--primary);
-      color: #fff;
+    .btn:hover {
+        background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-color) 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 0 30px rgba(226, 176, 55, 0.6);
+        color: #000;
     }
 
-    .btn-primary:hover {
-      background-color: var(--primary-light);
-      transform: translateY(-2px);
+    .btn-large {
+        padding: 16px 40px;
+        font-size: 1rem;
     }
 
-    .btn-whatsapp {
-      background-color: var(--accent);
-      color: #fff;
-    }
-
-    .btn-whatsapp:hover {
-      background-color: #1ebc57;
-      transform: translateY(-2px);
-    }
-
-    .btn-full {
-      width: 100%;
-    }
-
-    /* Header & Navegação */
+    /* ==========================================================================
+       3. CABEÇALHO & NAVEGAÇÃO
+       ========================================================================== */
     header {
-      background: var(--bg-card);
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 999;
+        position: relative;
+        width: 100%;
+        z-index: 1000;
+        padding: 18px 0;
+        background: transparent;
+        border-bottom: 1px solid rgba(226, 176, 55, .15);
+        box-shadow:
+            0 10px 35px rgba(0, 0, 0, .35),
+            inset 0 -1px 0 rgba(255, 255, 255, .03);
+        transition: all .35s ease;
     }
 
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
+    header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at 20% 0%, rgba(226, 176, 55, 0.05), transparent 60%),
+            radial-gradient(circle at 80% 0%, rgba(80, 100, 200, 0.05), transparent 60%);
+        pointer-events: none;
+    }
+
+    header .container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .logo {
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: var(--primary);
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        letter-spacing: 1px;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      list-style: none;
+    nav ul {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
-    .nav-links a {
-      color: var(--text-dark);
-      font-weight: 500;
-      transition: color 0.2s;
+    nav a {
+        position: relative;
+        color: var(--text-light);
+        font-size: .95rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all .30s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--primary);
+    nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 2px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, var(--primary-color), #F7D878);
+        transition: width .35s ease;
     }
 
-    /* Seção 1: Hero */
+    nav a:hover, nav a.active {
+        color: var(--primary-color);
+    }
+
+    nav a:hover::after, nav a.active::after {
+        width: 100%;
+    }
+
+    /* ==========================================================================
+       4. HERO
+       ========================================================================== */
     .hero {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-      color: #fff;
-      text-align: center;
-      padding: 80px 20px;
+        position: relative;
+        overflow: hidden;
+        padding: 80px 0 60px;
+        background: transparent;
+        z-index: 1;
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 45%;
+        right: 8%;
+        width: 730px;
+        height: 730px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(226, 176, 55, .18) 0%, rgba(90, 70, 170, .12) 35%, rgba(20, 30, 60, .08) 60%, transparent 80%);
+        filter: blur(55px);
+        z-index: 0;
+        pointer-events: none;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 30px auto;
-      opacity: 0.9;
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.2fr .8fr;
+        gap: 40px;
+        align-items: center;
     }
 
-    /* Seção 2 e 3: Benefícios & O que é */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+    .hero-text h1 {
+        font-size: 2.8rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, .45);
     }
 
-    .feature-card {
-      background: var(--bg-card);
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      text-align: center;
+    .hero-text h1 span {
+        color: var(--primary-color);
+        text-shadow: 0 0 18px rgba(226, 176, 55, .35);
     }
 
-    .feature-card h3 {
-      color: var(--primary);
-      margin-bottom: 12px;
+    .hero-text p {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: var(--text-color);
+        margin-bottom: 25px;
     }
 
-    /* Seção 4: Passo a Passo */
+    .hero-highlights-banner {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-top: 50px;
+        padding: 25px;
+        background: var(--bg-card-blue);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(226, 176, 55, .18);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-md);
+    }
+
+    .highlight-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .icon-circle {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(226, 176, 55, .12);
+        border: 1px solid rgba(226, 176, 55, .35);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+    }
+
+    .highlight-text h4 {
+        color: var(--white);
+        font-size: .95rem;
+        margin-bottom: 3px;
+    }
+
+    .highlight-text p {
+        color: var(--text-muted);
+        font-size: .85rem;
+        margin: 0;
+    }
+
+    /* ==========================================================================
+       5. SEÇÃO PROBLEMAS E BENEFÍCIOS
+       ========================================================================== */
+    .problems {
+        padding: 110px 0;
+        text-align: center;
+    }
+
+    .problems h2 {
+        max-width: 800px;
+        margin: 0 auto 15px;
+        color: var(--primary-color);
+    }
+
+    .problems-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .problem-item {
+        background-color: var(--bg-card-blue);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        padding: 35px 25px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 4px solid var(--primary-color);
+        transition: var(--transition);
+        text-align: left;
+    }
+
+    .problem-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md), var(--shadow-gold);
+        border-color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       6. PASSO A PASSO
+       ========================================================================== */
+    .steps {
+        padding: 110px 0;
+        background-color: rgba(17, 26, 51, 0.6);
+    }
+
     .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 65px;
     }
 
-    .step-card {
-      background: var(--bg-card);
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      border-top: 4px solid var(--primary-light);
+    .step-item {
+        background-color: var(--bg-card-blue);
+        padding: 30px 20px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(226, 176, 55, 0.15);
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        transition: var(--transition);
+    }
+
+    .step-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-color);
     }
 
     .step-number {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: var(--primary);
-      margin-bottom: 10px;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        opacity: 0.35;
+        position: absolute;
+        top: 15px;
+        right: 20px;
     }
 
-    .step-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
+    /* ==========================================================================
+       7. DEPOIMENTOS E TERAPEUTA
+       ========================================================================== */
+    .testimonials {
+        padding: 110px 0;
     }
 
-    /* Seção 5: Depoimentos */
     .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-bottom: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
     }
 
-    .testimonial-card {
-      background: var(--bg-card);
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .testimonial-item {
+        background-color: var(--bg-card-blue);
+        padding: 35px 25px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        border: 1px solid rgba(226, 176, 55, 0.15);
+        transition: var(--transition);
     }
 
-    .testimonial-stars {
-      color: #F6AD55;
-      margin-bottom: 10px;
+    .testimonial-item:hover {
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-color);
+        transform: translateY(-4px);
     }
 
-    .testimonial-text {
-      font-style: italic;
-      color: var(--text-dark);
-      margin-bottom: 15px;
+    .stars {
+        color: var(--primary-color);
+        margin: 8px 0;
+        font-size: 1.1rem;
     }
 
-    .testimonial-author {
-      font-weight: bold;
-      font-size: 0.9rem;
-      color: var(--text-muted);
+    .therapist {
+        padding: 80px 0;
+        background-color: rgba(17, 26, 51, 0.6);
     }
 
-    .cta-center {
-      text-align: center;
-      margin-top: 20px;
+    .therapist-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 50px;
+        align-items: center;
     }
 
-    /* Seção 6: Terapeuta */
-    .terapeuta-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-      background: var(--bg-card);
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
+    .therapist-image img {
+        width: 100%;
+        max-width: 350px;
+        border-radius: var(--radius);
+        border: 2px solid rgba(226, 176, 55, 0.3);
+        box-shadow: var(--shadow-lg), var(--shadow-gold);
+        display: block;
+        margin: 0 auto;
     }
 
-    @media(min-width: 768px) {
-      .terapeuta-wrapper {
-        flex-direction: row;
-        align-items: flex-start;
-      }
+    /* ==========================================================================
+       8. PREÇOS & CTA
+       ========================================================================== */
+    .pricing {
+        padding: 110px 0;
     }
 
-    .terapeuta-img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid var(--primary-light);
-      flex-shrink: 0;
-    }
-
-    .terapeuta-content p {
-      margin-bottom: 15px;
-      color: var(--text-dark);
-    }
-
-    /* Seção 7: Preços */
     .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .pricing-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow);
-      position: relative;
+    .pricing-item {
+        background-color: var(--bg-card-blue);
+        padding: 40px 30px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
-    .pricing-card.featured {
-      border: 2px solid var(--primary-light);
-      transform: scale(1.02);
+    .pricing-item.featured {
+        border-color: var(--primary-color);
+        box-shadow: var(--shadow-md), var(--shadow-gold);
+        position: relative;
+        background-color: rgba(26, 38, 70, 0.85);
     }
 
-    .badge {
-      position: absolute;
-      top: -12px;
-      right: 20px;
-      background: var(--primary-light);
-      color: #fff;
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      text-transform: uppercase;
+    .pricing-item.featured::before {
+        content: 'Mais Recomendado';
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, var(--primary-color) 0%, #b8860b 100%);
+        color: #0b1021;
+        padding: 4px 15px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        border-radius: 20px;
+        text-transform: uppercase;
     }
 
-    .pricing-header h3 {
-      font-size: 1.3rem;
-      color: var(--primary);
-      margin-bottom: 10px;
+    .price {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        margin: 15px 0;
+        text-shadow: 0 0 10px rgba(226, 176, 55, 0.3);
     }
 
-    .pricing-price {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--text-dark);
-      margin: 15px 0;
-    }
-
-    .pricing-desc {
-      color: var(--text-muted);
-      margin-bottom: 25px;
-      flex-grow: 1;
-    }
-
-    /* Seção 8: Contato */
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    /* Seção 9: FAQ */
-    .faq-list {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      background: var(--bg-card);
-      margin-bottom: 15px;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .faq-question {
-      padding: 20px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--bg-card);
-      border: none;
-      width: 100%;
-      text-align: left;
-      font-size: 1rem;
-      color: var(--primary);
-    }
-
-    .faq-answer {
-      padding: 0 20px 20px 20px;
-      color: var(--text-dark);
-      display: none;
-    }
-
-    .faq-item.active .faq-answer {
-      display: block;
-    }
-
-    /* Seção 10: CTA Final & Rodapé */
-    .cta-final {
-      background: var(--primary);
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .cta-final h2 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-
-    .cta-final p {
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-      font-size: 1.1rem;
-      opacity: 0.9;
+    .final-cta {
+        padding: 90px 0;
+        background: linear-gradient(135deg, var(--bg-deep-blue) 0%, var(--bg-mid-blue) 100%);
+        border-top: 1px solid rgba(226, 176, 55, 0.2);
+        border-bottom: 1px solid rgba(226, 176, 55, 0.2);
+        color: var(--white);
+        text-align: center;
     }
 
     .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .btn-whatsapp-group {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 32px;
+        background: rgba(255, 255, 255, .03);
+        border: 2px solid #e2b037;
+        border-radius: 60px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-whatsapp-group:hover {
+        background: var(--primary-color);
+        color: #0b1021;
+        box-shadow: 0 0 30px rgba(226, 176, 55, 0.6);
+    }
+
+    /* ==========================================================================
+       9. CONTATO & FAQ
+       ========================================================================== */
+    .contact {
+        padding: 110px 0;
+        background-color: rgba(17, 26, 51, 0.6);
+    }
+
+    .contact-form {
+        max-width: 600px;
+        margin: 30px auto 0;
+        background-color: var(--bg-card-blue);
+        padding: 40px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(226, 176, 55, 0.2);
+        box-shadow: var(--shadow-md);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--white);
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        background-color: rgba(11, 16, 33, 0.7);
+        border: 1px solid rgba(226, 176, 55, 0.3);
+        border-radius: 6px;
+        color: var(--white);
+        font-family: inherit;
+        transition: var(--transition);
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 10px rgba(226, 176, 55, 0.3);
+    }
+
+    .faq {
+        padding: 110px 0;
+    }
+
+    .faq-container {
+        max-width: 800px;
+        margin: 30px auto 0;
+    }
+
+    .faq-item {
+        background-color: var(--bg-card-blue);
+        margin-bottom: 15px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        text-align: left;
+        padding: 20px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--white);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .faq-question::after {
+        content: '+';
+        font-size: 1.4rem;
+        color: var(--primary-color);
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-question::after {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out, padding 0.3s ease;
+        padding: 0 20px;
+        color: var(--text-muted);
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 1000px;
+        padding: 0 20px 20px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* ==========================================================================
+       10. WHATSAPP FLUTUANTE
+       ========================================================================== */
+    .whatsapp-float {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background-color: #25d366;
+        color: #ffffff;
+        border-radius: 50px;
+        padding: 12px 22px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        z-index: 9999;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: var(--transition);
+    }
+
+    .whatsapp-float:hover {
+        background-color: #1eb855;
+        transform: translateY(-4px);
     }
 
     footer {
-      background: #1A202C;
-      color: #A0AEC0;
-      text-align: center;
-      padding: 25px 20px;
-      font-size: 0.9rem;
+        background: #070a14;
+        color: var(--text-muted);
+        text-align: center;
+        padding: 25px 20px;
+        font-size: 0.9rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    footer a {
-      color: #CBD5E0;
-    }
+    footer a { color: var(--primary-color); }
 
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: var(--accent);
-      color: #fff;
-      border-radius: 50px;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 1000;
-      font-weight: bold;
+    /* ==========================================================================
+       11. RESPONSIVIDADE
+       ========================================================================== */
+    @media (max-width: 992px) {
+        .hero-content, .therapist-grid, .pricing-grid {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        .hero-text h1 { font-size: 2.2rem; }
+        .steps-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+        header .container { flex-direction: column; gap: 12px; }
+        nav ul { flex-wrap: wrap; justify-content: center; gap: 12px 18px; }
+        .steps-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+        .btn-whatsapp-group { width: 100%; }
+        .whatsapp-float span { display: none; }
+        .whatsapp-float { padding: 14px; border-radius: 50%; }
     }
   </style>
 </head>
@@ -474,160 +718,184 @@
 
   <!-- Menu de Navegação -->
   <header>
-    <div class="container nav-container">
+    <div class="container">
       <div class="logo">Método Vibracto</div>
-      <ul class="nav-links">
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#como-funciona">Como Funciona</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
-        <li><a href="#terapeuta">Sobre</a></li>
-        <li><a href="#precos">Valores</a></li>
-        <li><a href="#faq">Dúvidas</a></li>
-      </ul>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#terapeuta">Sobre</a></li>
+          <li><a href="#precos">Valores</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <!-- 1. Banner Principal (Hero) -->
   <section id="inicio" class="hero">
     <div class="container">
-      <h1>Desbloqueie Padrões Repetitivos e Desperte Seu Potencial</h1>
-      <p>Sessões de Apometria Integrativa a distância para harmonizar seu campo emocional, energético e espiritual.</p>
-      <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20quero%20agendar%20minha%20sess%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Agendar Atendimento pelo WhatsApp</a>
-    </div>
-  </section>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Desbloqueie Padrões e Desperte Seu <span>Potencial</span></h1>
+          <p>Sessões de Apometria Integrativa a distância para harmonizar seu campo emocional, energético e espiritual de forma profunda.</p>
+          <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20quero%20agendar%20minha%20sess%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn btn-large">Agendar pelo WhatsApp</a>
+        </div>
+      </div>
 
-  <!-- 2 & 3. Benefícios e Apresentação -->
-  <section id="sobre">
-    <div class="container">
-      <h2 class="section-title">O que é a Apometria Integrativa?</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <h3>Harmonização Emocional</h3>
-          <p>Identificação e liberação de cargas emocionais retidas que impactam seu dia a dia.</p>
+      <!-- Destaques -->
+      <div class="hero-highlights-banner">
+        <div class="highlight-item">
+          <div class="icon-circle">✨</div>
+          <div class="highlight-text">
+            <h4>Atendimento a Distância</h4>
+            <p>Comodidade e sigilo total no seu processo</p>
+          </div>
         </div>
-        <div class="feature-card">
-          <h3>Corte de Laços e Bloqueios</h3>
-          <p>Limpeza de influências externas e padrões antigos repetitivos em sua vida.</p>
+        <div class="highlight-item">
+          <div class="icon-circle">📜</div>
+          <div class="highlight-text">
+            <h4>Relatório Completo</h4>
+            <p>Devolutiva detalhada em áudio e texto</p>
+          </div>
         </div>
-        <div class="feature-card">
-          <h3>Atendimento a Distância</h3>
-          <p>Tratamento com total sigilo, comodidade e acompanhamento com relatório em áudio/texto.</p>
+        <div class="highlight-item">
+          <div class="icon-circle">🌿</div>
+          <div class="highlight-text">
+            <h4>Abordagem Integrativa</h4>
+            <p>União de técnicas emocionais e energéticas</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Passo a Passo -->
-  <section id="como-funciona" style="background-color: #EDF2F7;">
+  <!-- 2. Benefícios / O que é -->
+  <section id="sobre" class="problems">
     <div class="container">
-      <h2 class="section-title">Como Funciona a Sessão? Passo a Passo</h2>
+      <h2>O que é a Apometria Integrativa?</h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">Uma ferramenta de limpeza e alinhamento profundo para tratar a origem de bloqueios e dores emocionais.</p>
+      <div class="problems-grid">
+        <div class="problem-item">
+          <h3>Harmonização Emocional</h3>
+          <p>Identificação e liberação de cargas emocionais retidas que impactam seu bem-estar diário.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Corte de Laços e Bloqueios</h3>
+          <p>Limpeza de influências externas e padrões antigos repetitivos em sua vida pessoal e profissional.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Relatório e Acompanhamento</h3>
+          <p>Devolutiva detalhada ao final do processo com recomendações práticas para integração.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Passo a Passo -->
+  <section id="como-funciona" class="steps">
+    <div class="container">
+      <h2 style="text-align: center; color: var(--primary-color);">Como Funciona a Sessão? Passo a Passo</h2>
       <div class="steps-grid">
-        <div class="step-card">
+        <div class="step-item">
           <div class="step-number">01</div>
-          <h3>Você Escolhe a Modalidade</h3>
-          <p>Sessão de Apometria a distância conforme seu momento.</p>
+          <h3>Escolha a Modalidade</h3>
+          <p>Sessão de Apometria a distância adaptada ao seu momento atual.</p>
         </div>
-        <div class="step-card">
+        <div class="step-item">
           <div class="step-number">02</div>
-          <h3>Identificação dos Bloqueios</h3>
-          <p>Mapeamos padrões, influências e questões que podem estar impactando sua vida.</p>
+          <h3>Mapeamento</h3>
+          <p>Mapeamos padrões, influências e questões bloqueando sua energia.</p>
         </div>
-        <div class="step-card">
+        <div class="step-item">
           <div class="step-number">03</div>
           <h3>Sessão Apométrica</h3>
-          <p>Harmonização emocional, energética e espiritual.</p>
+          <p>Trabalho profundo de harmonização emocional e espiritual.</p>
         </div>
-        <div class="step-card">
+        <div class="step-item">
           <div class="step-number">04</div>
-          <h3>Integração e Orientações</h3>
-          <p>Você recebe o relatório de apometria com o que foi trabalhado no seu campo energético.</p>
+          <h3>Relatório & Orientações</h3>
+          <p>Devolutiva completa sobre tudo o que foi trabalhado no seu campo.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. Depoimentos -->
-  <section id="depoimentos">
+  <!-- 4. Depoimentos -->
+  <section id="depoimentos" class="testimonials">
     <div class="container">
-      <h2 class="section-title">Vidas Transformadas</h2>
+      <h2 style="text-align: center; color: var(--primary-color);">Vidas Transformadas</h2>
       <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div>
-            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            <p class="testimonial-text">"A cada sessão de Apometria Integrativa, percebo o quanto tenho me libertado de padrões que antes limitavam minha vida. É um processo de transformação que me fortalece e me permite seguir em frente com mais consciência. Sou profundamente grata por essa ferramenta."</p>
-          </div>
-          <div class="testimonial-author">Amanda R. (27 anos – Praia Grande/SP)</div>
+        <div class="testimonial-item">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"A cada sessão de Apometria Integrativa, percebo o quanto tenho me libertado de padrões que antes limitavam minha vida. É um processo de transformação que me fortalece."</p>
+          <h4 style="margin-top: 15px; font-size: 0.9rem; color: var(--primary-color);">Amanda R. (27 anos – Praia Grande/SP)</h4>
         </div>
-        <div class="testimonial-card">
-          <div>
-            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            <p class="testimonial-text">"Percebi mudanças na forma como lidava com situações que antes me causavam sofrimento. Passei a enxergar minha vida com mais clareza e tranquilidade."</p>
-          </div>
-          <div class="testimonial-author">Ricardo Mendonça (42 anos – São Paulo/SP)</div>
+        <div class="testimonial-item">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Percebi mudanças na forma como lidava com situações que antes me causavam sofrimento. Passei a enxergar minha vida com mais clareza e tranquilidade."</p>
+          <h4 style="margin-top: 15px; font-size: 0.9rem; color: var(--primary-color);">Ricardo Mendonça (42 anos – SP)</h4>
         </div>
-        <div class="testimonial-card">
-          <div>
-            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            <p class="testimonial-text">"Passei a tomar decisões com mais clareza e confiança, o que refletiu positivamente na minha vida profissional."</p>
-          </div>
-          <div class="testimonial-author">Patricia Costa (38 anos – São Paulo/SP)</div>
+        <div class="testimonial-item">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Passei a tomar decisões com mais clareza e confiança, o que refletiu positivamente na minha vida profissional e relacionamentos."</p>
+          <h4 style="margin-top: 15px; font-size: 0.9rem; color: var(--primary-color);">Patricia Costa (38 anos – SP)</h4>
         </div>
       </div>
-      <div class="cta-center">
-        <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Falar com o terapeuta</a>
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20o%20terapeuta." target="_blank" rel="noopener noreferrer" class="btn">Falar com o terapeuta</a>
       </div>
     </div>
   </section>
 
-  <!-- 6. Sobre o Terapeuta -->
-  <section id="terapeuta" style="background-color: #EDF2F7;">
+  <!-- 5. Sobre o Terapeuta -->
+  <section id="terapeuta" class="therapist">
     <div class="container">
-      <h2 class="section-title">Quem é Adauto Santana</h2>
-      <div class="terapeuta-wrapper">
-        <img src="adauto-sueter.jpg" alt="Adauto Santana" class="terapeuta-img" />
-        <div class="terapeuta-content">
-          <p><em>"Acredito que toda transformação verdadeira começa quando conseguimos compreender aquilo que está além dos sintomas."</em></p>
-          <p>Há mais de 15 anos, auxilio pessoas em seus processos de desenvolvimento pessoal, emocional, energético e espiritual. Minha trajetória começou na Dança de Salão, onde o contato com centenas de histórias de vida despertou uma profunda busca pela compreensão dos padrões emocionais, dos relacionamentos e dos bloqueios que impedem muitas pessoas de avançar em suas vidas.</p>
-          <p>Ao longo dessa jornada, aprofundei meus estudos em <strong>Hipnose</strong>, <strong>Reiki</strong>, <strong>Apometria</strong> e outras abordagens energéticas integrativas.</p>
-          <p>Da integração desses conhecimentos nasceu o <strong>Método Vibracto</strong>, uma abordagem exclusiva que une recursos emocionais, energéticos e espirituais para identificar e transformar bloqueios relacionados a relacionamentos, prosperidade, autoestima, equilíbrio emocional e desenvolvimento espiritual.</p>
-          <p>Atualmente, realizo atendimentos individuais, cursos e vivências transformadoras, oferecendo um espaço de acolhimento, consciência e reconexão com a essência de cada pessoa.</p>
+      <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 40px;">Quem é Adauto Santana</h2>
+      <div class="therapist-grid">
+        <div class="therapist-image">
+          <img src="adauto-sueter.jpg" alt="Adauto Santana" />
+        </div>
+        <div>
+          <p style="font-style: italic; color: var(--primary-color); font-size: 1.1rem;">"Acredito que toda transformação verdadeira começa quando conseguimos compreender aquilo que está além dos sintomas."</p>
+          <p>Há mais de 15 anos, auxilio pessoas em seus processos de desenvolvimento pessoal, emocional, energético e espiritual.</p>
+          <p>Ao longo dessa jornada, aprofundei meus estudos em Hipnose, Reiki, Apometria e outras abordagens integrativas, criando o Método Vibracto para identificar e transformar bloqueios em relacionamentos, prosperidade e autoestima.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 7. Opções de Atendimento -->
-  <section id="precos">
+  <!-- 6. Opções de Atendimento -->
+  <section id="precos" class="pricing">
     <div class="container">
-      <h2 class="section-title">Opções de Atendimento</h2>
+      <h2 style="text-align: center; color: var(--primary-color);">Opções de Atendimento</h2>
       <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="pricing-header">
+        <div class="pricing-item">
+          <div>
             <h3>Sessão Avulsa</h3>
-            <div class="pricing-price">R$ 180,00</div>
+            <div class="price">R$ 180,00</div>
+            <p>Atendimento individual focado na resolução imediata de bloqueios pontuais.</p>
           </div>
-          <p class="pricing-desc">Atendimento individual focado na resolução imediata de bloqueios pontuais.</p>
-          <a href="https://wa.me/5511987063494?text=Quero%20agendar%20uma%20Sess%C3%A3o%20Avulsa." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Agendar Sessão</a>
+          <a href="https://wa.me/5511987063494?text=Quero%20agendar%20uma%20Sess%C3%A3o%20Avulsa." target="_blank" rel="noopener noreferrer" class="btn">Agendar Sessão</a>
         </div>
-        <div class="pricing-card featured">
-          <span class="badge">Destaque</span>
-          <div class="pricing-header">
+        <div class="pricing-item featured">
+          <div>
             <h3>Acompanhamento Completo</h3>
-            <div class="pricing-price">R$ 480,00</div>
+            <div class="price">R$ 480,00</div>
+            <p>Processo contínuo para transformação profunda e duradoura de padrões repetitivos.</p>
           </div>
-          <p class="pricing-desc">Processo contínuo para transformação profunda de padrões repetitivos.</p>
-          <a href="https://wa.me/5511987063494?text=Quero%20agendar%20o%20Acompanhamento%20Completo." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-full">Agendar Tratamento</a>
+          <a href="https://wa.me/5511987063494?text=Quero%20agendar%20o%20Acompanhamento%20Completo." target="_blank" rel="noopener noreferrer" class="btn">Agendar Tratamento</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 8. Formulário de Contato -->
-  <section id="contato" style="background-color: #EDF2F7;">
+  <!-- 7. Formulário de Contato -->
+  <section id="contato" class="contact">
     <div class="container">
-      <h2 class="section-title">Entre em Contato</h2>
+      <h2 style="text-align: center; color: var(--primary-color);">Entre em Contato</h2>
       <div class="contact-form">
-        <p style="text-align: center; margin-bottom: 20px; color: var(--text-muted);">Tem alguma dúvida específica? Envie sua mensagem e responderemos em breve.</p>
         <form action="https://formspree.io/f/xkodyzeq" method="POST">
           <div class="form-group">
             <label for="nome">Nome Completo</label>
@@ -641,66 +909,43 @@
             <label for="mensagem">Mensagem</label>
             <textarea id="mensagem" name="message" required placeholder="Como posso te ajudar?"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-full">Enviar Mensagem</button>
+          <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- 9. Dúvidas Frequentes -->
-  <section id="faq">
+  <!-- 8. FAQ -->
+  <section id="faq" class="faq">
     <div class="container">
-      <h2 class="section-title">Dúvidas Frequentes</h2>
-      <div class="faq-list">
+      <h2 style="text-align: center; color: var(--primary-color);">Dúvidas Frequentes</h2>
+      <div class="faq-container">
         
         <div class="faq-item">
-          <button class="faq-question">A sessão é a distância ou presencial? <span>+</span></button>
+          <button class="faq-question">A sessão é a distância ou presencial?</button>
           <div class="faq-answer">
-            <p>Sim. Os atendimentos acontecem à distância, com privacidade e acolhimento.</p>
+            <p>Os atendimentos acontecem 100% à distância, garantindo total privacidade, conforto e eficácia.</p>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">Preciso acreditar em espiritualidade? <span>+</span></button>
+          <button class="faq-question">Preciso acreditar em espiritualidade?</button>
           <div class="faq-answer">
-            <p>Não. O processo respeita a experiência e as crenças individuais.</p>
+            <p>Não. O processo atua no nível vibracional e emocional, respeitando totalmente suas crenças individuais.</p>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">Quantas sessões são necessárias? <span>+</span></button>
+          <button class="faq-question">Quantas sessões são necessárias?</button>
           <div class="faq-answer">
-            <p>Cada pessoa possui necessidades diferentes. Isso é avaliado individualmente.</p>
+            <p>Isso varia de acordo com cada caso e a complexidade dos bloqueios trazidos. É avaliado individualmente.</p>
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">A apometria substitui tratamento médico ou psicológico? <span>+</span></button>
+          <button class="faq-question">Como fico sabendo dos resultados do tratamento?</button>
           <div class="faq-answer">
-            <p>Não. A Apometria Integrativa é uma prática complementar e não substitui acompanhamentos médicos ou psicológicos quando necessários.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">Preciso de algum preparo no dia da sessão marcado? <span>+</span></button>
-          <div class="faq-answer">
-            <p>Não. No dia da realização do tratamento, você pode manter sua rotina normal de trabalho, estudo ou outras atividades às quais precise se dedicar.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">Qual o primeiro passo após agendar a sessão? <span>+</span></button>
-          <div class="faq-answer">
-            <p>Primeiramente, é feito um relatório inicial com perguntas sobre o seu caso, estado físico, mental, emocional e espiritual, além das questões que você deseja que sejam trabalhadas. Após colher suas queixas, faço um estudo aprofundado para tratar o seu caso da melhor maneira possível.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">Como fico sabendo dos resultados do tratamento apométrico? <span>+</span></button>
-          <div class="faq-answer">
-            <p>Ao final de cada sessão, você recebe um retorno detalhado sobre o trabalho realizado. Compartilho, por meio de áudio e/ou mensagem, os principais aspectos observados durante o atendimento, os padrões identificados e os pontos que receberam maior atenção ao longo do processo.</p>
-            <p style="margin-top: 10px;">Além disso, apresento minhas percepções como terapeuta e as orientações que podem contribuir para a continuidade do seu desenvolvimento e integração das experiências vivenciadas na sessão.</p>
-            <p style="margin-top: 10px;">No pós-sessão, você também recebe recomendações práticas para favorecer a manutenção do seu equilíbrio emocional, energético e espiritual, como cuidados com o descanso, hidratação, momentos de introspecção, observação das emoções e atitudes que fortaleçam seu bem-estar no dia a dia.</p>
+            <p>Ao final da sessão, você recebe um áudio/relatório completo detalhando o campo trabalhado, os padrões identificados e orientações de sustentação energética.</p>
           </div>
         </div>
 
@@ -708,14 +953,14 @@
     </div>
   </section>
 
-  <!-- 10. Chamada para Ação Final -->
-  <section class="cta-final">
+  <!-- 9. CTA Final -->
+  <section class="final-cta">
     <div class="container">
       <h2>Pronto para iniciar sua transformação?</h2>
-      <p>O Método Vibracto tem ajudado pessoas a superar bloqueios, ressignificar experiências e construir uma vida com mais equilíbrio, consciência e bem-estar. Faça parte dessa transformação.</p>
+      <p style="max-width: 600px; margin: 15px auto 0;">O Método Vibracto tem ajudado pessoas a superar bloqueios e construir uma vida com mais equilíbrio e propósito.</p>
       <div class="cta-buttons">
-        <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20quero%20iniciar%20minha%20transforma%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Agendar via WhatsApp</a>
-        <a href="https://chat.whatsapp.com/GluwyDBearHERxa67b8f9o?s=em&p=a&ilr=0&amv=3" target="_blank" rel="noopener noreferrer" class="btn btn-primary">✨ Comunidade Método Vibracto</a>
+        <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20quero%20iniciar%20minha%20transforma%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn">Agendar via WhatsApp</a>
+        <a href="https://chat.whatsapp.com/GluwyDBearHERxa67b8f9o?s=em&p=a&ilr=0&amv=3" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-group">✨ Comunidade Método Vibracto</a>
       </div>
     </div>
   </section>
@@ -724,16 +969,16 @@
   <footer>
     <div class="container">
       <p>Método Vibracto Terapias - Todos os direitos reservados.</p>
-      <p style="margin-top: 5px;">Siga-nos no Instagram: <a href="https://instagram.com/metodovibracto" target="_blank" rel="noopener noreferrer">@metodovibracto</a></p>
+      <p style="margin-top: 5px;">Instagram: <a href="https://instagram.com/metodovibracto" target="_blank" rel="noopener noreferrer">@metodovibracto</a></p>
     </div>
   </footer>
 
-  <!-- Widget Flutuante WhatsApp -->
+  <!-- Botão Flutuante WhatsApp -->
   <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20M%C3%A9todo%20Vibracto." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
     <span>Fale Conosco</span>
   </a>
 
-  <!-- Script Interativo para FAQ -->
+  <!-- Script FAQ -->
   <script>
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', () => {
@@ -742,13 +987,10 @@
         
         document.querySelectorAll('.faq-item').forEach(item => {
           item.classList.remove('active');
-          const span = item.querySelector('.faq-question span');
-          if (span) span.textContent = '+';
         });
 
         if (!isActive) {
           faqItem.classList.add('active');
-          button.querySelector('span').textContent = '-';
         }
       });
     });
