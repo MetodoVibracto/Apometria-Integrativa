@@ -25,6 +25,10 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--bg-light);
       color: var(--text-dark);
@@ -64,7 +68,7 @@
       border-radius: 2px;
     }
 
-    /* Componentes de Botão */
+    /* Botões */
     .btn {
       display: inline-block;
       padding: 12px 24px;
@@ -99,6 +103,84 @@
       width: 100%;
     }
 
+    /* Header & Navegação */
+    header {
+      background: var(--bg-card);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Seção 1: Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+      opacity: 0.9;
+    }
+
+    /* Seção 2 e 3: Benefícios & O que é */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .feature-card h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
     /* Seção 4: Passo a Passo */
     .steps-grid {
       display: grid;
@@ -111,7 +193,6 @@
       padding: 25px;
       border-radius: 8px;
       box-shadow: var(--shadow);
-      position: relative;
       border-top: 4px solid var(--primary-light);
     }
 
@@ -195,23 +276,16 @@
       flex-shrink: 0;
     }
 
-    .terapeuta-content h3 {
-      font-size: 1.5rem;
-      color: var(--primary);
-      margin-bottom: 15px;
-    }
-
     .terapeuta-content p {
       margin-bottom: 15px;
       color: var(--text-dark);
     }
 
-    /* Seção 7: Opções de Atendimento (Preços) */
+    /* Seção 7: Preços */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      align-items: stretch;
     }
 
     .pricing-card {
@@ -263,7 +337,7 @@
       flex-grow: 1;
     }
 
-    /* Seção 8: Formulário de Contato */
+    /* Seção 8: Contato */
     .contact-form {
       max-width: 600px;
       margin: 0 auto;
@@ -375,7 +449,6 @@
       color: #CBD5E0;
     }
 
-    /* Botão Flutuante do WhatsApp */
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
@@ -390,18 +463,62 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       z-index: 1000;
       font-weight: bold;
-      transition: transform 0.3s;
     }
 
-    .whatsapp-float:hover {
-      transform: scale(1.05);
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Menu de Navegação -->
+  <header>
+    <div class="container nav-container">
+      <div class="logo">Método Vibracto</div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#terapeuta">Sobre</a></li>
+        <li><a href="#precos">Valores</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 1. Banner Principal (Hero) -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <h1>Desbloqueie Padrões Repetitivos e Desperte Seu Potencial</h1>
+      <p>Sessões de Apometria Integrativa a distância para harmonizar seu campo emocional, energético e espiritual.</p>
+      <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20quero%20agendar%20minha%20sess%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Agendar Atendimento pelo WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- 2 & 3. Benefícios e Apresentação -->
+  <section id="sobre">
+    <div class="container">
+      <h2 class="section-title">O que é a Apometria Integrativa?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Harmonização Emocional</h3>
+          <p>Identificação e liberação de cargas emocionais retidas que impactam seu dia a dia.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Corte de Laços e Bloqueios</h3>
+          <p>Limpeza de influências externas e padrões antigos repetitivos em sua vida.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Atendimento a Distância</h3>
+          <p>Tratamento com total sigilo, comodidade e acompanhamento com relatório em áudio/texto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 4. Passo a Passo -->
-  <section id="como-funciona">
+  <section id="como-funciona" style="background-color: #EDF2F7;">
     <div class="container">
       <h2 class="section-title">Como Funciona a Sessão? Passo a Passo</h2>
       <div class="steps-grid">
@@ -430,7 +547,7 @@
   </section>
 
   <!-- 5. Depoimentos -->
-  <section id="depoimentos" style="background-color: #EDF2F7;">
+  <section id="depoimentos">
     <div class="container">
       <h2 class="section-title">Vidas Transformadas</h2>
       <div class="testimonials-grid">
@@ -463,7 +580,7 @@
   </section>
 
   <!-- 6. Sobre o Terapeuta -->
-  <section id="terapeuta">
+  <section id="terapeuta" style="background-color: #EDF2F7;">
     <div class="container">
       <h2 class="section-title">Quem é Adauto Santana</h2>
       <div class="terapeuta-wrapper">
@@ -480,11 +597,10 @@
   </section>
 
   <!-- 7. Opções de Atendimento -->
-  <section id="precos" style="background-color: #EDF2F7;">
+  <section id="precos">
     <div class="container">
       <h2 class="section-title">Opções de Atendimento</h2>
       <div class="pricing-grid">
-        <!-- Plano 1 -->
         <div class="pricing-card">
           <div class="pricing-header">
             <h3>Sessão Avulsa</h3>
@@ -493,7 +609,6 @@
           <p class="pricing-desc">Atendimento individual focado na resolução imediata de bloqueios pontuais.</p>
           <a href="https://wa.me/5511987063494?text=Quero%20agendar%20uma%20Sess%C3%A3o%20Avulsa." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Agendar Sessão</a>
         </div>
-        <!-- Plano 2 -->
         <div class="pricing-card featured">
           <span class="badge">Destaque</span>
           <div class="pricing-header">
@@ -508,7 +623,7 @@
   </section>
 
   <!-- 8. Formulário de Contato -->
-  <section id="contato">
+  <section id="contato" style="background-color: #EDF2F7;">
     <div class="container">
       <h2 class="section-title">Entre em Contato</h2>
       <div class="contact-form">
@@ -532,8 +647,8 @@
     </div>
   </section>
 
-  <!-- 9. Perguntas Frequentes -->
-  <section id="faq" style="background-color: #EDF2F7;">
+  <!-- 9. Dúvidas Frequentes -->
+  <section id="faq">
     <div class="container">
       <h2 class="section-title">Dúvidas Frequentes</h2>
       <div class="faq-list">
@@ -618,21 +733,19 @@
     <span>Fale Conosco</span>
   </a>
 
-  <!-- Script para Sanfona (Accordion) das FAQ -->
+  <!-- Script Interativo para FAQ -->
   <script>
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', () => {
         const faqItem = button.parentElement;
         const isActive = faqItem.classList.contains('active');
         
-        // Fecha todos os itens abertos
         document.querySelectorAll('.faq-item').forEach(item => {
           item.classList.remove('active');
           const span = item.querySelector('.faq-question span');
           if (span) span.textContent = '+';
         });
 
-        // Alterna o estado do item clicado
         if (!isActive) {
           faqItem.classList.add('active');
           button.querySelector('span').textContent = '-';
