@@ -100,37 +100,176 @@
             position: relative;
         }
 
-        <!-- 3. CABEÇALHO / NAVBAR -->
-<header>
-    <div class="container">
-        <!-- Logo -->
-        <a href="#" class="logo">
-            <img src="caminho-da-sua-logo.png" alt="Logo">
-        </a>
+        /* ==========================================================================
+           3. CABEÇALHO / NAVBAR E LOGO (90px)
+           ========================================================================== */
+        header {
+            background-color: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
+        }
 
-        <!-- Botão Hambúrguer (aparece no celular) -->
-        <button class="hamburger-btn" aria-label="Menu Mobile">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        <!-- Navegação / Menu -->
-        <nav>
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#problemas">Problemas</a></li>
-                <li><a href="#o-que-e">O que é</a></li>
-                <li><a href="#passos">Passo a Passo</a></li>
-                <li><a href="#depoimentos">Depoimentos</a></li>
-                <li><a href="#terapeuta">Terapeuta</a></li>
-                <li><a href="#valores">Valores</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+        /* ESTILO DA LOGO EM 90px */
+        .logo img {
+            height: 90px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.03);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* BOTÃO HAMBÚRGUER */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+
+        .hamburger-btn span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Animação do botão ao abrir */
+        .hamburger-btn.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .hamburger-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-btn.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        /* AJUSTES RESPONSIVOS (CELULAR) */
+        @media (max-width: 992px) {
+            .hamburger-btn {
+                display: flex;
+            }
+
+            .logo img {
+                height: 65px; /* Tamanho ajustado no celular para não quebrar a tela */
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 14, 23, 0.98);
+                border-bottom: 1px solid var(--border-color);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+            }
+
+            nav.active {
+                max-height: 450px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 3. CABEÇALHO / NAVBAR -->
+    <header>
+        <div class="container">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <img src="caminho-da-sua-logo.png" alt="Logo Método Vibracto">
+            </a>
+
+            <!-- Botão Hambúrguer (aparece no celular) -->
+            <button class="hamburger-btn" aria-label="Menu Mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navegação / Menu -->
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#problemas">Problemas</a></li>
+                    <li><a href="#o-que-e">O que é</a></li>
+                    <li><a href="#passos">Passo a Passo</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#terapeuta">Terapeuta</a></li>
+                    <li><a href="#valores">Valores</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- JS PARA FUNCIONAR O MENU HAMBÚRGUER -->
+    <script>
+        const btn = document.querySelector('.hamburger-btn');
+        const nav = document.querySelector('nav');
+
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                btn.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
 
         /* ==========================================================================
            4. SEÇÃO HERO
