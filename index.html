@@ -54,12 +54,30 @@
 
     background:
 
+        radial-gradient(
+            circle at top,
+            rgba(80,100,200,.08),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at bottom,
+            rgba(212,175,55,.04),
+            transparent 45%
+        ),
+
         linear-gradient(
             180deg,
             var(--bg-deep) 0%,
             var(--bg-mid) 50%,
             var(--bg-deep) 100%
         );
+
+    overflow-x:hidden;
+
+    position:relative;
+
+}
 
     overflow-x:hidden;
 
@@ -290,6 +308,8 @@ nav a.active::after {
 
     background:transparent;
 
+    z-index:1;
+
 }
 /* --------------------------------------------------------------------------
    Brilho dourado e violeta ao fundo
@@ -344,14 +364,20 @@ nav a.active::after {
    Conteúdo
 -------------------------------------------------------------------------- */
 
-.hero-content {
-    position: relative;
-    z-index: 2;
+.hero-content{
 
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 30px;
-    align-items: center;
+    position:relative;
+
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr;
+
+    gap:40px;
+
+    align-items:center;
+
 }
 
 /* --------------------------------------------------------------------------
