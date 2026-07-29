@@ -140,18 +140,22 @@ ul {
    ========================================================================== */
 
 header{
+
     position:relative;
     width:100%;
     z-index:1000;
 
     padding:18px 0;
 
-    background:
-        linear-gradient(
-            180deg,
-            var(--bg-deep-blue) 0%,
-            var(--bg-mid-blue) 100%
-        );
+    background:transparent;
+
+    border-bottom:1px solid rgba(226,176,55,.15);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.35),
+        inset 0 -1px 0 rgba(255,255,255,.03);
+
+}
 
     border-bottom:1px solid rgba(226,176,55,.15);
 
