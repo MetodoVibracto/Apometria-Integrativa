@@ -10,20 +10,29 @@
         /* ==========================================================================
            1. VARIÁVEIS E ESTILOS GLOBAIS (TEMA ESCURO CÓSMICO)
            ========================================================================== */
-        :root {
-            --primary-color: #d4af37; /* Dourado Fênix */
-            --primary-hover: #b89628;
-            --bg-deep: #0a0f1d;       /* Azul Noturno Profundo */
-            --bg-card: #131b2e;       /* Cartão Escuro com Contraste */
-            --bg-card-alt: #1a243b;   /* Gradiente Secundário */
-            --text-light: #f0f4f8;    /* Texto Claro Primário */
-            --text-muted: #a0aec0;    /* Texto Secundário */
-            --border-color: rgba(212, 175, 55, 0.25);
-            --shadow-glow: 0 4px 20px rgba(212, 175, 55, 0.15);
-            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
-            --radius: 12px;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+        :root{
+
+    --primary-color:#D4AF37;
+    --primary-hover:#F3CA40;
+
+    --bg-deep:#0B1021;
+    --bg-mid:#111A33;
+
+    --bg-card:#131B2E;
+    --bg-card-alt:#1A243B;
+
+    --text-light:#F0F4F8;
+    --text-muted:#A0AEC0;
+
+    --border-color:rgba(212,175,55,.25);
+
+    --shadow-glow:0 4px 20px rgba(212,175,55,.15);
+    --shadow-card:0 10px 30px rgba(0,0,0,.50);
+
+    --radius:12px;
+    --transition:all .30s cubic-bezier(.25,.8,.25,1);
+
+}
 
         html {
             scroll-behavior: smooth;
@@ -35,14 +44,28 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-light);
-            background-color: var(--bg-deep);
-            background-image: radial-gradient(circle at 50% 0%, #152238 0%, var(--bg-deep) 70%);
-            overflow-x: hidden;
-        }
+        body{
+
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+
+    line-height:1.6;
+
+    color:var(--text-light);
+
+    background:
+
+        linear-gradient(
+            180deg,
+            var(--bg-deep) 0%,
+            var(--bg-mid) 50%,
+            var(--bg-deep) 100%
+        );
+
+    overflow-x:hidden;
+
+    position:relative;
+
+}
 
         h1, h2, h3, h4 {
             color: var(--text-light);
@@ -122,8 +145,8 @@ header {
 
     padding: 18px 0;
 
-    background-color: var(--bg-deep);
-
+    background: transparent;
+    
     border-bottom: 1px solid rgba(212, 175, 55, 0.15);
 
     box-shadow:
@@ -257,12 +280,17 @@ nav a.active::after {
    4. SEÇÃO HERO (CAPA PREMIUM)
    ========================================================================== */
 
-.hero {
-    padding: 80px 0 60px;
-    position: relative;
-    overflow: hidden;
-}
+.hero{
 
+    position:relative;
+
+    overflow:hidden;
+
+    padding:80px 0 60px;
+
+    background:transparent;
+
+}
 /* --------------------------------------------------------------------------
    Brilho dourado e violeta ao fundo
 -------------------------------------------------------------------------- */
