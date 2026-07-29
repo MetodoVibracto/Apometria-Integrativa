@@ -14,6 +14,7 @@
     --text-color: #f0f4f8;
     --text-muted: #b3c2d4;
     --white: #ffffff;
+    --border-color: rgba(226, 176, 55, 0.2); /* <-- Adicionado para não quebrar as bordas */
     --shadow-gold: 0 0 25px rgba(226, 176, 55, 0.35);
     --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.4);
@@ -126,12 +127,12 @@ ul {
 }
 
 /* ==========================================================================
-   3. CABEÇALHO / NAVBAR (MODIFICADO)
+   3. CABEÇALHO / NAVBAR (DESKTOP)
    ========================================================================== */
 header {
     background-color: rgba(10, 14, 23, 0.95);
     backdrop-filter: blur(10px);
-    position: relative; /* MUDADO: de 'sticky' para 'relative' para o cabeçalho ROLAR com a página */
+    position: relative;
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
     padding: 12px 0;
@@ -148,7 +149,7 @@ header .container {
     width: auto;
     display: block;
     object-fit: contain;
-   transition: transform .35s ease, height .35s ease;
+    transition: transform .35s ease, height .35s ease;
 }
 
 nav ul {
@@ -186,7 +187,7 @@ nav a:hover {
 .hamburger-btn span {
     width: 100%;
     height: 3px;
-    background-color: var(--primary-color, #e2b037);
+    background-color: var(--primary-color);
     border-radius: 3px;
     transition: all 0.3s ease;
 }
@@ -204,52 +205,16 @@ nav a:hover {
     transform: translateY(-10px) rotate(-45deg);
 }
 
-/* --- REGRAS RESPONSIVAS PARA O CELULAR --- */
-@media (max-width: 768px) {
-    .hamburger-btn {
-        display: flex; /* Aparece o ícone no celular */
-    }
-
-    .logo img {
-        height: 65px; /* Tamanho ideal da logo no celular */
-    }
-
-    nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: rgba(10, 14, 23, 0.98);
-        border-bottom: 1px solid var(--border-color);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-in-out;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    }
-
-    /* Abre a gaveta quando ativa */
-    nav.active {
-        max-height: 350px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        padding: 25px 0;
-        gap: 20px;
-    }
-}
-
 /* ==========================================================================
-   REGRAS RESPONSIVAS DO CABEÇALHO (DISPOSITIVOS MÓVEIS)
+   4. REGRAS RESPONSIVAS (DISPOSITIVOS MÓVEIS - CELULAR)
    ========================================================================== */
 @media (max-width: 768px) {
     .hamburger-btn {
-        display: flex; /* Exibe o ícone de 3 traços no celular */
+        display: flex; /* Exibe o botão no celular */
     }
 
     .logo img {
-        height: 75px; /* Tamanho proporcional perfeito para telas de celular */
+        height: 65px; /* Tamanho proporcional ideal para celular */
     }
 
     nav {
@@ -258,20 +223,21 @@ nav a:hover {
         left: 0;
         width: 100%;
         background-color: var(--bg-deep-blue);
-        border-bottom: 1px solid rgba(226, 176, 55, 0.2);
+        border-bottom: 1px solid var(--border-color);
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-in-out;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
     }
 
-    /* Expande a gaveta quando o JS ativa a classe 'active' */
+    /* Expande a gaveta quando ativa via JS */
     nav.active {
-        max-height: 350px;
+        max-height: 450px;
     }
 
     nav ul {
         flex-direction: column;
+        align-items: center;
         padding: 25px 0;
         gap: 18px;
     }
