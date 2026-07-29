@@ -144,10 +144,11 @@ header .container {
 }
 
 .logo img {
-    height: 60px; 
+    height: 90px; 
     width: auto;
     display: block;
     object-fit: contain;
+   transition: transform .35s ease, height .35s ease;
 }
 
 nav ul {
@@ -924,10 +925,10 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        gap: 12px;
+    .logo img {
+        height: 60px; /* <--- AJUSTE ESTE VALOR PARA O TAMANHO NO CELULAR */
     }
+   
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
