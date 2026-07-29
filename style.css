@@ -56,11 +56,11 @@ body{
         ),
 
         linear-gradient(
-            180deg,
-            var(--bg-deep) 0%,
-            var(--bg-mid) 50%,
-            var(--bg-deep) 100%
-        );
+    180deg,
+    var(--bg-deep-blue) 0%,
+    var(--bg-mid-blue) 50%,
+    var(--bg-deep-blue) 100%
+);
 
     overflow-x:hidden;
 
@@ -1075,18 +1075,6 @@ nav a.active::after{
    10. BOTÕES DA CTA
    ========================================================================== */
 
-/* ==========================================================================
-   10. BOTÕES DA CTA
-   ========================================================================== */
-
-.cta-buttons{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:18px;
-    margin-top:35px;
-}
-
 .btn-whatsapp-group{
 
     display:inline-flex;
@@ -1094,33 +1082,32 @@ nav a.active::after{
     justify-content:center;
 
     min-width:340px;
-    max-width:100%;
-
     padding:18px 38px;
-
-    border:2px solid #e2b037;
-    border-radius:60px;
 
     background:rgba(255,255,255,.03);
 
-    color:var(--white);
+    border:2px solid #e2b037;
 
-    font-size:1rem;
-    font-weight:600;
-    letter-spacing:.4px;
+    border-radius:60px;
+
+    color:#fff;
+
     text-decoration:none;
 
-    backdrop-filter:blur(8px);
-
-    box-shadow:
-        0 0 10px rgba(200,163,74,.25),
-        0 0 22px rgba(200,163,74,.15),
-        inset 0 0 8px rgba(255,255,255,.03);
-
-    transition:all .35s ease;
+    font-weight:600;
 
     position:relative;
+
     overflow:hidden;
+
+    z-index:1;
+
+    box-sizing:border-box;
+
+    box-shadow:
+        0 0 8px rgba(226,176,55,.35),
+        0 0 20px rgba(226,176,55,.20);
+
 }
 
 .btn-whatsapp-group::before{
@@ -1128,43 +1115,20 @@ nav a.active::after{
     content:"";
 
     position:absolute;
-    inset:0;
+
+    inset:2px;
+
+    border-radius:58px;
 
     background:linear-gradient(
         120deg,
-        transparent 20%,
-        rgba(255,255,255,.12) 50%,
-        transparent 80%
+        transparent,
+        rgba(255,255,255,.10),
+        transparent
     );
 
-    transform:translateX(-120%);
-    transition:transform .8s ease;
-}
+    z-index:-1;
 
-.btn-whatsapp-group:hover{
-
-    transform:translateY(-3px);
-
-    background:rgba(200,163,74,.08);
-
-    border-color:#F4D98B;
-
-    color:#FFF8E8;
-
-    box-shadow:
-        0 0 15px rgba(200,163,74,.45),
-        0 0 35px rgba(200,163,74,.30),
-        0 0 55px rgba(200,163,74,.15);
-}
-
-.btn-whatsapp-group:hover::before{
-
-    transform:translateX(120%);
-}
-
-.btn-whatsapp-group:active{
-
-    transform:translateY(0);
 }
 
         /* ==========================================================================
