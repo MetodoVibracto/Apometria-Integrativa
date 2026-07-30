@@ -663,8 +663,10 @@ nav a.active::after {
 
 .therapist {
     position: relative;
-    padding: 150px 80px;
-   
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 5%;    
+    padding-right: 5%;   
     overflow: hidden;
     background: linear-gradient(
         180deg,
