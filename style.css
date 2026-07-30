@@ -1371,42 +1371,79 @@ nav a.active::after {
 }
 
 /* ==========================================================================
-   12. RESPONSIVIDADE
+   11. RESPONSIVIDADE
    ========================================================================== */
 @media (max-width: 992px) {
-    .hero-content, 
-    .what-is-grid, 
-    .therapist-grid, 
-    .pricing-grid {
+    .hero-content, .what-is-grid, .therapist-grid, .pricing-grid {
         grid-template-columns: 1fr;
         text-align: center;
     }
     .hero-text h1 { font-size: 2.2rem; }
-    .hero::before { width: 380px; height: 380px; }
     .steps-grid { grid-template-columns: 1fr 1fr; }
     .therapist-image { max-width: 400px; margin: 0 auto; }
 }
 
 @media (max-width: 768px) {
+    /* Ajustes para o cabeçalho do celular */
     header .container {
-        flex-direction: column;
-        gap: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
+
+    /* Esconde o botão do topo no celular para não amassar a barra */
+    header .btn-sm {
+        display: none;
+    }
+
+    /* Exibe o botão do menu hambúrguer */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Esconde a navegação por padrão para abrir só ao clicar */
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 14, 23, 0.98);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        padding: 25px 0;
+        display: none;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    /* Exibe o menu quando o JS adiciona a classe .active */
+    nav.active {
+        display: block;
+    }
+
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px 18px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
+
+    /* Animação do ícone mudando para X */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Outros ajustes de layout no celular */
     .steps-grid { grid-template-columns: 1fr; }
     .hero-highlights-banner { grid-template-columns: 1fr; }
     .contact-form { padding: 25px 20px; }
 }
 
 @media (max-width: 480px) {
-    .btn-whatsapp-group {
-        min-width: 100%;
-        padding: 18px 20px;
-    }
     .whatsapp-float span { display: none; }
     .whatsapp-float {
         padding: 14px;
