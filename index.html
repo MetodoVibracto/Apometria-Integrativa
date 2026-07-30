@@ -100,10 +100,7 @@
             position: relative;
         }
 
-        /* ==========================================================================
-           ESTILOS DO MENU HAMBÚRGUER (RESPONSIVO)
-           ========================================================================== */
-        /* Oculto no Desktop */
+        /* Menu Hambúrguer (Responsivo) */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -124,14 +121,13 @@
             transition: var(--transition);
         }
 
-        /* Regras para Celular e Tablet (Até 768px) */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: flex;
             }
 
             header .btn-sm {
-                display: none; /* Esconde o botão pequeno no topo no celular para não comprimir a tela */
+                display: none;
             }
 
             nav {
@@ -157,7 +153,6 @@
                 gap: 20px;
             }
 
-            /* Transformação do botão em 'X' quando ativo */
             .menu-toggle.active .bar:nth-child(1) {
                 transform: translateY(9px) rotate(45deg);
             }
@@ -168,8 +163,6 @@
                 transform: translateY(-9px) rotate(-45deg);
             }
         }
-    </style>
-</head>
 
         /* ==========================================================================
            3. CABEÇALHO / NAVBAR
@@ -302,6 +295,8 @@
             font-size: 0.8rem;
             color: var(--text-muted);
         }
+    </style>
+</head>
 
         /* ==========================================================================
            5. SEÇÃO PROBLEMAS & IDENTIFICAÇÃO
@@ -1153,99 +1148,104 @@
             <img src="logofenixdefogo.png" alt="Método Vibracto Logo">                            
         </div>
 
-        <!-- 1. Botão do Menu Hambúrguer adicionado aqui -->
+        <!-- Botão do Menu Hambúrguer -->
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-                    <li><a href="#sobre">O que é</a></li>
-                    <li><a href="#como-funciona">Como Funciona</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#terapeuta">Terapeuta</a></li>
-                    <li><a href="#precos">Atendimentos</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                    <li><a href="#faq">Dúvidas</a></li>
-                </ul>
-            </nav>
-            <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn btn-sm">Quero minha sessão</a>
-        </div>
-    </header>
 
-    <!-- Seção Hero -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>MÉTODO VIBRACTO<br><span>Apometria Integrativa</span></h1>
-                    <p>Você sente que faz de tudo para mudar, mas continua repetindo os mesmos padrões.</p>
-                    <p>Relacionamentos difíceis, ansiedade constante, sensação de estagnação e padrões que se repetem podem ter causas mais profundas do que aparentam.</p>
-                    <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn btn-large" style="margin-top: 15px;">Quero iniciar minha sessão</a>
+        <!-- Menu de Navegação (Abertura adicionada) -->
+        <nav id="navMenu">
+            <ul>
+                <li><a href="#sobre">O que é</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#terapeuta">Terapeuta</a></li>
+                <li><a href="#precos">Atendimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#faq">Dúvidas</a></li>
+            </ul>
+        </nav>
+
+        <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn btn-sm">Quero minha sessão</a>
+    </div>
+</header>
+
+<!-- Seção Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>MÉTODO VIBRACTO<br><span>Apometria Integrativa</span></h1>
+                <p>Você sente que faz de tudo para mudar, mas continua repetindo os mesmos padrões.</p>
+                <p>Relacionamentos difíceis, ansiedade constante, sensação de estagnação e padrões que se repetem podem ter causas mais profundas do que aparentam.</p>
+                <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn btn-large" style="margin-top: 15px;">Quero iniciar minha sessão</a>
+            </div>
+            <div class="hero-image">
+                <img src="adauto-terno.png" alt="Adauto Santana">
+            </div>
+        </div>
+
+        <!-- Banner de Destaques -->
+        <div class="hero-highlights-banner">
+            <div class="highlight-item">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
                 </div>
-                <div class="hero-image">
-                    <img src="adauto-terno.png" alt="Adauto Santana">
+                <div class="highlight-text">
+                    <h4>Atendimento Online</h4>
+                    <p>Para todo o Brasil</p>
                 </div>
             </div>
 
-            <!-- Banner de Destaques -->
-            <div class="hero-highlights-banner">
-                <div class="highlight-item">
-                    <div class="icon-circle">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="2" y1="12" x2="22" y2="12"></line>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                        </svg>
-                    </div>
-                    <div class="highlight-text">
-                        <h4>Atendimento Online</h4>
-                        <p>Para todo o Brasil</p>
-                    </div>
+            <div class="highlight-item">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
                 </div>
-
-                <div class="highlight-item">
-                    <div class="icon-circle">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </div>
-                    <div class="highlight-text">
-                        <h4>Sessões Individuais</h4>
-                        <p>Atendimento personalizado</p>
-                    </div>
+                <div class="highlight-text">
+                    <h4>Sessões Individuais</h4>
+                    <p>Atendimento personalizado</p>
                 </div>
+            </div>
 
-                <div class="highlight-item">
-                    <div class="icon-circle">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-                    </div>
-                    <div class="highlight-text">
-                        <h4>Relatório Pós-Sessão</h4>
-                        <p>Áudio e orientações</p>
-                    </div>
+            <div class="highlight-item">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
                 </div>
+                <div class="highlight-text">
+                    <h4>Relatório Pós-Sessão</h4>
+                    <p>Áudio e orientações</p>
+                </div>
+            </div>
 
-                <div class="highlight-item">
-                    <div class="icon-circle">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                        </svg>
-                    </div>
-                    <div class="highlight-text">
-                        <h4>Método Exclusivo</h4>
-                        <p>Mais de 15 anos de experiência</p>
-                    </div>
+            <div class="highlight-item">
+                <div class="icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <div class="highlight-text">
+                    <h4>Método Exclusivo</h4>
+                    <p>Mais de 15 anos de experiência</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Seção Problemas -->
     <section class="problems">
