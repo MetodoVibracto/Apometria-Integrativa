@@ -657,194 +657,119 @@ nav a.active::after {
 
 }
 
-/* ==========================================================================
+  /* ==========================================================================
    8. QUEM É O TERAPEUTA
    ========================================================================== */
 
-.therapist{
-
-    position:relative;
-
-    padding:140px 0;
-
-    overflow:hidden;
-
-    background:
-
-    linear-gradient(
-    180deg,
-    rgba(8,12,24,.95),
-    rgba(13,21,39,1)
+.therapist {
+    position: relative;
+    padding: 140px 0;
+    overflow: hidden;
+    background: linear-gradient(
+        180deg,
+        rgba(8,12,24,.95),
+        rgba(13,21,39,1)
     );
-
 }
 
-.therapist::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:700px;
-
-    height:700px;
-
-    border-radius:50%;
-
-    left:-280px;
-
-    top:-120px;
-
-    background:radial-gradient(circle,
-    rgba(226,176,55,.08),
-    transparent 70%);
-
+.therapist::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    left: -280px;
+    top: -120px;
+    background: radial-gradient(circle, rgba(226,176,55,.08), transparent 70%);
 }
 
-.therapist::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:600px;
-
-    height:600px;
-
-    border-radius:50%;
-
-    right:-250px;
-
-    bottom:-200px;
-
-    background:radial-gradient(circle,
-    rgba(83,98,255,.05),
-    transparent 70%);
-
+.therapist::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    right: -250px;
+    bottom: -200px;
+    background: radial-gradient(circle, rgba(83,98,255,.05), transparent 70%);
 }
 
-.therapist-grid{
-
-    position:relative;
-
-    display:grid;
-
-    grid-template-columns:340px 1fr;
-
-    gap:70px;
-
-    align-items:start;
-
-    z-index:2;
-
+.therapist-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(280px, 340px) 1fr; /* Flexível para não quebrar */
+    gap: 50px;
+    align-items: start;
+    z-index: 2;
 }
 
-.therapist-image{
-
-    align-self:flex-start;
-
-    margin-top:20px;
-
+.therapist-image {
+    align-self: flex-start;
+    margin-top: 20px;
+    width: 100%;
 }
 
+.image-frame {
+    position: relative; /* Adicionado para prender a borda interna na imagem */
+    max-width: 340px;
+    width: 100%;
+    margin: auto;
 }
 
-.image-frame{
-
-    max-width:340px;
-
-    margin:auto;
-
+.image-frame img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    border-radius: 22px;
+    transition: transform .6s;
 }
 
-.image-frame img{
-
-    width:100%;
-
-    height:500px;
-
-    object-fit:cover;
-
+.image-frame::before {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 1px solid rgba(226,176,55,.25);
+    border-radius: 14px;
+    z-index: 2;
+    pointer-events: none;
 }
 
-.image-frame::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:15px;
-
-    border:1px solid rgba(226,176,55,.25);
-
-    border-radius:14px;
-
-    z-index:2;
-
-    pointer-events:none;
-
+.therapist-image:hover img {
+    transform: scale(1.03);
 }
 
-.therapist-image img{
-
-    display:block;
-
-    width:100%;
-
-    border-radius:22px;
-
-    transition:.6s;
-
+.section-tag {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--primary-color);
+    font-size: .82rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
-.therapist-image:hover img{
-
-    transform:scale(1.03);
-
+.therapist-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
 }
 
-.section-tag{
-
-    display:inline-block;
-
-    margin-bottom:18px;
-
-    color:var(--primary-color);
-
-    font-size:.82rem;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-
-    font-weight:700;
-
+.therapist-content h2 span {
+    color: var(--primary-color);
 }
 
-.therapist-content h2{
-
-    font-size:2.8rem;
-
-    margin-bottom:25px;
-
-    line-height:1.2;
-
+.section-subtitle {
+    color: #c8cedd;
+    margin-bottom: 40px;
+    font-size: 1.05rem;
 }
 
-.therapist-content h2 span{
-
-    color:var(--primary-color);
-
-}
-
-.section-subtitle{
-
-    color:#c8cedd;
-
-    margin-bottom:40px;
-
-    font-size:1.05rem;
-
+/* Regra para telas de celulares e tablets ajustarem em 1 coluna */
+@media (max-width: 992px) {
+    .therapist-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* =====================================================
