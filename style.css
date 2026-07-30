@@ -1,168 +1,227 @@
-<style>
-    /* ==========================================================================
-       1. VARIÁVEIS E ESTILOS GLOBAIS
-       ========================================================================== */
-    :root {
-        --bg-deep: #0B1021;
-        --text-light: #F0F4F8;
-        --primary-color: #e2b037;
-        --primary-hover: #fcd561;
-        --bg-deep-blue: #0b1021;
-        --bg-mid-blue: #111a33;
-        --bg-card-blue: rgba(22, 33, 62, 0.75);
-        --text-color: #f0f4f8;
-        --text-muted: #b3c2d4;
-        --white: #ffffff;
-        --shadow-gold: 0 0 25px rgba(226, 176, 55, 0.35);
-        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-        --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.4);
-        --shadow-lg: 0 12px 35px rgba(0, 0, 0, 0.6);
-        --radius: 12px;
-        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
+/* ==========================================================================
+   1. VARIÁVEIS E ESTILOS GLOBAIS
+   ========================================================================== */
+:root {
+    --bg-deep: #0B1021;
+    --text-light: #F0F4F8;
+    --primary-color: #e2b037;
+    --primary-hover: #fcd561;
+    --secondary-color: #ffffff;
+    --bg-deep-blue: #0b1021;
+    --bg-mid-blue: #111a33;
+    --bg-card-blue: rgba(22, 33, 62, 0.75);
+    --bg-card-hover: rgba(30, 45, 80, 0.85);
+    --text-color: #f0f4f8;
+    --text-muted: #b3c2d4;
+    --white: #ffffff;
+    --shadow-gold: 0 0 25px rgba(226, 176, 55, 0.35);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 35px rgba(0, 0, 0, 0.6);
+    --radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
-    html {
-        scroll-behavior: smooth;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        line-height: 1.6;
-        color: var(--text-light);
-        background:
-            radial-gradient(
-                circle at top,
-                rgba(80, 100, 200, .08),
-                transparent 50%
-            ),
-            radial-gradient(
-                circle at bottom,
-                rgba(212, 175, 55, .04),
-                transparent 45%
-            ),
-            linear-gradient(
-                180deg,
-                var(--bg-deep-blue) 0%,
-                var(--bg-mid-blue) 50%,
-                var(--bg-deep-blue) 100%
-            );
-        overflow-x: hidden;
-        position: relative;
-    }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-light);
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(80, 100, 200, .08),
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at bottom,
+            rgba(212, 175, 55, .04),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            var(--bg-deep-blue) 0%,
+            var(--bg-mid-blue) 50%,
+            var(--bg-deep-blue) 100%
+        );
+    overflow-x: hidden;
+    position: relative;
+}
 
-    h1, h2, h3, h4 {
-        color: var(--white);
-        margin-bottom: 15px;
-        font-weight: 700;
-        line-height: 1.3;
-    }
+h1, h2, h3, h4 {
+    color: var(--white);
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+}
 
-    p {
-        margin-bottom: 15px;
-        color: var(--text-muted);
-    }
+p {
+    margin-bottom: 15px;
+    color: var(--text-muted);
+}
 
-    a {
-        text-decoration: none;
-        transition: var(--transition);
-    }
+a {
+    text-decoration: none;
+    transition: var(--transition);
+}
 
-    ul {
-        list-style: none;
-    }
+ul {
+    list-style: none;
+}
 
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
-        position: relative;
-        z-index: 2;
-    }
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+    z-index: 2;
+}
 
-    /* ==========================================================================
-       2. BOTÕES
-       ========================================================================== */
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 30px;
-        background: linear-gradient(135deg, var(--primary-color) 0%, #b8860b 100%);
-        color: #0b1021;
-        border-radius: 50px;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        letter-spacing: 0.5px;
-        border: none;
-        cursor: pointer;
-        box-shadow: var(--shadow-gold);
-        transition: var(--transition);
-    }
+/* ==========================================================================
+   2. BOTÕES
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #b8860b 100%);
+    color: #0b1021;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-gold);
+    transition: var(--transition);
+}
 
-    .btn:hover {
-        background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-color) 100%);
-        transform: translateY(-3px);
-        box-shadow: 0 0 30px rgba(226, 176, 55, 0.6);
-        color: #000;
-    }
+.btn:hover {
+    background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-color) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(226, 176, 55, 0.6);
+    color: #000;
+}
 
-    .btn-large {
-        padding: 16px 40px;
-        font-size: 1rem;
-    }
+.btn-sm {
+    padding: 9px 20px;
+    font-size: 0.85rem;
+}
 
-    /* ==========================================================================
-       3. CABEÇALHO & NAVEGAÇÃO
-       ========================================================================== */
-    header {
-        position: relative;
-        width: 100%;
-        z-index: 1000;
-        padding: 18px 0;
-        background: transparent;
-        border-bottom: 1px solid rgba(226, 176, 55, .15);
-        box-shadow: 0 10px 35px rgba(0, 0, 0, .35);
-    }
+.btn-large {
+    padding: 16px 40px;
+    font-size: 1rem;
+}
 
-    header .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+/* ==========================================================================
+   3. CABEÇALHO & NAVEGAÇÃO (PREMIUM)
+   ========================================================================== */
+header {
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    padding: 18px 0;
+    background: transparent;
+    border-bottom: 1px solid rgba(226, 176, 55, .15);
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, .35),
+        inset 0 -1px 0 rgba(255, 255, 255, .03);
+    transition: all .35s ease;
+}
 
-    .logo {
-        font-size: 1.4rem;
-        font-weight: 800;
-        color: var(--primary-color);
-        letter-spacing: 1px;
-    }
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 0%, rgba(226, 176, 55, 0.05), transparent 60%),
+        radial-gradient(circle at 80% 0%, rgba(80, 100, 200, 0.05), transparent 60%);
+    pointer-events: none;
+}
 
-    nav ul {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-    }
+header .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    nav a {
-        color: var(--text-light);
-        font-size: .95rem;
-        font-weight: 500;
-    }
+.logo {
+    display: flex;
+    align-items: center;
+}
 
-    nav a:hover {
-        color: var(--primary-color);
-    }
+.logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    transition: transform .35s ease;
+}
 
-    /* ==========================================================================
-   4. HERO (COM FOTO DO TERNO)
+.logo:hover img {
+    transform: scale(1.04);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    position: relative;
+    color: var(--text-light);
+    font-size: .95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all .30s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(
+        90deg,
+        var(--primary-color),
+        #F7D878
+    );
+    transition: width .35s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   4. HERO PREMIUM
    ========================================================================== */
 .hero {
     position: relative;
@@ -172,28 +231,58 @@
     z-index: 1;
 }
 
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 45%;
+    right: 8%;
+    width: 730px;
+    height: 730px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(226, 176, 55, .18) 0%,
+            rgba(90, 70, 170, .12) 35%,
+            rgba(20, 30, 60, .08) 60%,
+            transparent 80%
+        );
+    filter: blur(55px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(70, 90, 190, .08),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(226, 176, 55, .06),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, .025),
+            transparent 70%
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.2fr .8fr;
     gap: 40px;
     align-items: center;
-}
-
-/* Regra da pílula/tagline em cima do título */
-.hero-tagline {
-    display: inline-block;
-    color: var(--primary-color);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-    background: rgba(226, 176, 55, 0.1);
-    padding: 6px 16px;
-    border-radius: 20px;
-    border: 1px solid rgba(226, 176, 55, 0.25);
 }
 
 .hero-text h1 {
@@ -212,22 +301,39 @@
     font-size: 1.05rem;
     line-height: 1.75;
     color: var(--text-color);
-    margin-bottom: 25px;
 }
 
 .hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(226, 176, 55, .25) 0%,
+            rgba(255, 255, 255, .05) 45%,
+            transparent 75%
+        );
+    filter: blur(35px);
+    z-index: -1;
 }
 
 .hero-image img {
     width: 100%;
-    max-width: 380px;
-    border-radius: var(--radius);
-    border: 2px solid rgba(226, 176, 55, 0.4);
-    box-shadow: var(--shadow-lg), var(--shadow-gold);
-    object-fit: cover;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .hero-highlights-banner {
@@ -259,8 +365,12 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    color: var(--primary-color);
-    font-size: 1.2rem;
+}
+
+.icon-circle svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--primary-color);
 }
 
 .highlight-text h4 {
@@ -275,91 +385,129 @@
     margin: 0;
 }
 
-    /* ==========================================================================
-       5. PROBLEMAS E BENEFÍCIOS
-       ========================================================================== */
-    .problems {
-        padding: 90px 0;
-        text-align: center;
-    }
+/* ==========================================================================
+   5. SEÇÕES DE PROBLEMAS E IDENTIFICAÇÃO
+   ========================================================================== */
+.problems {
+    padding: 110px 0;
+    text-align: center;
+}
 
-    .problems h2 {
-        max-width: 800px;
-        margin: 0 auto 15px;
-        color: var(--primary-color);
-    }
+.problems h2 {
+    max-width: 800px;
+    margin: 0 auto 15px;
+    color: var(--primary-color);
+}
 
-    .problems-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-        margin-top: 40px;
-    }
+.problems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
 
-    .problem-item {
-        background-color: var(--bg-card-blue);
-        backdrop-filter: blur(8px);
-        padding: 35px 25px;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-sm);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-top: 4px solid var(--primary-color);
-        transition: var(--transition);
-        text-align: left;
-    }
+.problem-item {
+    background-color: var(--bg-card-blue);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    padding: 35px 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 4px solid var(--primary-color);
+    transition: var(--transition);
+}
 
-    .problem-item:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-md), var(--shadow-gold);
-        border-color: var(--primary-color);
-    }
+.problem-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md), var(--shadow-gold);
+    border-color: var(--primary-color);
+}
 
-    /* ==========================================================================
-       6. PASSO A PASSO
-       ========================================================================== */
-    .steps {
-        padding: 90px 0;
-        background-color: rgba(17, 26, 51, 0.6);
-    }
+.problem-item p:first-child {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
 
-    .steps-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        margin-top: 50px;
-    }
+.identification {
+    padding: 80px 0;
+    background-color: rgba(17, 26, 51, 0.6);
+}
 
-    .step-item {
-        background-color: var(--bg-card-blue);
-        padding: 30px 20px;
-        border-radius: var(--radius);
-        border: 1px solid rgba(226, 176, 55, 0.15);
-        box-shadow: var(--shadow-sm);
-        position: relative;
-        transition: var(--transition);
-    }
+.identification-list {
+    max-width: 750px;
+    margin: 30px auto;
+}
 
-    .step-item:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-md);
-        border-color: var(--primary-color);
-    }
+.identification-list li {
+    background-color: var(--bg-card-blue);
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-radius: var(--radius);
+    border-left: 5px solid var(--primary-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-color);
+    font-weight: 500;
+}
 
-    .step-number {
-        font-size: 2.2rem;
-        font-weight: 800;
-        color: var(--primary-color);
-        opacity: 0.35;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-    }
+/* ==========================================================================
+   6. SEÇÃO O QUE É & PASSO A PASSO
+   ========================================================================== */
+.what-is {
+    padding: 110px 0;
+}
 
-    /* ==========================================================================
-   7. DEPOIMENTOS E TERAPEUTA
+.what-is-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.steps {
+    padding: 110px 0;
+    background-color: rgba(17, 26, 51, 0.6);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 65px;
+}
+
+.step-item {
+    background-color: var(--bg-card-blue);
+    padding: 30px 20px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(226, 176, 55, 0.15);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    transition: var(--transition);
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.step-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    opacity: 0.35;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+/* ==========================================================================
+   7. SEÇÃO DEPOIMENTOS & TERAPEUTA
    ========================================================================== */
 .testimonials {
-    padding: 90px 0;
+    padding: 110px 0;
 }
 
 .testimonials-grid {
@@ -376,7 +524,6 @@
     box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     text-align: center;
     border: 1px solid rgba(226, 176, 55, 0.15);
@@ -389,19 +536,20 @@
     transform: translateY(-4px);
 }
 
-/* --- REGRA QUE FALTAVA: Controla o tamanho da foto dos clientes --- */
-.testimonial-item img,
-.testimonial-avatar {
-    width: 75px !important;
-    height: 75px !important;
-    max-width: 75px !important;
-    max-height: 75px !important;
-    border-radius: 50% !important;
-    object-fit: cover !important;
-    margin-bottom: 12px;
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 0 12px rgba(226, 176, 55, 0.35);
-    display: block;
+.testimonial-image {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--shadow-gold);
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .stars {
@@ -410,12 +558,8 @@
     font-size: 1.1rem;
 }
 
-    /* ==========================================================================
-       8. SOBRE O TERAPEUTA (TEXTO COMPLETO E FORMATADO)
-       ========================================================================== */
-    /* --- SEÇÃO SOBRE O TERAPEUTA --- */
 .therapist {
-    padding: 90px 0;
+    padding: 80px 0;
     background-color: rgba(17, 26, 51, 0.6);
 }
 
@@ -427,304 +571,328 @@
 }
 
 .therapist-image img {
-    width: 100%;
-    max-width: 350px;
+    max-width: 100%;
     border-radius: var(--radius);
-    border: 2px solid rgba(226, 176, 55, 0.3);
+    border: 1px solid rgba(226, 176, 55, 0.3);
     box-shadow: var(--shadow-lg), var(--shadow-gold);
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
 }
 
-/* Estilização do texto do Terapeuta */
-.therapist-text {
-    text-align: left;
+/* ==========================================================================
+   8. PREÇOS & CTA FINAL
+   ========================================================================== */
+.pricing {
+    padding: 110px 0;
 }
 
-.therapist-subtitle {
-    color: var(--primary-color);
-    font-size: 0.95rem;
-    font-weight: 700;
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-item {
+    background-color: var(--bg-card-blue);
+    padding: 40px 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pricing-item.featured {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md), var(--shadow-gold);
+    position: relative;
+    background-color: rgba(26, 38, 70, 0.85);
+}
+
+.pricing-item.featured::before {
+    content: 'Mais Recomendado';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #b8860b 100%);
+    color: #0b1021;
+    padding: 4px 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 20px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-    margin-bottom: 5px;
 }
 
-.therapist-text h2 {
+.price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 15px 0;
+    text-shadow: 0 0 10px rgba(226, 176, 55, 0.3);
+}
+
+.final-cta {
+    padding: 90px 0;
+    background: linear-gradient(135deg, var(--bg-deep-blue) 0%, var(--bg-mid-blue) 100%);
+    border-top: 1px solid rgba(226, 176, 55, 0.2);
+    border-bottom: 1px solid rgba(226, 176, 55, 0.2);
+    color: var(--white);
+    text-align: center;
+}
+
+.final-cta h2 {
     color: var(--white);
     font-size: 2.2rem;
-    margin-bottom: 5px;
 }
 
-.therapist-intro {
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    font-weight: 600;
+.final-cta p {
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   9. CONTATO & FAQ
+   ========================================================================== */
+.contact {
+    padding: 110px 0;
+    background-color: rgba(17, 26, 51, 0.6);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto 0;
+    background-color: var(--bg-card-blue);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(226, 176, 55, 0.2);
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
     margin-bottom: 20px;
 }
 
-.therapist-text p {
-    font-size: 0.98rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-    margin-bottom: 15px;
-}
-
-.therapist-text strong {
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
     color: var(--white);
 }
 
-.therapist-quote {
-    font-style: italic;
-    color: var(--primary-color);
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-top: 25px;
-    padding: 15px 20px;
-    background: rgba(226, 176, 55, 0.08);
-    border-left: 4px solid var(--primary-color);
-    border-radius: 0 8px 8px 0;
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(11, 16, 33, 0.7);
+    border: 1px solid rgba(226, 176, 55, 0.3);
+    border-radius: 6px;
+    color: var(--white);
+    font-family: inherit;
+    transition: var(--transition);
 }
 
-    /* ==========================================================================
-       9. PREÇOS & CTA
-       ========================================================================== */
-    .pricing {
-        padding: 90px 0;
-    }
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(226, 176, 55, 0.3);
+}
 
+.faq {
+    padding: 110px 0;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 30px auto 0;
+}
+
+.faq-item {
+    background-color: var(--bg-card-blue);
+    margin-bottom: 15px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid var(--primary-color);
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 20px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.3s ease;
+    padding: 0 20px;
+    color: var(--text-muted);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+    padding: 0 20px 20px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.faq-answer p {
+    margin-bottom: 12px;
+    color: var(--text-muted);
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   10. BOTÕES DA CTA
+   ========================================================================== */
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn-whatsapp-group {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 340px;
+    padding: 18px 38px;
+    background: rgba(255, 255, 255, .03);
+    border: 5px solid #e2b037;
+    border-radius: 60px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-sizing: border-box;
+    box-shadow: 
+        0 0 8px rgba(226, 176, 55, .35),
+        0 0 20px rgba(226, 176, 55, .20);
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp-group:hover {
+    background: var(--primary-color);
+    color: #0b1021;
+    box-shadow: 0 0 30px rgba(226, 176, 55, 0.6);
+}
+
+/* ==========================================================================
+   11. BOTÃO FLUTUANTE DO WHATSAPP
+   ========================================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: #ffffff;
+    border-radius: 50px;
+    padding: 12px 22px 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.whatsapp-float:hover {
+    background-color: #1eb855;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    color: #ffffff;
+}
+
+.whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+    fill: #ffffff;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   12. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-content, 
+    .what-is-grid, 
+    .therapist-grid, 
     .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        margin-top: 40px;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .pricing-item {
-        background-color: var(--bg-card-blue);
-        padding: 40px 30px;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-sm);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        grid-template-columns: 1fr;
         text-align: center;
-        transition: var(--transition);
-        display: flex;
+    }
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero::before { width: 380px; height: 380px; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .therapist-image { max-width: 400px; margin: 0 auto; }
+}
+
+@media (max-width: 768px) {
+    header .container {
         flex-direction: column;
-        justify-content: space-between;
+        gap: 12px;
     }
-
-    .pricing-item.featured {
-        border-color: var(--primary-color);
-        box-shadow: var(--shadow-md), var(--shadow-gold);
-        position: relative;
-        background-color: rgba(26, 38, 70, 0.85);
-    }
-
-    .pricing-item.featured::before {
-        content: 'Mais Recomendado';
-        position: absolute;
-        top: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(135deg, var(--primary-color) 0%, #b8860b 100%);
-        color: #0b1021;
-        padding: 4px 15px;
-        font-size: 0.75rem;
-        font-weight: bold;
-        border-radius: 20px;
-        text-transform: uppercase;
-    }
-
-    .price {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: var(--primary-color);
-        margin: 15px 0;
-        text-shadow: 0 0 10px rgba(226, 176, 55, 0.3);
-    }
-
-    .final-cta {
-        padding: 80px 0;
-        background: linear-gradient(135deg, var(--bg-deep-blue) 0%, var(--bg-mid-blue) 100%);
-        border-top: 1px solid rgba(226, 176, 55, 0.2);
-        border-bottom: 1px solid rgba(226, 176, 55, 0.2);
-        color: var(--white);
-        text-align: center;
-    }
-
-    .cta-buttons {
-        display: flex;
+    nav ul {
         flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
-        gap: 20px;
-        margin-top: 30px;
+        gap: 12px 18px;
     }
+    .steps-grid { grid-template-columns: 1fr; }
+    .hero-highlights-banner { grid-template-columns: 1fr; }
+    .contact-form { padding: 25px 20px; }
+}
 
+@media (max-width: 480px) {
     .btn-whatsapp-group {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 16px 32px;
-        background: rgba(255, 255, 255, .03);
-        border: 2px solid #e2b037;
-        border-radius: 60px;
-        color: #fff;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
+        min-width: 100%;
+        padding: 18px 20px;
     }
-
-    .btn-whatsapp-group:hover {
-        background: var(--primary-color);
-        color: #0b1021;
-        box-shadow: 0 0 30px rgba(226, 176, 55, 0.6);
+    .whatsapp-float span { display: none; }
+    .whatsapp-float {
+        padding: 14px;
+        border-radius: 50%;
+        bottom: 20px;
+        right: 20px;
     }
-
-    /* ==========================================================================
-       10. CONTATO & FAQ
-       ========================================================================== */
-    .contact {
-        padding: 90px 0;
-        background-color: rgba(17, 26, 51, 0.6);
-    }
-
-    .contact-form {
-        max-width: 600px;
-        margin: 30px auto 0;
-        background-color: var(--bg-card-blue);
-        padding: 40px;
-        border-radius: var(--radius);
-        border: 1px solid rgba(226, 176, 55, 0.2);
-        box-shadow: var(--shadow-md);
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        color: var(--white);
-    }
-
-    .form-group input, .form-group textarea {
-        width: 100%;
-        padding: 12px 15px;
-        background-color: rgba(11, 16, 33, 0.7);
-        border: 1px solid rgba(226, 176, 55, 0.3);
-        border-radius: 6px;
-        color: var(--white);
-        font-family: inherit;
-        transition: var(--transition);
-    }
-
-    .form-group input:focus, .form-group textarea:focus {
-        outline: none;
-        border-color: var(--primary-color);
-        box-shadow: 0 0 10px rgba(226, 176, 55, 0.3);
-    }
-
-    .faq {
-        padding: 90px 0;
-    }
-
-    .faq-container {
-        max-width: 800px;
-        margin: 30px auto 0;
-    }
-
-    .faq-item {
-        background-color: var(--bg-card-blue);
-        margin-bottom: 15px;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-sm);
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-left: 4px solid var(--primary-color);
-    }
-
-    .faq-question {
-        width: 100%;
-        background: none;
-        border: none;
-        text-align: left;
-        padding: 20px;
-        font-size: 1.05rem;
-        font-weight: 600;
-        color: var(--white);
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .faq-question::after {
-        content: '+';
-        font-size: 1.4rem;
-        color: var(--primary-color);
-        transition: transform 0.3s ease;
-        flex-shrink: 0;
-    }
-
-    .faq-item.active .faq-question::after {
-        transform: rotate(45deg);
-    }
-
-    .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-in-out, padding 0.3s ease;
-        padding: 0 20px;
-        color: var(--text-muted);
-    }
-
-    .faq-item.active .faq-answer {
-        max-height: 1000px;
-        padding: 0 20px 20px 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    footer {
-        background: #070a14;
-        color: var(--text-muted);
-        text-align: center;
-        padding: 25px 20px;
-        font-size: 0.9rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    footer a { color: var(--primary-color); }
-
-    /* ==========================================================================
-       11. RESPONSIVIDADE
-       ========================================================================== */
-    @media (max-width: 992px) {
-        .hero-content, .therapist-grid, .pricing-grid {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }
-        .therapist-text {
-            text-align: center;
-        }
-        .hero-text h1 { font-size: 2.2rem; }
-        .steps-grid { grid-template-columns: 1fr 1fr; }
-        .hero-image { margin-top: 20px; }
-        .therapist-quote { text-align: left; }
-    }
-
-    @media (max-width: 768px) {
-        header .container { flex-direction: column; gap: 12px; }
-        nav ul { flex-wrap: wrap; justify-content: center; gap: 12px 18px; }
-        .steps-grid { grid-template-columns: 1fr; }
-    }
-</style>
+    .btn-large { width: 100%; text-align: center; }
+}
