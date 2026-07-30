@@ -129,7 +129,7 @@ ul {
    3. CABEÇALHO & NAVEGAÇÃO (PREMIUM)
    ========================================================================== */
 header {
-    position: relative;          
+    position: relative;         
     width: 100%;       
     z-index: 1000;     
     padding: 18px 0;
@@ -330,11 +330,11 @@ nav a.active::after {
     height: auto;
     display: block;
     margin: 0 auto;
-    border: none !important;      
+    border: none !important;        
     box-shadow: none !important;
-   border-radius: 0;
-    margin-bottom: -50px
-   position: relative;
+    border-radius: 0;
+    margin-bottom: -50px; /* Ponto e vírgula corrigido */
+    position: relative;   /* Ponto e vírgula corrigido */
     z-index: 2;
 }
 
@@ -473,8 +473,9 @@ nav a.active::after {
 }
 
 .steps-grid {
+    /* Otimizado para se adaptar melhor a telas menores que 4 colunas fixas */
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     margin-top: 65px;
 }
@@ -508,155 +509,88 @@ nav a.active::after {
 /* ==========================================================================
    7. SEÇÃO DEPOIMENTOS
    ========================================================================== */
-
-.testimonials{
-
-    position:relative;
-
-    padding:120px 0 80px;
-
-    overflow:hidden;
-
+.testimonials {
+    position: relative;
+    padding: 120px 0 80px;
+    overflow: hidden;
 }
 
-.testimonials::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
+.testimonials::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background:
-
-    radial-gradient(circle at top right,
-    rgba(226,176,55,.08),
-    transparent 35%),
-
-    radial-gradient(circle at bottom left,
-    rgba(88,94,255,.05),
-    transparent 45%);
-
-    pointer-events:none;
-
+        radial-gradient(circle at top right, rgba(226, 176, 55, .08), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(88, 94, 255, .05), transparent 45%);
+    pointer-events: none;
 }
 
-.testimonials-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-    gap:35px;
-
-    margin-top:50px;
-
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
 }
 
-.testimonial-item{
-
-    position:relative;
-
-    background:linear-gradient(180deg,#162340,#111A33);
-
-    padding:35px;
-
-    border-radius:18px;
-
-    border:1px solid rgba(226,176,55,.12);
-
-    transition:.45s ease;
-
-    overflow:hidden;
-
+.testimonial-item {
+    position: relative;
+    background: linear-gradient(180deg, #162340, #111A33);
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid rgba(226, 176, 55, .12);
+    transition: .45s ease;
+    overflow: hidden;
 }
 
-.testimonial-item::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:160px;
-
-    height:160px;
-
-    border-radius:50%;
-
-    background:rgba(226,176,55,.05);
-
-    top:-70px;
-
-    right:-70px;
-
+.testimonial-item::before {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: rgba(226, 176, 55, .05);
+    top: -70px;
+    right: -70px;
 }
 
-.testimonial-item:hover{
-
-    transform:translateY(-8px);
-
-    border-color:rgba(226,176,55,.45);
-
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.35),
-    0 0 35px rgba(226,176,55,.12);
-
+.testimonial-item:hover {
+    transform: translateY(-8px);
+    border-color: rgba(226, 176, 55, .45);
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, .35),
+        0 0 35px rgba(226, 176, 55, .12);
 }
 
-.testimonial-image{
-
-    width:90px;
-
-    height:90px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    overflow:hidden;
-
-    border:3px solid var(--primary-color);
-
-    margin-bottom:20px;
-
+.testimonial-image {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 20px auto; /* Escrito de forma mais limpa */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
 }
 
-.testimonial-image img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.stars{
-
-    color:var(--primary-color);
-
-    font-size:1.15rem;
-
-    margin:15px 0;
-
+.stars {
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    margin: 15px 0;
 }
 
-.testimonial-item p{
-
-    line-height:1.8;
-
-    color:#d9dde8;
-
+.testimonial-item p {
+    line-height: 1.8;
+    color: #d9dde8;
 }
 
-.testimonial-item h4{
-
-    margin-top:20px;
-
-    color:#fff;
-
+.testimonial-item h4 {
+    margin-top: 20px;
+    color: #fff;
 }
-
 /* ==========================================================================
    8. QUEM É O TERAPEUTA (Padronizado com o padrão do site)
    ========================================================================== */
