@@ -697,16 +697,17 @@ nav a.active::after {
     background: radial-gradient(circle, rgba(83,98,255,.05), transparent 70%);
 }
 
-/* Ajustado para ser flexível em telas médias */
 .therapist-grid {
+    .therapist-grid {
     position: relative;
     display: grid;
     grid-template-columns: minmax(300px, 380px) 1fr;
     gap: 50px;
     align-items: start;
     z-index: 2;
+    max-width: 1140px; 
+    margin: 0 auto;    
 }
-
 .therapist-image {
     position: relative;
     width: 100%;
