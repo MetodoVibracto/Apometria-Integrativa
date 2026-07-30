@@ -661,18 +661,20 @@ nav a.active::after {
    8. QUEM É O TERAPEUTA
    ========================================================================== */
 
+/* ==========================================================================
+   8. QUEM É O TERAPEUTA (Padronizado com o padrão do site)
+   ========================================================================== */
+
 .therapist {
     position: relative;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    padding-left: 5%;    
-    padding-right: 5%;   
+    padding: 110px 0; /* Padronizado com as seções .what-is e .steps */
     overflow: hidden;
     background: linear-gradient(
         180deg,
         rgba(8,12,24,.95),
         rgba(13,21,39,1)
     );
+    border-top: 1px solid var(--border-color); /* Mantém o padrão visual entre seções */
 }
 
 .therapist::before {
@@ -697,17 +699,16 @@ nav a.active::after {
     background: radial-gradient(circle, rgba(83,98,255,.05), transparent 70%);
 }
 
+/* O grid agora se encaixa perfeitamente dentro da .container do HTML */
 .therapist-grid {
-    .therapist-grid {
     position: relative;
     display: grid;
     grid-template-columns: minmax(300px, 380px) 1fr;
     gap: 50px;
     align-items: start;
     z-index: 2;
-    max-width: 1140px; 
-    margin: 0 auto;    
 }
+
 .therapist-image {
     position: relative;
     width: 100%;
@@ -715,19 +716,17 @@ nav a.active::after {
 
 .image-frame {
     position: relative;
-    border-radius: 22px;
+    border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 
-        0 35px 80px rgba(0,0,0,.45),
-        0 0 45px rgba(226,176,55,.08);
+    box-shadow: var(--shadow-card);
 }
 
 .image-frame::before {
     content: "";
     position: absolute;
     inset: 15px;
-    border: 1px solid rgba(226,176,55,.25);
-    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: calc(var(--radius) - 2px);
     z-index: 2;
     pointer-events: none;
 }
@@ -737,8 +736,8 @@ nav a.active::after {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 22px;
-    transition: .6s;
+    border-radius: var(--radius);
+    transition: var(--transition);
 }
 
 .therapist-image:hover img {
@@ -747,17 +746,17 @@ nav a.active::after {
 
 .section-tag {
     display: inline-block;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
     color: var(--primary-color);
-    font-size: .82rem;
-    letter-spacing: 3px;
+    font-size: .85rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 700;
 }
 
 .therapist-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 25px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
     line-height: 1.2;
 }
 
@@ -766,16 +765,17 @@ nav a.active::after {
 }
 
 .section-subtitle {
-    color: #c8cedd;
-    margin-bottom: 40px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
     font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 .therapist-content p {
-    color: #d9dde8;
-    font-size: 1.05rem;
+    color: var(--text-light);
+    font-size: 1rem;
     line-height: 1.8;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
 
 .therapist-content strong {
@@ -783,26 +783,27 @@ nav a.active::after {
     font-weight: 700;
 }
 
-/* Chips */
+/* Chips / Habilidades */
 .therapist-skills {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin: 30px 0;
+    margin: 25px 0;
 }
 
 .therapist-skills span {
-    padding: 10px 18px;
+    padding: 8px 16px;
     border-radius: 30px;
-    border: 1px solid rgba(226,176,55,.30);
-    background: rgba(226,176,55,.08);
-    color: #fff;
-    transition: .35s;
+    border: 1px solid var(--border-color);
+    background: rgba(212, 175, 55, 0.08);
+    color: var(--text-light);
+    font-size: 0.9rem;
+    transition: var(--transition);
 }
 
 .therapist-skills span:hover {
     background: var(--primary-color);
-    color: #111;
+    color: #0d1322;
 }
 
 /* Propósito */
@@ -811,13 +812,12 @@ nav a.active::after {
     gap: 20px;
     margin-top: 30px;
     padding: 25px;
-    border-radius: 18px;
+    border-radius: var(--radius);
     border-left: 4px solid var(--primary-color);
-    background: linear-gradient(
-        135deg,
-        rgba(226,176,55,.08),
-        rgba(255,255,255,.02)
-    );
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .purpose-icon {
@@ -826,50 +826,66 @@ nav a.active::after {
 }
 
 .purpose-box h3 {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
 }
 
 .purpose-box p {
     margin: 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
-/* Cards */
+/* Cards em Grid */
 .therapist-highlights {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    margin-top: 35px;
+    margin-top: 30px;
 }
 
 .highlight-card {
-    background: rgba(255,255,255,.03);
+    background: var(--bg-card);
     padding: 22px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,.06);
-    transition: .35s;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
 }
 
 .highlight-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(226,176,55,.30);
+    box-shadow: var(--shadow-glow);
 }
 
 .highlight-card h4 {
     color: var(--primary-color);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
-/* Botão */
 .therapist-action {
     margin-top: 35px;
 }
 
-/* ==========================================================================
-   REGRA RESPONSIVA (Evita que o layout quebre em telas menores)
-   ========================================================================== */
-@media (max-width: 768px) {
+/* Ajustes Responsivos (Celulares e Tablets) */
+@media (max-width: 992px) {
     .therapist {
-        padding: 60px 20px; /* Reduz o espaço no celular para aproveitar melhor a tela */
+        padding: 80px 0;
+    }
+
+    .therapist-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .therapist-image {
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    .therapist-highlights {
+        grid-template-columns: 1fr;
     }
 }
     .therapist-image {
