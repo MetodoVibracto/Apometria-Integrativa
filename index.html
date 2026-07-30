@@ -508,7 +508,7 @@
 
 .therapist {
     position: relative;
-    padding: 150px 80;
+    padding: 120px 80px; /* Corrigido para 80px com a unidade 'px' */
     overflow: hidden;
     background: linear-gradient(
         180deg,
@@ -539,14 +539,16 @@
     background: radial-gradient(circle, rgba(83,98,255,.05), transparent 70%);
 }
 
-/* Ajustado para ser flexível em telas médias */
+/* Centraliza o conteúdo e limita a largura total */
 .therapist-grid {
     position: relative;
     display: grid;
     grid-template-columns: minmax(300px, 380px) 1fr;
-    gap: 50px;
+    gap: 60px;
     align-items: start;
     z-index: 2;
+    max-width: 1200px; /* Impede que estique demais em telas muito grandes */
+    margin: 0 auto;    /* Centraliza na tela */
 }
 
 .therapist-image {
@@ -706,13 +708,18 @@
 }
 
 /* ==========================================================================
-   REGRA RESPONSIVA (Evita que o layout quebre em telas menores)
+   REGRA RESPONSIVA (Telas de Celular e Tablet)
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .therapist {
-        padding: 60px 20px; /* Reduz o espaço no celular para aproveitar melhor a tela */
+        padding: 60px 24px; /* Reduz a margem lateral no celular para não espremer */
     }
-}
+
+    .therapist-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
     .therapist-image {
         max-width: 360px;
         margin: 0 auto;
