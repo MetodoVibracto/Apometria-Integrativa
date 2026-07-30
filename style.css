@@ -162,98 +162,118 @@
     }
 
     /* ==========================================================================
-       4. HERO (COM FOTO DO TERNO)
-       ========================================================================== */
-    .hero {
-        position: relative;
-        overflow: hidden;
-        padding: 80px 0 60px;
-    }
+   4. HERO (COM FOTO DO TERNO)
+   ========================================================================== */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0 60px;
+    background: transparent;
+    z-index: 1;
+}
 
-    .hero-content {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 40px;
-        align-items: center;
-    }
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+}
 
-    .hero-text h1 {
-        font-size: 2.8rem;
-        line-height: 1.2;
-        margin-bottom: 20px;
-    }
+/* Regra da pílula/tagline em cima do título */
+.hero-tagline {
+    display: inline-block;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    background: rgba(226, 176, 55, 0.1);
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(226, 176, 55, 0.25);
+}
 
-    .hero-text h1 span {
-        color: var(--primary-color);
-        text-shadow: 0 0 18px rgba(226, 176, 55, .35);
-    }
+.hero-text h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .45);
+}
 
-    .hero-text p {
-        font-size: 1.05rem;
-        line-height: 1.75;
-        color: var(--text-color);
-        margin-bottom: 25px;
-    }
+.hero-text h1 span {
+    color: var(--primary-color);
+    text-shadow: 0 0 18px rgba(226, 176, 55, .35);
+}
 
-    .hero-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.hero-text p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
 
-    .hero-image img {
-        width: 100%;
-        max-width: 380px;
-        border-radius: var(--radius);
-        border: 2px solid rgba(226, 176, 55, 0.4);
-        box-shadow: var(--shadow-lg), var(--shadow-gold);
-        object-fit: cover;
-    }
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .hero-highlights-banner {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        margin-top: 50px;
-        padding: 25px;
-        background: var(--bg-card-blue);
-        backdrop-filter: blur(14px);
-        border: 1px solid rgba(226, 176, 55, .18);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-md);
-    }
+.hero-image img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: var(--radius);
+    border: 2px solid rgba(226, 176, 55, 0.4);
+    box-shadow: var(--shadow-lg), var(--shadow-gold);
+    object-fit: cover;
+}
 
-    .highlight-item {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
+.hero-highlights-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 50px;
+    padding: 25px;
+    background: var(--bg-card-blue);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(226, 176, 55, .18);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+}
 
-    .icon-circle {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: rgba(226, 176, 55, .12);
-        border: 1px solid rgba(226, 176, 55, .35);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        color: var(--primary-color);
-        font-size: 1.2rem;
-    }
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-    .highlight-text h4 {
-        color: var(--white);
-        font-size: .95rem;
-        margin-bottom: 3px;
-    }
+.icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(226, 176, 55, .12);
+    border: 1px solid rgba(226, 176, 55, .35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
 
-    .highlight-text p {
-        color: var(--text-muted);
-        font-size: .85rem;
-        margin: 0;
-    }
+.highlight-text h4 {
+    color: var(--white);
+    font-size: .95rem;
+    margin-bottom: 3px;
+}
+
+.highlight-text p {
+    color: var(--text-muted);
+    font-size: .85rem;
+    margin: 0;
+}
 
     /* ==========================================================================
        5. PROBLEMAS E BENEFÍCIOS
