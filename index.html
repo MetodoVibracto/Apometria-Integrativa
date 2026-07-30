@@ -192,103 +192,68 @@
         width: 100%;
     }
 
-    /* ==========================================================================
-       4. HERO
-       ========================================================================== */
-    .hero {
-        position: relative;
-        overflow: hidden;
-        padding: 80px 0 60px;
-        background: transparent;
-        z-index: 1;
-    }
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: 1.2fr .8fr;
-        gap: 40px;
-        align-items: center;
-    }
+    <!-- 2. HERO / CABEÇALHO PRINCIPAL -->
+<section class="hero">
+  <div class="container">
+    
+    <!-- Grid principal: Texto + Imagem -->
+    <div class="hero-content">
+      
+      <div class="hero-text">
+        <span class="hero-tagline">Método Vibracto & Apometria Integrativa</span>
+        <h1>Libere o que te prende e resgate o <span>seu equilíbrio interior</span></h1>
+        <p>Um processo terapêutico profundo para identificar e dissolver bloqueios emocionais, energéticos e espirituais, promovendo clareza, paz e prosperidade em sua vida.</p>
+        
+        <div class="hero-buttons" style="margin-top: 25px;">
+          <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20sess%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn btn-large">
+            Agendar minha sessão
+          </a>
+        </div>
+      </div>
 
-    .hero-text h1 {
-        font-size: 2.8rem;
-        line-height: 1.2;
-        margin-bottom: 20px;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, .45);
-    }
+      <div class="hero-image">
+        <img src="adauto-terno.jpg" alt="Adauto Santana - Terapeuta Integrativo" />
+      </div>
 
-    .hero-text h1 span {
-        color: var(--primary-color);
-        text-shadow: 0 0 18px rgba(226, 176, 55, .35);
-    }
+    </div>
 
-    .hero-text p {
-        font-size: 1.05rem;
-        line-height: 1.75;
-        color: var(--text-color);
-        margin-bottom: 25px;
-    }
+    <!-- Banner de Destaques / Diferenciais (Parte Inferior da Hero) -->
+    <div class="hero-highlights-banner">
+      <div class="highlight-item">
+        <div class="icon-circle">✨</div>
+        <div class="highlight-text">
+          <h4>100% Online</h4>
+          <p>Atendimento no conforto e sigilo do seu lar</p>
+        </div>
+      </div>
 
-    .hero-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+      <div class="highlight-item">
+        <div class="icon-circle">🛡️</div>
+        <div class="highlight-text">
+          <h4>Método Vibracto</h4>
+          <p>Abordagem autoral focada em causas profundas</p>
+        </div>
+      </div>
 
-    .hero-image img {
-        width: 100%;
-        max-width: 380px;
-        border-radius: var(--radius);
-        border: 2px solid rgba(226, 176, 55, 0.4);
-        box-shadow: var(--shadow-lg), var(--shadow-gold);
-        object-fit: cover;
-    }
+      <div class="highlight-item">
+        <div class="icon-circle">📜</div>
+        <div class="highlight-text">
+          <h4>Relatório Completo</h4>
+          <p>Áudio/Texto explicativo ao final da sessão</p>
+        </div>
+      </div>
 
-    .hero-highlights-banner {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        margin-top: 50px;
-        padding: 25px;
-        background: var(--bg-card-blue);
-        backdrop-filter: blur(14px);
-        border: 1px solid rgba(226, 176, 55, .18);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-md);
-    }
+      <div class="highlight-item">
+        <div class="icon-circle">⭐</div>
+        <div class="highlight-text">
+          <h4>+15 Anos</h4>
+          <p>De experiência em transformação humana</p>
+        </div>
+      </div>
+    </div>
 
-    .highlight-item {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .icon-circle {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: rgba(226, 176, 55, .12);
-        border: 1px solid rgba(226, 176, 55, .35);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        color: var(--primary-color);
-        font-size: 1.2rem;
-    }
-
-    .highlight-text h4 {
-        color: var(--white);
-        font-size: .95rem;
-        margin-bottom: 3px;
-    }
-
-    .highlight-text p {
-        color: var(--text-muted);
-        font-size: .85rem;
-        margin: 0;
-    }
+  </div>
+</section>
 
     /* ==========================================================================
        5. SEÇÃO PROBLEMAS E BENEFÍCIOS
