@@ -841,6 +841,34 @@ nav a.active::after {
 
 }
 
+/* =====================================================
+   Divisor Dourado
+===================================================== */
+
+.gold-divider{
+
+    width:90px;
+
+    height:4px;
+
+    margin:28px 0 40px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--primary-color),
+        #F6D56A,
+        var(--primary-color),
+        transparent
+    );
+
+    box-shadow:
+        0 0 18px rgba(226,176,55,.35);
+
+}
+
 .therapist-content p{
 
     color:#d9dde8;
@@ -920,6 +948,28 @@ nav a.active::after {
     rgba(226,176,55,.08),
     rgba(255,255,255,.02)
     );
+
+}
+
+/* =====================================================
+   Assinatura
+===================================================== */
+
+.purpose-signature{
+
+    margin-top:20px;
+
+    text-align:right;
+
+    color:var(--primary-color);
+
+    font-style:italic;
+
+    font-size:.95rem;
+
+    letter-spacing:1px;
+
+    opacity:.9;
 
 }
 
