@@ -356,131 +356,137 @@
     }
 
     /* ==========================================================================
-       7. DEPOIMENTOS (COM FOTOS DAS PESSOAS)
-       ========================================================================== */
-    .testimonials {
-        padding: 90px 0;
-    }
+   7. DEPOIMENTOS E TERAPEUTA
+   ========================================================================== */
+.testimonials {
+    padding: 90px 0;
+}
 
-    .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-        margin-top: 40px;
-    }
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
 
-    .testimonial-item {
-        background-color: var(--bg-card-blue);
-        padding: 35px 25px;
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-sm);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        border: 1px solid rgba(226, 176, 55, 0.15);
-        transition: var(--transition);
-    }
+.testimonial-item {
+    background-color: var(--bg-card-blue);
+    padding: 35px 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(226, 176, 55, 0.15);
+    transition: var(--transition);
+}
 
-    .testimonial-item:hover {
-        box-shadow: var(--shadow-md);
-        border-color: var(--primary-color);
-        transform: translateY(-4px);
-    }
+.testimonial-item:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+    transform: translateY(-4px);
+}
 
-    /* Estilo adicionado para as fotos das pessoas nos depoimentos */
-    .testimonial-avatar {
-        width: 75px;
-        height: 75px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 12px;
-        border: 2px solid var(--primary-color);
-        box-shadow: 0 0 12px rgba(226, 176, 55, 0.35);
-    }
+/* --- REGRA QUE FALTAVA: Controla o tamanho da foto dos clientes --- */
+.testimonial-item img,
+.testimonial-avatar {
+    width: 75px !important;
+    height: 75px !important;
+    max-width: 75px !important;
+    max-height: 75px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    margin-bottom: 12px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 12px rgba(226, 176, 55, 0.35);
+    display: block;
+}
 
-    .stars {
-        color: var(--primary-color);
-        margin: 8px 0;
-        font-size: 1.1rem;
-    }
+.stars {
+    color: var(--primary-color);
+    margin: 8px 0;
+    font-size: 1.1rem;
+}
 
     /* ==========================================================================
        8. SOBRE O TERAPEUTA (TEXTO COMPLETO E FORMATADO)
        ========================================================================== */
-    .therapist {
-        padding: 90px 0;
-        background-color: rgba(17, 26, 51, 0.6);
-    }
+    /* --- SEÇÃO SOBRE O TERAPEUTA --- */
+.therapist {
+    padding: 90px 0;
+    background-color: rgba(17, 26, 51, 0.6);
+}
 
-    .therapist-grid {
-        display: grid;
-        grid-template-columns: 0.8fr 1.2fr;
-        gap: 50px;
-        align-items: center;
-    }
+.therapist-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
 
-    .therapist-image img {
-        width: 100%;
-        max-width: 360px;
-        border-radius: var(--radius);
-        border: 2px solid rgba(226, 176, 55, 0.3);
-        box-shadow: var(--shadow-lg), var(--shadow-gold);
-        display: block;
-        margin: 0 auto;
-        object-fit: cover;
-    }
+.therapist-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: var(--radius);
+    border: 2px solid rgba(226, 176, 55, 0.3);
+    box-shadow: var(--shadow-lg), var(--shadow-gold);
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
 
-    .therapist-text {
-        text-align: left;
-    }
+/* Estilização do texto do Terapeuta */
+.therapist-text {
+    text-align: left;
+}
 
-    .therapist-subtitle {
-        color: var(--primary-color);
-        font-size: 0.95rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: block;
-        margin-bottom: 5px;
-    }
+.therapist-subtitle {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
 
-    .therapist-text h2 {
-        color: var(--white);
-        font-size: 2.2rem;
-        margin-bottom: 5px;
-    }
+.therapist-text h2 {
+    color: var(--white);
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
 
-    .therapist-intro {
-        font-size: 1.1rem;
-        color: var(--primary-color);
-        font-weight: 600;
-        margin-bottom: 20px;
-    }
+.therapist-intro {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
 
-    .therapist-text p {
-        font-size: 0.98rem;
-        line-height: 1.7;
-        color: var(--text-muted);
-        margin-bottom: 15px;
-    }
+.therapist-text p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
 
-    .therapist-text strong {
-        color: var(--white);
-    }
+.therapist-text strong {
+    color: var(--white);
+}
 
-    .therapist-quote {
-        font-style: italic;
-        color: var(--primary-color);
-        font-size: 1.05rem;
-        line-height: 1.6;
-        margin-top: 25px;
-        padding: 15px 20px;
-        background: rgba(226, 176, 55, 0.08);
-        border-left: 4px solid var(--primary-color);
-        border-radius: 0 8px 8px 0;
-    }
+.therapist-quote {
+    font-style: italic;
+    color: var(--primary-color);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-top: 25px;
+    padding: 15px 20px;
+    background: rgba(226, 176, 55, 0.08);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 8px 8px 0;
+}
 
     /* ==========================================================================
        9. PREÇOS & CTA
