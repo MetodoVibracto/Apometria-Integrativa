@@ -294,9 +294,9 @@ nav a.active::after {
 }
 
 .hero-text p {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--text-color);
+    font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
 }
 
 .hero-image {
@@ -326,16 +326,11 @@ nav a.active::after {
 
 .hero-image img {
     width: 100%;
-    max-width: 500px;
-    height: auto;
+    max-width: 450px;
     display: block;
-    margin: 0 auto;
+    margin: -140px auto 0;
     border: none !important;      
     box-shadow: none !important;
-    border-radius: 0;
-    position: relative;
-    z-index: 2;
-   top:0
 }
 
 .hero-highlights-banner {
