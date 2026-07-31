@@ -698,10 +698,10 @@
         }
 
         /* ==========================================================================
-   12. RESPONSIVIDADE
+   12. RESPONSIVIDADE (Menu Hambúrguer + Correção de Fundo)
    ========================================================================== */
 
-/* Botão hambúrguer fica ESCONDIDO por padrão no Computador */
+/* Botão hambúrguer fica ESCONDIDO no Computador */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -712,7 +712,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .menu-toggle .bar {
@@ -738,47 +738,64 @@
 }
 
 @media (max-width: 768px) {
-    /* Ajusta a barra do cabeçalho */
-    header .container {
-        display: flex;
-        flex-direction: row; /* Mantém logo de um lado e botão do outro */
-        justify-content: space-between;
-        align-items: center;
+    /* Fix para manter a barra superior organizada e visível */
+    header {
         position: relative;
+        z-index: 999;
+        background-color: #080b12; /* Mantém o fundo escuro só na barra */
     }
 
-    /* Mostra o ícone de hambúrguer no celular */
+    header .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    /* Mostra o hambúrguer no mobile */
     .menu-toggle {
         display: flex;
     }
 
-    /* ESCONDE OS LINKS no celular por padrão */
+    /* ESCONDE OS LINKS no celular por padrão sem quebrar a tela */
     nav#nav-menu {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #0b0f19; /* Cor de fundo escura do seu site */
+        background-color: #080b12;
         padding: 20px 0;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        z-index: 99;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+        z-index: 999;
     }
 
     nav#nav-menu ul {
+        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 15px;
+        margin: 0;
+        padding: 0;
     }
 
-    /* Classe ativada via JS quando você clica no botão ☰ */
+    /* Abre o menu via Javascript */
     nav#nav-menu.active {
         display: block;
     }
 
-    /* Esconde o botão dourado "Quero minha sessão" dentro do cabeçalho no celular para não empurrar a tela */
-    header .btn-header {
-        display: none;
+    /* Reduz o brilho azul gigante no mobile para NÃO cobrir os textos */
+    .hero::before {
+        width: 280px;
+        height: 280px;
+        top: 10%;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .hero-image img {
+        margin: 20px auto 0; /* Ajusta a imagem que estava subindo -140px */
     }
 
     .steps-grid { grid-template-columns: 1fr; }
@@ -800,7 +817,6 @@
     }
     .btn-large { width: 100%; text-align: center; }
 }
-
    <!-- Cabeçalho -->
 <header>
     <div class="container header-container">
