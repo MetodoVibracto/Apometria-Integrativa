@@ -48,7 +48,7 @@
         }
 
         /* ==========================================================================
-           2. COMPONENTES REUTILIZÁVEIS E HEADER
+           2. COMPONENTES REUTILIZÁVEIS
            ========================================================================== */
         .container {
             max-width: 1200px;
@@ -100,6 +100,9 @@
             position: relative;
         }
 
+        /* ==========================================================================
+           3. CABEÇALHO / NAVBAR
+           ========================================================================== */
         header {
             background-color: rgba(10, 14, 23, 0.95);
             backdrop-filter: blur(10px);
@@ -141,10 +144,10 @@
         }
 
         /* ==========================================================================
-           3. SEÇÕES HERO, PROBLEMAS & IDENTIFICAÇÃO
+           4. SEÇÃO HERO
            ========================================================================== */
         .hero {
-            padding: 80px 0 0;
+            padding: 90px 0 60px;
             background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 60%);
         }
 
@@ -152,7 +155,7 @@
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
-            align-items: flex-end;
+            align-items: center;
         }
 
         .hero-text h1 {
@@ -169,12 +172,75 @@
         .hero-text p {
             font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 25px;
+            margin-bottom: -60px;
         }
 
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border: none;
+            box-shadow: none;
+            border: 1px solid var(--border-color);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .hero-highlights-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 60px;
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-circle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-circle svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--primary-color);
+        }
+
+        .highlight-text h4 {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .highlight-text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           5. SEÇÃO PROBLEMAS & IDENTIFICAÇÃO
+           ========================================================================== */
         .problems {
             padding: 80px 0;
             text-align: center;
+        }
+
+        .problems h2 {
+            max-width: 800px;
+            margin: 0 auto 15px;
         }
 
         .problems-grid {
@@ -199,6 +265,11 @@
             box-shadow: var(--shadow-glow);
         }
 
+        .problem-item p:first-child {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
         .identification {
             padding: 80px 0;
             background-color: var(--bg-card-alt);
@@ -218,6 +289,9 @@
             margin-bottom: 12px;
             border-radius: var(--radius);
             border-left: 4px solid var(--primary-color);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-right: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             color: var(--text-light);
             font-weight: 500;
         }
@@ -238,30 +312,30 @@
 
         .steps {
             padding: 110px 0;
-            background-color: var(--bg-card-alt, rgba(17, 26, 51, 0.6));
-            border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-            border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+            background-color: var(--bg-card-alt);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             margin-top: 65px;
         }
 
         .step-item {
-            background-color: var(--bg-card, var(--bg-card-blue));
+            background-color: var(--bg-card);
             padding: 30px 20px;
             border-radius: var(--radius);
-            border: 1px solid var(--border-color, rgba(226, 176, 55, 0.15));
+            border: 1px solid var(--border-color);
             position: relative;
             transition: var(--transition);
         }
 
         .step-item:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-glow, var(--shadow-md));
+            box-shadow: var(--shadow-glow);
         }
 
         .step-number {
@@ -275,67 +349,43 @@
         }
 
         /* ==========================================================================
-           7. SEÇÃO DEPOIMENTOS
+           7. SEÇÃO DEPOIMENTOS & TERAPEUTA
            ========================================================================== */
         .testimonials {
-            position: relative;
-            padding: 120px 0 80px;
-            overflow: hidden;
-        }
-
-        .testimonials::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at top right, rgba(226, 176, 55, .08), transparent 35%),
-                radial-gradient(circle at bottom left, rgba(88, 94, 255, .05), transparent 45%);
-            pointer-events: none;
+            padding: 80px 0;
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .testimonial-item {
-            position: relative;
-            background: linear-gradient(180deg, #162340, #111A33);
-            padding: 35px;
-            border-radius: 18px;
-            border: 1px solid rgba(226, 176, 55, .12);
-            transition: .45s ease;
-            overflow: hidden;
-        }
-
-        .testimonial-item::before {
-            content: "";
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: rgba(226, 176, 55, .05);
-            top: -70px;
-            right: -70px;
+            background-color: var(--bg-card);
+            padding: 35px 25px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: var(--transition);
         }
 
         .testimonial-item:hover {
-            transform: translateY(-8px);
-            border-color: rgba(226, 176, 55, .45);
-            box-shadow:
-                0 25px 60px rgba(0, 0, 0, .35),
-                0 0 35px rgba(226, 176, 55, .12);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
         }
 
         .testimonial-image {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 20px;
+            width: 85px;
+            height: 85px;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid var(--primary-color);
+            margin-bottom: 15px;
+            border: 2px solid var(--primary-color);
         }
 
         .testimonial-image img {
@@ -345,225 +395,34 @@
         }
 
         .stars {
-            color: var(--primary-color);
-            font-size: 1.15rem;
-            margin: 15px 0;
-        }
-
-        .testimonial-item p {
-            line-height: 1.8;
-            color: #d9dde8;
-        }
-
-        .testimonial-item h4 {
-            margin-top: 20px;
-            color: #fff;
-        }
-
-        /* ==========================================================================
-           8. QUEM É O TERAPEUTA
-           ========================================================================== */
-        .therapist {
-            position: relative;
-            padding: 110px 0;
-            overflow: hidden;
-            background: linear-gradient(
-                180deg,
-                rgba(8,12,24,.95),
-                rgba(13,21,39,1)
-            );
-            border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-        }
-
-        .therapist::before {
-            content: "";
-            position: absolute;
-            width: 700px;
-            height: 700px;
-            border-radius: 50%;
-            left: -280px;
-            top: -120px;
-            background: radial-gradient(circle, rgba(226,176,55,.08), transparent 70%);
-        }
-
-        .therapist::after {
-            content: "";
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            right: -250px;
-            bottom: -200px;
-            background: radial-gradient(circle, rgba(83,98,255,.05), transparent 70%);
-        }
-
-        .therapist-grid {
-            position: relative;
-            display: grid;
-            grid-template-columns: minmax(300px, 380px) 1fr;
-            gap: 50px;
-            align-items: start;
-            z-index: 2;
-        }
-
-        .therapist-image {
-            position: relative;
-            width: 100%;
-        }
-
-        .image-frame {
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-card, var(--shadow-sm));
-        }
-
-        .image-frame::before {
-            content: "";
-            position: absolute;
-            inset: 15px;
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
-            border-radius: calc(var(--radius) - 2px);
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .therapist-image img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: var(--radius);
-            transition: var(--transition);
-        }
-
-        .therapist-image:hover img {
-            transform: scale(1.03);
-        }
-
-        .section-tag {
-            display: inline-block;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            font-size: .85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .therapist-content h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .therapist-content h2 span {
-            color: var(--primary-color);
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        .therapist-content p {
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .therapist-content strong {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .therapist-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 25px 0;
-        }
-
-        .therapist-skills span {
-            padding: 8px 16px;
-            border-radius: 30px;
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
-            background: rgba(212, 175, 55, 0.08);
-            color: var(--text-light);
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .therapist-skills span:hover {
-            background: var(--primary-color);
-            color: #0d1322;
-        }
-
-        .purpose-box {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-            padding: 25px;
-            border-radius: var(--radius);
-            border-left: 4px solid var(--primary-color);
-            background: var(--bg-card, var(--bg-card-blue));
-            border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-            border-right: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-            border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-        }
-
-        .purpose-icon {
-            font-size: 2rem;
-            color: var(--primary-color);
-        }
-
-        .purpose-box h3 {
-            margin-bottom: 8px;
+            color: #f39c12;
+            margin: 8px 0;
             font-size: 1.1rem;
         }
 
-        .purpose-box p {
-            margin: 0;
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .therapist {
+            padding: 80px 0;
+            background-color: var(--bg-card-alt);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .therapist-highlights {
+        .therapist-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            align-items: center;
         }
 
-        .highlight-card {
-            background: var(--bg-card, var(--bg-card-blue));
-            padding: 22px;
+        .therapist-image img {
+            max-width: 100%;
             border-radius: var(--radius);
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-            box-shadow: var(--shadow-card, var(--shadow-sm));
-            transition: var(--transition);
-        }
-
-        .highlight-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-glow, var(--shadow-gold));
-        }
-
-        .highlight-card h4 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-
-        .therapist-action {
-            margin-top: 35px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
         }
 
         /* ==========================================================================
-           9. PREÇOS & CTA FINAL
+           8. PREÇOS & CTA FINAL
            ========================================================================== */
         .pricing {
             padding: 80px 0;
@@ -580,10 +439,10 @@
         }
 
         .pricing-item {
-            background-color: var(--bg-card, var(--bg-card-blue));
+            background-color: var(--bg-card);
             padding: 40px 30px;
             border-radius: var(--radius);
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+            border: 1px solid var(--border-color);
             text-align: center;
             transition: var(--transition);
             display: flex;
@@ -593,7 +452,7 @@
 
         .pricing-item.featured {
             border: 2px solid var(--primary-color);
-            box-shadow: var(--shadow-glow, var(--shadow-gold));
+            box-shadow: var(--shadow-glow);
             position: relative;
         }
 
@@ -621,8 +480,8 @@
 
         .final-cta {
             padding: 90px 0;
-            background: linear-gradient(135deg, var(--bg-card-alt, #111a33) 0%, var(--bg-deep, #0a0f1d) 100%);
-            border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+            background: linear-gradient(135deg, var(--bg-card-alt) 0%, var(--bg-deep) 100%);
+            border-top: 1px solid var(--border-color);
             color: var(--text-light);
             text-align: center;
         }
@@ -658,27 +517,27 @@
         .btn-whatsapp-group:hover {
             background-color: var(--primary-color);
             color: #0d1322;
-            box-shadow: var(--shadow-glow, var(--shadow-gold));
+            box-shadow: var(--shadow-glow);
         }
 
         /* ==========================================================================
-           10. CONTATO & FAQ
+           9. CONTATO & FAQ
            ========================================================================== */
         .contact {
             padding: 80px 0;
-            background-color: var(--bg-card-alt, rgba(17, 26, 51, 0.6));
-            border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-            border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+            background-color: var(--bg-card-alt);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .contact-form {
             max-width: 600px;
             margin: 30px auto 0;
-            background-color: var(--bg-card, var(--bg-card-blue));
+            background-color: var(--bg-card);
             padding: 40px;
             border-radius: var(--radius);
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
-            box-shadow: var(--shadow-card, var(--shadow-sm));
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
         }
 
         .form-group {
@@ -722,11 +581,11 @@
         }
 
         .faq-item {
-            background-color: var(--bg-card, var(--bg-card-blue));
+            background-color: var(--bg-card);
             margin-bottom: 15px;
             border-radius: var(--radius);
             overflow: hidden;
-            border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+            border: 1px solid var(--border-color);
             border-left: 4px solid var(--primary-color);
         }
 
@@ -781,762 +640,525 @@
         }
 
         /* ==========================================================================
-           11. RESPONSIVIDADE GERAL
+           10. BOTÃO FLUTUANTE DO WHATSAPP & RODAPÉ
            ========================================================================== */
-        @media (max-width: 992px) {
-            .therapist {
-                padding: 80px 0;
-            }
-
-            .therapist-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .therapist-image {
-                max-width: 360px;
-                margin: 0 auto;
-            }
-
-            .therapist-highlights,
-            .pricing-grid,
-            .what-is-grid {
-                grid-template-columns: 1fr;
-            }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #ffffff;
+            border-radius: 50px;
+            padding: 12px 22px 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
         }
 
-        @media (max-width: 576px) {
-            .cta-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+        }
 
-            .btn-whatsapp-group {
-                width: 100%;
+        .whatsapp-float svg {
+            width: 26px;
+            height: 26px;
+            fill: #ffffff;
+            flex-shrink: 0;
+        }
+
+        footer.footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            background-color: var(--bg-deep);
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* ==========================================================================
+           11. RESPONSIVIDADE
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero-content, .what-is-grid, .therapist-grid, .pricing-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
+            .hero-text h1 { font-size: 2.2rem; }
+            .steps-grid { grid-template-columns: 1fr 1fr; }
+            .therapist-image { max-width: 400px; margin: 0 auto; }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px 18px;
+            }
+            .steps-grid { grid-template-columns: 1fr; }
+            .hero-highlights-banner { grid-template-columns: 1fr; }
+            .contact-form { padding: 25px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float span { display: none; }
+            .whatsapp-float {
+                padding: 14px;
+                border-radius: 50%;
+                bottom: 20px;
+                right: 20px;
+            }
+            .btn-large { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ==========================================
-         CONTEÚDO HTML DA PÁGINA
-         ========================================== -->
-
-    <!-- Preços -->
-    <section class="pricing" id="precos">
+    <!-- Cabeçalho -->
+    <header>
         <div class="container">
-            <h2 style="text-align: center;">Escolha o Melhor Plano para Você</h2>
+            <div class="logo">
+                <img src="logofenixdefogo.png" alt="Método Vibracto Logo">                                           
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">O que é</a></li>
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#terapeuta">Terapeuta</a></li>
+                    <li><a href="#precos">Atendimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#faq">Dúvidas</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn btn-sm">Quero minha sessão</a>
+        </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>MÉTODO VIBRACTO<br><span>Apometria Integrativa</span></h1>
+                    <p>Você sente que faz de tudo para mudar, mas continua repetindo os mesmos padrões.</p>
+                    <p>Relacionamentos difíceis, ansiedade constante, sensação de estagnação e padrões que se repetem podem ter causas mais profundas do que aparentam.</p>
+                    <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn btn-large" style="margin-top: 15px;">Quero iniciar minha sessão</a>
+                </div>
+                <div class="hero-image">
+                    <img src="adauto-terno.png" alt="Adauto Santana">
+                </div>
+            </div>
+
+            <!-- Banner de Destaques -->
+            <div class="hero-highlights-banner">
+                <div class="highlight-item">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <div class="highlight-text">
+                        <h4>Atendimento Online</h4>
+                        <p>Para todo o Brasil</p>
+                    </div>
+                </div>
+
+                <div class="highlight-item">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="highlight-text">
+                        <h4>Sessões Individuais</h4>
+                        <p>Atendimento personalizado</p>
+                    </div>
+                </div>
+
+                <div class="highlight-item">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="highlight-text">
+                        <h4>Relatório Pós-Sessão</h4>
+                        <p>Áudio e orientações</p>
+                    </div>
+                </div>
+
+                <div class="highlight-item">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="highlight-text">
+                        <h4>Método Exclusivo</h4>
+                        <p>Mais de 15 anos de experiência</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Problemas -->
+    <section class="problems">
+        <div class="container">
+            <h2>Como a APOMETRIA pode ajudar você a lidar melhor com os desafios da vida?</h2>
+            <p>Através da Apometria Integrativa, o Método Vibracto ajuda a identificar e transformar bloqueios emocionais, energéticos e espirituais.</p>
+            <p>Promovendo mais equilíbrio, clareza e desenvolvimento pessoal.</p>
+            
+            <div class="problems-grid">
+                <div class="problem-item">
+                    <p>🔓</p>
+                    <h3>Desbloqueios</h3>
+                    <p>Identifique e libere padrões que impedem seu crescimento pessoal.</p>
+                </div>
+                <div class="problem-item">
+                    <p>🌱</p>
+                    <h3>Autonomia</h3>
+                    <p>Fortaleça sua capacidade de fazer escolhas mais conscientes.</p>
+                </div>
+                <div class="problem-item">
+                    <p>⚖️</p>
+                    <h3>Equilíbrio</h3>
+                    <p>Desenvolva mais clareza emocional, foco e leveza para lidar com a vida.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top:40px;">
+                <p>Muitas vezes, não se trata de falta de esforço ou capacidade.</p>
+                <p>Bloqueios emocionais, energéticos e espirituais podem estar influenciando sua vida de maneira silenciosa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Identificação -->
+    <section class="identification">
+        <div class="container">
+            <h2 style="text-align:center;">Você se identifica com alguma destas situações?</h2>
+            <ul class="identification-list">
+                <li>Vive em estado constante de ansiedade ou tensão;</li>
+                <li>Sente-se emocionalmente esgotado;</li>
+                <li>Tem dificuldade para agir apesar de saber o que precisa fazer;</li>
+                <li>Enfrenta desafios recorrentes nos relacionamentos;</li>
+                <li>Guarda sentimentos e encontra dificuldade para se expressar;</li>
+                <li>Tem a sensação de estar desconectado de si mesmo.</li>
+            </ul>
+            <div style="text-align:center; margin-top:30px;">
+                <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn">Quero iniciar minha sessão</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção O Que É -->
+    <section id="sobre" class="what-is">
+        <div class="container">
+            <div class="what-is-grid">
+                <div>
+                    <h2 style="margin-bottom: 25px;">O que é a Apometria Integrativa</h2>
+                    <p style="margin-bottom: 20px; line-height: 1.7;">A Apometria Integrativa é uma abordagem terapêutica integrativa que atua nos aspectos emocionais, energéticos e espirituais do ser humano, buscando compreender as causas profundas de padrões, bloqueios e desequilíbrios que podem influenciar diferentes áreas da vida.</p>
+                    <p style="line-height: 1.7;">Seu propósito é favorecer o autoconhecimento, promover a reorganização interna e ampliar a consciência, auxiliando cada pessoa a viver com mais equilíbrio, clareza e conexão com sua própria essência.</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 15px;">Durante as sessões, trabalhamos:</h3>
+                    <ul style="margin-left: 20px; margin-bottom: 35px; list-style: disc; color: var(--text-muted); line-height: 1.9;">
+                        <li>Padrões repetitivos</li>
+                        <li>Cargas emocionais</li>
+                        <li>Conflitos energéticos</li>
+                        <li>Questões espirituais</li>
+                    </ul>
+
+                    <h3 style="margin-bottom: 15px;">Que podem afetar áreas como:</h3>
+                    <ul style="list-style: none; padding: 0; line-height: 2.2;">
+                        <li>✔ Relacionamentos</li>
+                        <li>✔ Prosperidade</li>
+                        <li>✔ Sensação de leveza</li>
+                        <li>✔ Equilíbrio emocional</li>
+                        <li>✔ Desenvolvimento espiritual</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Passo a Passo -->
+    <section id="como-funciona" class="steps">
+        <div class="container">
+            <h2 style="text-align:center;">Como funciona a sessão? Passo a Passo</h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <span class="step-number">01</span>
+                    <h3>Você escolhe a modalidade</h3>
+                    <p>Sessão de Apometria a distância conforme seu momento.</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">02</span>
+                    <h3>Identificação dos Bloqueios</h3>
+                    <p>Mapeamos padrões, influências e questões que podem estar impactando sua vida.</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">03</span>
+                    <h3>Sessão Apométrica</h3>
+                    <p>Harmonização emocional, energética e espiritual.</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">04</span>
+                    <h3>Integração e Orientações</h3>
+                    <p>Você recebe o relatório de apometria com o que foi trabalhado no seu campo energético.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Depoimentos -->
+    <section id="depoimentos" class="testimonials">
+        <div class="container">
+            <h2 style="text-align:center;">Vidas Transformadas</h2>
+            <div class="testimonials-grid">
+                <!-- Amanda -->
+                <div class="testimonial-item">
+                    <div class="testimonial-image">
+                        <img src="depoimento3.jpg" alt="Amanda R.">
+                    </div>
+                    <h3>Amanda R.</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">27 anos – Praia Grande/SP</p>
+                    <div class="stars">★★★★★</div>
+                    <p>"A cada sessão de Apometria Integrativa, percebo o quanto tenho me libertado de padrões que antes limitavam minha vida. É um processo de transformação que me fortalece e me permite seguir em frente com mais consciência. Sou profundamente grata por essa ferramenta."</p>
+                </div>
+                <!-- Ricardo -->
+                <div class="testimonial-item">
+                    <div class="testimonial-image">
+                        <img src="depoimento2.jpg" alt="Ricardo Mendonça">
+                    </div>
+                    <h3>Ricardo Mendonça</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">42 anos – São Paulo/S.P</p>
+                    <div class="stars">★★★★★</div>
+                    <p>"Percebi mudanças na forma como lidava com situações que antes me causavam sofrimento. Passei a enxergar minha vida com mais clareza e tranquilidade."</p>
+                </div>
+                <!-- Patricia -->
+                <div class="testimonial-item">
+                    <div class="testimonial-image">
+                        <img src="depoimento1.jpg" alt="Patricia Costa">
+                    </div>
+                    <h3>Patricia Costa</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">38 anos – São Paulo/S.P</p>
+                    <div class="stars">★★★★★</div>
+                    <p>"Passei a tomar decisões com mais clareza e confiança, o que refletiu positivamente na minha vida profissional."</p>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:40px;">
+                <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn">Falar com o terapeuta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Terapeuta -->
+    <section id="terapeuta" class="therapist">
+        <div class="container">
+            <div class="therapist-grid">
+                <div class="therapist-image">
+                    <img src="adauto-sueter.jpg" alt="Adauto Santana Terapeuta">
+                </div>
+                <div>
+                    <h2>Quem é Adauto Santana</h2>
+                    <p>Acredito que toda transformação verdadeira começa quando conseguimos compreender aquilo que está além dos sintomas.</p>
+                    <p>Há mais de 15 anos, auxilio pessoas em seus processos de desenvolvimento pessoal, emocional, energético e espiritual. Sua trajetória começou na Dança de Salão, onde o contato com centenas de histórias de vida despertou uma profunda busca pela compreensão dos padrões emocionais, dos relacionamentos e dos bloqueios que impedem muitas pessoas de avançar em suas vidas.</p>
+                    <p>Ao longo dessa jornada, aprofundou seus estudos em Hipnose, Reiki, Apometria e outras abordagens energéticas integrativas.</p>
+                    <p>Da integração desses conhecimentos nasceu o Método Vibracto, uma abordagem exclusiva que une recursos emocionais, energéticos e espirituais para identificar e transformar bloqueios relacionados a relacionamentos, prosperidade, autoestima, equilíbrio emocional e desenvolvimento espiritual.</p>
+                    <p>Atualmente, realiza atendimentos individuais, cursos e vivências transformadoras, oferecendo um espaço de acolhimento, consciência e reconexão com a essência de cada pessoa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Preços -->
+    <section id="precos" class="pricing">
+        <div class="container">
+            <h2 style="text-align:center;">Opções de Atendimento</h2>
             <div class="pricing-grid">
                 <div class="pricing-item">
-                    <h3>Sessão Avulsa</h3>
-                    <p>Atendimento individual focado na sua demanda atual.</p>
-                    <div class="price">R$ 250</div>
-                    <a href="#" class="btn">Agendar Sessão</a>
+                    <div>
+                        <h3>Sessão Avulsa</h3>
+                        <p>Atendimento individual focado na resolução imediata de bloqueios pontuais.</p>
+                        <div class="price">R$ 180,00</div>
+                    </div>
+                    <a href="https://wa.me/5511987063494?text=Quero%20agendar%20uma%20Sess%C3%A3o%20Avulsa." target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="margin-top:20px;">Agendar Sessão</a>
                 </div>
                 <div class="pricing-item featured">
-                    <h3>Tratamento Completo</h3>
-                    <p>Acompanhamento intensivo com alinhamento profundo.</p>
-                    <div class="price">R$ 680</div>
-                    <a href="#" class="btn btn-large">Garantir Minha Vaga</a>
+                    <div>
+                        <h3>Acompanhamento Completo</h3>
+                        <p>Processo contínuo para transformação profunda de padrões repetitivos.</p>
+                        <div class="price">R$ 480,00</div>
+                    </div>
+                    <a href="https://wa.me/5511987063494?text=Quero%20agendar%20o%20Acompanhamento%20Completo." target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="margin-top:20px;">Agendar Tratamento</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Final -->
-    <section class="final-cta">
+    <!-- Seção Contato -->
+    <section id="contato" class="contact">
         <div class="container">
-            <h2>Pronto para Transformar sua Energia?</h2>
-            <p>Dê o primeiro passo para o seu equilíbrio emocional e espiritual.</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-large">Agendar Atendimento</a>
-                <a href="#" class="btn-whatsapp-group">Entrar no Grupo VIP</a>
+            <h2 style="text-align:center;">Entre em Contato</h2>
+            <p style="text-align:center;">Tem alguma dúvida específica? Envie sua mensagem e responderemos em breve.</p>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/xkodyzeq" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="Seu e-mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Como podemos ajudar?"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width:100%;">Enviar Mensagem</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- Contato -->
-    <section class="contact" id="contato">
+    <!-- Seção FAQ -->
+    <section id="faq" class="faq">
         <div class="container">
-            <h2 style="text-align: center;">Fale Conosco</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Nome Completo</label>
-                    <input type="text" id="name" required placeholder="Seu nome">
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" required placeholder="seu@email.com">
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensagem</label>
-                    <textarea id="message" rows="5" required placeholder="Como podemos te ajudar?"></textarea>
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2 style="text-align: center;">Dúvidas Frequentes</h2>
+            <h2 style="text-align:center;">Dúvidas Frequentes</h2>
             <div class="faq-container">
                 <div class="faq-item">
-                    <button class="faq-question">Como funciona a sessão de Apometria online?</button>
+                    <button class="faq-question">A sessão é a distância ou presencial?</button>
                     <div class="faq-answer">
-                        <p>A sessão é realizada através de videochamada. O campo energético é trabalhado da mesma forma que no presencial, utilizando frequências e técnicas apométricas direcionadas.</p>
+                        <p>Sim. Os atendimentos acontecem à distância, com privacidade e acolhimento.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Preciso me preparar antes da sessão?</button>
+                    <button class="faq-question">Preciso acreditar em espiritualidade?</button>
                     <div class="faq-answer">
-                        <p>Recomendamos apenas estar em um local calmo, sem interrupções, e ingerir água antes e depois do atendimento.</p>
+                        <p>Não. O processo respeita a experiência e as crenças individuais.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Quantas sessões são necessárias?</button>
+                    <div class="faq-answer">
+                        <p>Cada pessoa possui necessidades diferentes. Isso é avaliado individualmente.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">A apometria substitui tratamento médico ou psicológico?</button>
+                    <div class="faq-answer">
+                        <p>Não. A Apometria Integrativa é uma prática complementar e não substitui acompanhamentos médicos ou psicológicos quando necessários.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Preciso de algum preparo no dia da sessão marcado?</button>
+                    <div class="faq-answer">
+                        <p>Não. No dia da realização do tratamento, você pode manter sua rotina normal de trabalho, estudo ou outras atividades às quais precise se dedicar.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Qual o primeiro passo após agendar a sessão?</button>
+                    <div class="faq-answer">
+                        <p>Primeiramente, é feito um relatório inicial com perguntas sobre o seu caso, estado físico, mental, emocional e espiritual, além das questões que você deseja que sejam trabalhadas. Após colher suas queixas, faço um estudo aprofundado para tratar o seu caso da melhor maneira possível.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Como fico sabendo dos resultados do tratamento apométrico?</button>
+                    <div class="faq-answer">
+                        <p>Ao final de cada sessão, você recebe um retorno detalhado sobre o trabalho realizado. Compartilho, por meio de áudio e/ou mensagem, os principais aspectos observados durante o atendimento, os padrões identificados e os pontos que receberam maior atenção ao longo do processo.</p>
+                        <p>Além disso, apresento minhas percepções como terapeuta e as orientações que podem contribuir para a continuidade do seu desenvolvimento e integração das experiências vivenciadas na sessão.</p>
+                        <p>No pós-sessão, você também recebe recomendações práticas para favorecer a manutenção do seu equilíbrio emocional, energético e espiritual, como cuidados com o descanso, hidratação, momentos de introspecção, observação das emoções e atitudes que fortaleçam seu bem-estar no dia a dia.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Script para funcionalidade do FAQ -->
+    <!-- Call to Action Final -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Pronto para iniciar sua transformação?</h2>
+            <p style="margin-top: 15px;">
+                O Método Vibracto tem ajudado pessoas a superar bloqueios,
+                ressignificar experiências e construir uma vida com mais equilíbrio,
+                consciência e bem-estar.
+            </p>
+            <p style="font-weight: 600; margin-top: 10px;">Faça parte dessa transformação.</p>
+
+            <div class="cta-buttons">
+                <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20quero%20iniciar%20minha%20transforma%C3%A7%C3%A3o."
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-large">
+                    Agendar via WhatsApp
+                </a>
+
+                <a href="https://chat.whatsapp.com/GluwyDBearHERxa67b8f9o?s=em&p=a&ilr=0&amv=3"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn-whatsapp-group">
+                    ✨ Comunidade Método Vibracto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <p style="margin-bottom: 8px;">Método Vibracto Terapias - Todos os direitos reservados.</p>
+            <p>@metodovibracto</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20M%C3%A9todo%20Vibracto." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Atendimento via WhatsApp">
+        <svg viewBox="0 0 32 32">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.135-2.133c2.351 1.284 5.019 1.961 7.865 1.961 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.35c-2.45 0-4.85-0.65-6.96-1.89l-0.5-0.3-5.17 1.35 1.38-5.04-0.33-0.52c-1.36-2.17-2.07-4.68-2.07-7.25 0-7.53 6.12-13.65 13.65-13.65s13.65 6.12 13.65 13.65-6.12 13.65-13.65 13.65zM22.51 19.38c-0.36-0.18-2.12-1.05-2.45-1.17s-0.57-0.18-0.81 0.18c-0.24 0.36-0.93 1.17-1.14 1.41s-0.42 0.27-0.78 0.09c-0.36-0.18-1.52-0.56-2.9-1.79-1.07-0.96-1.8-2.14-2.01-2.5-0.21-0.36-0.02-0.56 0.16-0.74 0.16-0.16 0.36-0.42 0.54-0.63s0.24-0.36 0.36-0.6c0.12-0.24 0.06-0.45-0.03-0.63s-0.81-1.95-1.11-2.67c-0.3-0.72-0.6-0.62-0.81-0.63h-0.69c-0.24 0-0.63 0.09-0.96 0.45s-1.26 1.23-1.26 3 1.29 3.48 1.47 3.72c0.18 0.24 2.54 3.88 6.15 5.44 0.86 0.37 1.53 0.59 2.05 0.76 0.86 0.27 1.65 0.23 2.27 0.14 0.69-0.1 2.12-0.87 2.42-1.71s0.3-1.56 0.21-1.71c-0.09-0.15-0.33-0.24-0.69-0.42z"></path>
+        </svg>
+        <span>Fale Conosco</span>
+    </a>
+
+    <!-- Interatividade com Javascript -->
     <script>
+        // Lógica do FAQ (Accordion)
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
+                
+                // Fecha outros itens abertos
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+
+                // Alterna o estado do item clicado
                 faqItem.classList.toggle('active');
             });
         });
     </script>
-</body>
-</html>
-   <!-- ==========================================================================
-     1. CABEÇALHO (HEADER)
-     ========================================================================== -->
-<header>
-    <div class="container">
-        <div class="logo">
-            <a href="#">
-                <img src="logofenixdefogo.png" alt="Logo Método Vibracto">
-            </a>
-        </div>
-
-        <!-- Botão do Menu Hambúrguer -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu" aria-expanded="false" aria-controls="navMenu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-
-        <!-- Menu de Navegação -->
-        <nav id="navMenu">
-            <ul>
-                <li><a href="#sobre">O que é</a></li>
-                <li><a href="#como-funciona">Como Funciona</a></li>
-                <li><a href="#depoimentos">Depoimentos</a></li>
-                <li><a href="#terapeuta">Terapeuta</a></li>
-                <li><a href="#precos">Atendimentos</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li><a href="#faq">Dúvidas</a></li>
-            </ul>
-        </nav>
-
-        <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20minha%20sess%C3%A3o%20pelo%20M%C3%A9todo%20Vibracto." 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="btn btn-sm">
-            Quero minha sessão
-        </a>
-    </div>
-</header>
-
-<!-- ==========================================================================
-     2. SEÇÃO HERO
-     ========================================================================== -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>MÉTODO VIBRACTO<br><span>Apometria Integrativa</span></h1>
-                <p>Você sente que faz de tudo para mudar, mas continua repetindo os mesmos padrões?</p>
-                <p>Relacionamentos difíceis, ansiedade constante, sensação de estagnação e padrões repetitivos podem ter causas mais profundas do que aparentam.</p>
-                
-                <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20minha%20sess%C3%A3o%20de%20Apometria%20Integrativa." 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="btn btn-large" 
-                   style="margin-top: 15px;">
-                    Quero iniciar minha sessão
-                </a>
-            </div>
-            
-            <div class="hero-image">
-                <img src="adauto-terno.png" 
-                     alt="Adauto Santana - Terapeuta especialista em Apometria Integrativa" 
-                     fetchpriority="high">
-            </div>
-        </div>
-
-        <!-- Banner de Destaques -->
-        <div class="hero-highlights-banner">
-            <div class="highlight-item">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                </div>
-                <div class="highlight-text">
-                    <h4>Atendimento Online</h4>
-                    <p>Para todo o Brasil e exterior</p>
-                </div>
-            </div>
-
-            <div class="highlight-item">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                </div>
-                <div class="highlight-text">
-                    <h4>Sessões Individuais</h4>
-                    <p>Atendimento personalizado</p>
-                </div>
-            </div>
-
-            <div class="highlight-item">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                </div>
-                <div class="highlight-text">
-                    <h4>Relatório Pós-Sessão</h4>
-                    <p>Áudio e orientações</p>
-                </div>
-            </div>
-
-            <div class="highlight-item">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                    </svg>
-                </div>
-                <div class="highlight-text">
-                    <h4>Método Exclusivo</h4>
-                    <p>Mais de 15 anos de experiência</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- ==========================================================================
-     3. SEÇÃO PROBLEMAS E BENEFÍCIOS
-     ========================================================================== -->
-<section class="problems">
-    <div class="container">
-        <h2>Como a APOMETRIA pode ajudar você a lidar melhor com os desafios da vida?</h2>
-        <p>Através da Apometria Integrativa, o Método Vibracto ajuda a identificar e transformar bloqueios emocionais, energéticos e espirituais.</p>
-        <p>Promovendo mais equilíbrio, clareza e desenvolvimento pessoal.</p>
-        
-        <div class="problems-grid">
-            <div class="problem-item">
-                <p class="problem-icon" aria-hidden="true">🔓</p>
-                <h3>Desbloqueios</h3>
-                <p>Identifique e libere padrões que impedem seu crescimento pessoal.</p>
-            </div>
-            <div class="problem-item">
-                <p class="problem-icon" aria-hidden="true">🌱</p>
-                <h3>Autonomia</h3>
-                <p>Fortaleça sua capacidade de fazer escolhas mais conscientes.</p>
-            </div>
-            <div class="problem-item">
-                <p class="problem-icon" aria-hidden="true">⚖️</p>
-                <h3>Equilíbrio</h3>
-                <p>Desenvolva mais clareza emocional, foco e leveza para lidar com a vida.</p>
-            </div>
-        </div>
-        
-        <div style="margin-top:40px;">
-            <p>Muitas vezes, não se trata de falta de esforço ou capacidade.</p>
-            <p>Bloqueios emocionais, energéticos e espirituais podem estar influenciando sua vida de maneira silenciosa.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ==========================================================================
-     4. SEÇÃO IDENTIFICAÇÃO (DORES)
-     ========================================================================== -->
-<section class="identification">
-    <div class="container">
-        <h2 style="text-align:center;">Você se identifica com alguma destas situações?</h2>
-        <ul class="identification-list">
-            <li>Vive em estado constante de ansiedade ou tensão;</li>
-            <li>Sente-se emocionalmente esgotado;</li>
-            <li>Tem dificuldade para agir apesar de saber o que precisa fazer;</li>
-            <li>Enfrenta desafios recorrentes nos relacionamentos;</li>
-            <li>Guarda sentimentos e encontra dificuldade para se expressar;</li>
-            <li>Tem a sensação de estar desconectado de si mesmo.</li>
-        </ul>
-        <div style="text-align:center; margin-top:30px;">
-            <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20minha%20sess%C3%A3o%20de%20Apometria." target="_blank" rel="noopener noreferrer" class="btn">
-                Quero iniciar minha sessão
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ==========================================================================
-     5. SEÇÃO O QUE É A APOMETRIA
-     ========================================================================== -->
-<section id="sobre" class="what-is">
-    <div class="container">
-        <div class="what-is-grid">
-            <div>
-                <h2 style="margin-bottom: 25px;">O que é a Apometria Integrativa</h2>
-
-                <p style="margin-bottom: 20px; line-height: 1.7;">
-                    A Apometria Integrativa é uma abordagem terapêutica que busca compreender o ser humano em sua totalidade, considerando os aspectos emocionais, energéticos e espirituais que podem influenciar pensamentos, sentimentos, comportamentos e experiências de vida.
-                </p>
-
-                <p style="margin-bottom: 20px; line-height: 1.7;">
-                    Por meio de técnicas específicas de desdobramento dos níveis sutis da consciência, o terapeuta trabalha simbolicamente com diferentes aspectos do campo emocional, mental, energético e espiritual, favorecendo a identificação de padrões, bloqueios e desequilíbrios que podem estar associados aos desafios vivenciados pelo assistido.
-                </p>
-
-                <p style="line-height: 1.7;">
-                    <strong style="color: var(--primary-color);">O propósito desse processo</strong> é promover o autoconhecimento, ampliar a consciência e favorecer uma reorganização interna, permitindo que a pessoa desenvolva mais clareza, equilíbrio e autonomia para seguir sua jornada de forma mais leve e consciente.
-                </p>
-            </div>
-            <div>
-                <h3 style="margin-bottom: 15px;">Durante as sessões, trabalhamos:</h3>
-                <ul style="margin-left: 20px; margin-bottom: 35px; list-style: disc; color: var(--text-muted); line-height: 1.9;">
-                    <li>Padrões repetitivos de comportamento e relacionamento;</li>
-                    <li>Cargas emocionais e conflitos internos;</li>
-                    <li>Crenças limitantes e bloqueios energéticos;</li>
-                    <li>Questões espirituais, de acordo com a abordagem da Apometria.</li>
-                </ul>
-
-                <h3 style="margin-bottom: 15px;">Que podem afetar áreas como:</h3>
-                <ul style="list-style: none; padding: 0; line-height: 2.2;">
-                    <li><span aria-hidden="true">✔</span> Relacionamentos afetivos e familiares</li>
-                    <li><span aria-hidden="true">✔</span> Vida profissional e prosperidade</li>
-                    <li><span aria-hidden="true">✔</span> Bem-estar e sensação de leveza</li>
-                    <li><span aria-hidden="true">✔</span> Equilíbrio emocional</li>
-                    <li><span aria-hidden="true">✔</span> Desenvolvimento espiritual</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ==========================================================================
-     6. SEÇÃO PASSO A PASSO
-     ========================================================================== -->
-<section id="como-funciona" class="steps">
-    <div class="container">
-        <h2 style="text-align:center;">Como funciona a sessão? Passo a Passo</h2>
-        <div class="steps-grid">
-            <div class="step-item">
-                <span class="step-number">01</span>
-                <h3>Você escolhe a modalidade</h3>
-                <p>Sessão de Apometria a distância conforme seu momento.</p>
-            </div>
-            <div class="step-item">
-                <span class="step-number">02</span>
-                <h3>Identificação dos Bloqueios</h3>
-                <p>Mapeamos padrões, influências e questões que podem estar impactando sua vida.</p>
-            </div>
-            <div class="step-item">
-                <span class="step-number">03</span>
-                <h3>Sessão Apométrica</h3>
-                <p>Harmonização emocional, energética e espiritual.</p>
-            </div>
-            <div class="step-item">
-                <span class="step-number">04</span>
-                <h3>Integração e Orientações</h3>
-                <p>Você recebe o relatório de apometria com o que foi trabalhado no seu campo energético.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ==========================================================================
-     7. SEÇÃO DEPOIMENTOS
-     ========================================================================== -->
-<section id="depoimentos" class="testimonials">
-    <div class="container">
-        <h2 style="text-align:center;">Vidas Transformadas</h2>
-        <div class="testimonials-grid">
-            <!-- Amanda -->
-            <div class="testimonial-item">
-                <div class="testimonial-image">
-                    <img src="depoimento3.jpg" alt="Depoimento da cliente Amanda R." loading="lazy">
-                </div>
-                <h3>Amanda R.</h3>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">27 anos – Praia Grande/SP</p>
-                <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
-                <p>"A cada sessão de Apometria Integrativa, percebo o quanto tenho me libertado de padrões que antes limitavam minha vida. É um processo de transformação que me fortalece e me permite seguir em frente com mais consciência. Sou profundamente grata por essa ferramenta."</p>
-            </div>
-            
-            <!-- Ricardo -->
-            <div class="testimonial-item">
-                <div class="testimonial-image">
-                    <img src="depoimento2.jpg" alt="Depoimento do cliente Ricardo Mendonça" loading="lazy">
-                </div>
-                <h3>Ricardo Mendonça</h3>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">42 anos – São Paulo/SP</p>
-                <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
-                <p>"Percebi mudanças na forma como lidava com situações que antes me causavam sofrimento. Passei a enxergar minha vida com mais clareza e tranquilidade."</p>
-            </div>
-            
-            <!-- Patricia -->
-            <div class="testimonial-item">
-                <div class="testimonial-image">
-                    <img src="depoimento1.jpg" alt="Depoimento da cliente Patricia Costa" loading="lazy">
-                </div>
-                <h3>Patricia Costa</h3>
-                <p style="font-size: 0.8rem; color: var(--text-muted);">38 anos – São Paulo/SP</p>
-                <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
-                <p>"Passei a tomar decisões com mais clareza e confiança, o que refletiu positivamente na minha vida profissional."</p>
-            </div>
-        </div>
-        
-        <div style="text-align:center; margin-top:40px;">
-            <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20a%20Apometria." target="_blank" rel="noopener noreferrer" class="btn">
-                Falar com o terapeuta
-            </a>
-        </div>
-    </div>
-</section>
-
-
-<!-- ==========================================================================
-     8. QUEM É O TERAPEUTA
-     ========================================================================== -->
-<section class="therapist" id="terapeuta">
-    <div class="container">
-
-        <!-- CABEÇALHO DA SEÇÃO -->
-        <div class="therapist-header">
-            <span class="section-tag">CONHEÇA O TERAPEUTA</span>
-            <h2>Quem é <span>Adauto Santana</span></h2>
-            <p class="section-subtitle">
-                Mais de 15 anos dedicados ao desenvolvimento humano, emocional, energético e espiritual.
-            </p>
-        </div>
-
-        <!-- GRID PRINCIPAL (IMAGEM + CONTEÚDO) -->
-        <div class="therapist-grid">
-
-            <!-- FOTO -->
-            <div class="therapist-image">
-                <div class="image-frame">
-                    <img src="adauto-sueter.jpg" alt="Foto do terapeuta Adauto Santana, especialista em desenvolvimento humano e Apometria Integrativa" loading="lazy">
-                </div>
-            </div>
-
-            <!-- CONTEÚDO / BIOGRAFIA -->
-            <div class="therapist-content">
-
-                <p>
-                    Acredito que toda <strong>transformação verdadeira</strong> começa quando conseguimos compreender aquilo que está além dos sintomas.
-                </p>
-
-                <p>
-                    Há mais de <strong>15 anos</strong>, atuo no desenvolvimento humano, acompanhando pessoas em seus processos de crescimento pessoal, emocional, energético e espiritual.
-                </p>
-
-                <p>
-                    Minha trajetória começou na <strong>Dança de Salão</strong>, onde o contato com centenas de histórias de vida despertou uma profunda busca pela compreensão dos padrões emocionais, dos relacionamentos e dos bloqueios que impedem muitas pessoas de avançar em suas vidas.
-                </p>
-
-                <p>
-                    Essa jornada me levou a aprofundar meus estudos em <strong>Terapia Comportamental</strong>, <strong>Reiki</strong>, <strong>Apometria</strong> e outras abordagens integrativas, ampliando minha compreensão sobre a relação entre emoções, energia, consciência e espiritualidade.
-                </p>
-
-                <p>
-                    Dessa integração nasceu o <strong>Método Vibracto</strong>, uma metodologia exclusiva que reúne diferentes recursos terapêuticos para auxiliar na identificação e transformação de padrões relacionados aos relacionamentos, autoestima, prosperidade, equilíbrio emocional e desenvolvimento espiritual.
-                </p>
-
-                <!-- ESPECIALIDADES / SKILLS -->
-                <div class="therapist-skills">
-                    <span>15+ Anos de Experiência</span>
-                    <span>Terapeuta Comportamental</span>
-                    <span>Reiki</span>
-                    <span>Apometria Integrativa</span>
-                    <span>Método Vibracto</span>
-                    <span>Desenvolvimento Humano</span>
-                </div>
-
-                <!-- PROPÓSITO -->
-                <div class="purpose-box">
-                    <div class="purpose-icon" aria-hidden="true">✦</div>
-                    <div>
-                        <h3>Meu Propósito</h3>
-                        <p>
-                            Oferecer um espaço de acolhimento, escuta e consciência, onde cada pessoa possa compreender sua própria história, fortalecer seus recursos internos e seguir sua jornada com mais equilíbrio, clareza e conexão com sua essência.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- DIFERENCIAIS -->
-                <div class="therapist-highlights">
-                    <div class="highlight-card">
-                        <h4>Atendimento Humanizado</h4>
-                        <p>
-                            Cada pessoa é acolhida de forma individual, respeitando sua história, seu momento e suas necessidades.
-                        </p>
-                    </div>
-
-                    <div class="highlight-card">
-                        <h4>Abordagem Integrativa</h4>
-                        <p>
-                            Integra aspectos emocionais, energéticos e espirituais para favorecer um processo terapêutico mais amplo e consciente.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- BOTÃO DE AÇÃO -->
-                <div class="therapist-action">
-                    <a href="#contato" class="btn btn-large">
-                        Agendar Atendimento
-                    </a>
-                </div>
-
-            </div> <!-- /.therapist-content -->
-
-        </div> <!-- /.therapist-grid -->
-
-    </div> <!-- /.container -->
-</section>
-
-<!-- ==========================================================================
-     9. SEÇÃO PREÇOS
-     ========================================================================== -->
-<section id="precos" class="pricing">
-    <div class="container">
-        <h2 style="text-align:center;">Opções de Atendimento</h2>
-        <div class="pricing-grid">
-            <div class="pricing-item">
-                <div>
-                    <h3>Sessão Avulsa</h3>
-                    <p>Atendimento individual focado na resolução imediata de bloqueios pontuais.</p>
-                    <div class="price">R$ 180,00</div>
-                </div>
-                <a href="https://wa.me/5511987063494?text=Quero%20agendar%20uma%20Sess%C3%A3o%20Avulsa." 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="btn btn-sm" 
-                   style="margin-top:20px;">
-                   Agendar Sessão
-                </a>
-            </div>
-
-            <div class="pricing-item featured">
-                <span class="badge-featured" style="font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Mais Recomendado</span>
-                <div>
-                    <h3>Acompanhamento Completo</h3>
-                    <p>Processo contínuo para transformação profunda de padrões repetitivos.</p>
-                    <div class="price">R$ 480,00</div>
-                </div>
-                <a href="https://wa.me/5511987063494?text=Quero%20agendar%20o%20Acompanhamento%20Completo." 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="btn btn-sm" 
-                   style="margin-top:20px;">
-                   Agendar Tratamento
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ==========================================================================
-     10. SEÇÃO CONTATO
-     ========================================================================== -->
-<section id="contato" class="contact">
-    <div class="container">
-        <h2 style="text-align:center;">Entre em Contato</h2>
-        <p style="text-align:center; margin-bottom: 30px;">Tem alguma dúvida específica? Envie sua mensagem e responderemos em breve.</p>
-        
-        <div class="contact-form">
-            <form id="form-contato" action="https://formspree.io/f/xkodyzeq" method="POST">
-                <div class="form-group">
-                    <label for="name">Nome Completo</label>
-                    <input type="text" id="name" name="name" required placeholder="Seu nome" autocomplete="name">
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" required placeholder="Seu e-mail" autocomplete="email">
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensagem</label>
-                    <textarea id="message" name="message" rows="4" required placeholder="Como podemos ajudar?"></textarea>
-                </div>
-                <button type="submit" class="btn" style="width:100%;">Enviar Mensagem</button>
-            </form>
-        </div>
-    </div>
-</section>
-   <!-- Seção FAQ -->
-<section id="faq" class="faq">
-    <div class="container">
-        <h2 style="text-align:center;">Dúvidas Frequentes</h2>
-        <div class="faq-container">
-            
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">A sessão é a distância ou presencial?</button>
-                <div class="faq-answer">
-                    <p>Os atendimentos acontecem 100% à distância, com total privacidade, segurança e acolhimento.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">Preciso acreditar em espiritualidade?</button>
-                <div class="faq-answer">
-                    <p>Não. O processo respeita a experiência e as crenças individuais.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">Quantas sessões são necessárias?</button>
-                <div class="faq-answer">
-                    <p>Cada pessoa possui necessidades diferentes. Isso é avaliado individualmente.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">A apometria substitui tratamento médico ou psicológico?</button>
-                <div class="faq-answer">
-                    <p>Não. A Apometria Integrativa é uma prática complementar e não substitui acompanhamentos médicos ou psicológicos quando necessários.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">Preciso de algum preparo no dia da sessão marcado?</button>
-                <div class="faq-answer">
-                    <p>Não. No dia da realização do tratamento, você pode manter sua rotina normal de trabalho, estudo ou outras atividades às quais precise se dedicar.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">Qual o primeiro passo após agendar a sessão?</button>
-                <div class="faq-answer">
-                    <p>Primeiramente, é feito um relatório inicial com perguntas sobre o seu caso, estado físico, mental, emocional e espiritual, além das questões que você deseja que sejam trabalhadas. Após colher suas queixas, faço um estudo aprofundado para tratar o seu caso da melhor maneira possível.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">Como fico sabendo dos resultados do tratamento apométrico?</button>
-                <div class="faq-answer">
-                    <p>Ao final de cada sessão, você recebe um retorno detalhado sobre o trabalho realizado. Compartilho, por meio de áudio e/ou mensagem, os principais aspectos observados durante o atendimento, os padrões identificados e os pontos que receberam maior atenção ao longo do processo.</p>
-                    <p>Além disso, apresento minhas percepções como terapeuta e as orientações que podem contribuir para a continuidade do seu desenvolvimento e integração das experiências vivenciadas na sessão.</p>
-                    <p>No pós-sessão, você também recebe recomendações práticas para favorecer a manutenção do seu equilíbrio emocional, energético e espiritual, como cuidados com o descanso, hidratação, momentos de introspecção, observação das emoções e atitudes que fortaleçam seu bem-estar no dia a dia.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Call to Action Final -->
-<section class="final-cta">
-    <div class="container">
-        <h2>Pronto para iniciar sua transformação?</h2>
-        <p style="margin-top: 15px;">
-            O Método Vibracto tem ajudado pessoas a superar bloqueios,
-            ressignificar experiências e construir uma vida com mais equilíbrio,
-            consciência e bem-estar.
-        </p>
-        <p style="font-weight: 600; margin-top: 10px;">Faça parte dessa transformação.</p>
-
-        <div class="cta-buttons">
-            <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20quero%20iniciar%20minha%20transforma%C3%A7%C3%A3o."
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn btn-large">
-                Agendar via WhatsApp
-            </a>
-
-            <a href="https://chat.whatsapp.com/GluwyDBearHERxa67b8f9o?s=em&p=a&ilr=0&amv=3"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn-whatsapp-group">
-                ✨ Comunidade Método Vibracto
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Rodapé -->
-<footer class="footer">
-    <div class="container">
-        <p style="margin-bottom: 8px;">Método Vibracto Terapias - Todos os direitos reservados.</p>
-        <p>@metodovibracto</p>
-    </div>
-</footer>
-
-<!-- Botão Flutuante do WhatsApp -->
-<a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20M%C3%A9todo%20Vibracto." 
-   class="whatsapp-float" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   aria-label="Atendimento via WhatsApp">
-    <svg viewBox="0 0 32 32">
-        <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.135-2.133c2.351 1.284 5.019 1.961 7.865 1.961 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.35c-2.45 0-4.85-0.65-6.96-1.89l-0.5-0.3-5.17 1.35 1.38-5.04-0.33-0.52c-1.36-2.17-2.07-4.68-2.07-7.25 0-7.53 6.12-13.65 13.65-13.65s13.65 6.12 13.65 13.65-6.12 13.65-13.65 13.65zM22.51 19.38c-0.36-0.18-2.12-1.05-2.45-1.17s-0.57-0.18-0.81 0.18c-0.24 0.36-0.93 1.17-1.14 1.41s-0.42 0.27-0.78 0.09c-0.36-0.18-1.52-0.56-2.9-1.79-1.07-0.96-1.8-2.14-2.01-2.5-0.21-0.36-0.02-0.56 0.16-0.74 0.16-0.16 0.36-0.42 0.54-0.63s0.24-0.36 0.36-0.6c0.12-0.24 0.06-0.45-0.03-0.63s-0.81-1.95-1.11-2.67c-0.3-0.72-0.6-0.62-0.81-0.63h-0.69c-0.24 0-0.63 0.09-0.96 0.45s-1.26 1.23-1.26 3 1.29 3.48 1.47 3.72c0.18 0.24 2.54 3.88 6.15 5.44 0.86 0.37 1.53 0.59 2.05 0.76 0.86 0.27 1.65 0.23 2.27 0.14 0.69-0.1 2.12-0.87 2.42-1.71s0.3-1.56 0.21-1.71c-0.09-0.15-0.33-0.24-0.69-0.42z"></path>
-    </svg>
-    <span>Fale Conosco</span>
-</a>
-
-<!-- Interatividade com Javascript -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Lógica do Menu Hambúrguer
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        if (menuToggle && navMenu) {
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            document.querySelectorAll('nav a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-        }
-
-        // Lógica do FAQ (Accordion + ARIA)
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                const isActive = faqItem.classList.contains('active');
-
-                // Fecha todos os itens e reseta os atributos ARIA
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                    const btn = item.querySelector('.faq-question');
-                    if (btn) btn.setAttribute('aria-expanded', 'false');
-                });
-
-                // Se o item não estava ativo, abre ele
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                    button.setAttribute('aria-expanded', 'true');
-                }
-            });
-        });
-    });
-</script>
 </body>
 </html>
