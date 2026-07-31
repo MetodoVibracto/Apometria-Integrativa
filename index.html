@@ -266,6 +266,17 @@
             transition: all 0.3s ease;
         }
 
+        /* Efeito de virar "X" quando o menu é aberto */
+        .menu-toggle.active .bar:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .menu-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active .bar:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
         @media (max-width: 992px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -329,8 +340,7 @@
     </style>
 </head>
 <body>
-
-    <!-- CABEÇALHO DA PÁGINA -->
+   <!-- CABEÇALHO DA PÁGINA -->
     <header>
         <div class="container">
             <div class="logo">
@@ -344,7 +354,7 @@
                 <span class="bar"></span>
             </button>
 
-            <!-- NAVEGAÇÃO COM O ID QUE O CSS PRECISA -->
+            <!-- NAVEGAÇÃO -->
             <nav id="nav-menu">
                 <ul>
                     <li><a href="#sobre">O que é</a></li>
@@ -361,26 +371,27 @@
         </div>
     </header>
 
-    <!-- SCRIPT PARA ABRIR/FECHAR O MENU HAMBÚRGUER NO CLIQUE -->
+    <!-- SCRIPT PARA ABRIR/FECHAR O MENU HAMBÚRGUER E TRANSFORMAR EM 'X' -->
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
 
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active'); // Liga/desliga a animação das barrinhas para "X"
         });
 
         // Fecha o menu automaticamente quando clicar em algum link
         document.querySelectorAll('#nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
             });
         });
     </script>
 </body>
 </html>
 
-  <body>
     <!-- Cabeçalho -->
     <header>
         <div class="container header-container">
