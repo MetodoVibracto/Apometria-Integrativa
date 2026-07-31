@@ -850,6 +850,29 @@ nav a.active::after {
 /* ==========================================================================
    12. RESPONSIVIDADE
    ========================================================================== */
+
+/* Botão hambúrguer fica ESCONDIDO por padrão no Computador */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color, #e2b037);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
 @media (max-width: 992px) {
     .hero-content, 
     .what-is-grid, 
@@ -865,15 +888,49 @@ nav a.active::after {
 }
 
 @media (max-width: 768px) {
+    /* Ajusta a barra do cabeçalho */
     header .container {
+        display: flex;
+        flex-direction: row; /* Mantém logo de um lado e botão do outro */
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    /* Mostra o ícone de hambúrguer no celular */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* ESCONDE OS LINKS no celular por padrão */
+    nav#nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #0b0f19; /* Cor de fundo escura do seu site */
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        z-index: 99;
+    }
+
+    nav#nav-menu ul {
         flex-direction: column;
-        gap: 12px;
+        align-items: center;
+        gap: 15px;
     }
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px 18px;
+
+    /* Classe ativada via JS quando você clica no botão ☰ */
+    nav#nav-menu.active {
+        display: block;
     }
+
+    /* Esconde o botão dourado "Quero minha sessão" dentro do cabeçalho no celular para não empurrar a tela */
+    header .btn-header {
+        display: none;
+    }
+
     .steps-grid { grid-template-columns: 1fr; }
     .hero-highlights-banner { grid-template-columns: 1fr; }
     .contact-form { padding: 25px 20px; }
