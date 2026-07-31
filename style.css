@@ -295,8 +295,8 @@ nav a.active::after {
 
 .hero-text p {
     font-size: 1.1rem;
-  color: var(--text-muted);
-  margin-bottom: 40px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
 }
 
 .hero-image {
@@ -848,7 +848,7 @@ nav a.active::after {
 }
 
 /* ==========================================================================
-   12. RESPONSIVIDADE (Menu Hambúrguer + Correção de Fundo)
+   12. RESPONSIVIDADE (Menu Hambúrguer + Correções do Grid)
    ========================================================================== */
 
 /* Botão hambúrguer fica ESCONDIDO no Computador */
@@ -868,7 +868,7 @@ nav a.active::after {
 .menu-toggle .bar {
     height: 3px;
     width: 100%;
-    background-color: var(--primary-color, #e2b037);
+    background-color: var(--primary-color);
     border-radius: 4px;
     transition: all 0.3s ease;
 }
@@ -885,14 +885,18 @@ nav a.active::after {
     .hero::before { width: 380px; height: 380px; }
     .steps-grid { grid-template-columns: 1fr 1fr; }
     .therapist-image { max-width: 400px; margin: 0 auto; }
+    
+    /* Previne sobreposição da imagem no hero em telas de tablet */
+    .hero-image img {
+        margin: 20px auto 0;
+    }
 }
 
 @media (max-width: 768px) {
-    /* Fix para manter a barra superior organizada e visível */
     header {
         position: relative;
         z-index: 999;
-        background-color: #080b12; /* Mantém o fundo escuro só na barra */
+        background-color: #080b12;
     }
 
     header .container {
@@ -903,12 +907,12 @@ nav a.active::after {
         padding: 15px 20px;
     }
 
-    /* Mostra o hambúrguer no mobile */
+    /* Exibe o botão hambúrguer no mobile */
     .menu-toggle {
         display: flex;
     }
 
-    /* ESCONDE OS LINKS no celular por padrão sem quebrar a tela */
+    /* Oculta os links no celular por padrão sem quebrar a tela */
     nav#nav-menu {
         display: none;
         position: absolute;
@@ -921,6 +925,13 @@ nav a.active::after {
         z-index: 999;
     }
 
+    /* Abre e organiza o menu via Javascript com classe .active */
+    nav#nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     nav#nav-menu ul {
         display: flex;
         flex-direction: column;
@@ -928,24 +939,16 @@ nav a.active::after {
         gap: 15px;
         margin: 0;
         padding: 0;
+        width: 100%;
     }
 
-    /* Abre o menu via Javascript */
-    nav#nav-menu.active {
-        display: block;
-    }
-
-    /* Reduz o brilho azul gigante no mobile para NÃO cobrir os textos */
+    /* Reduz o brilho azul no mobile para não cobrir conteúdos */
     .hero::before {
         width: 280px;
         height: 280px;
         top: 10%;
         right: 50%;
         transform: translateX(50%);
-    }
-
-    .hero-image img {
-        margin: 20px auto 0; /* Ajusta a imagem que estava subindo -140px */
     }
 
     .steps-grid { grid-template-columns: 1fr; }
