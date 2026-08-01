@@ -475,26 +475,16 @@
 
 
 
-        .therapist {
-            padding: 80px 0;
-            background-color: var(--bg-card-alt);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
+       /* Espaçamento e leitura dos parágrafos do Terapeuta */
+.therapist-info p {
+    margin-bottom: 22px; /* Cria o espaço ideal entre cada parágrafo */
+    line-height: 1.7;    /* Deixa a leitura leve e fluida */
+}
 
-        .therapist-grid {
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .therapist-image img {
-            max-width: 100%;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-card);
-        }
+/* Evita margem desnecessária após o último parágrafo */
+.therapist-info p:last-child {
+    margin-bottom: 0;
+}
 
         /* ==========================================================================
            8. PREÇOS & CTA FINAL
