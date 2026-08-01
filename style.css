@@ -504,7 +504,8 @@ nav a.active::after {
    7. SEÇÃO DEPOIMENTOS & TERAPEUTA
    ========================================================================== */
 .testimonials {
-    padding: 110px 0;
+    padding-top: 160px;    /* Aumentou o espaço em cima */
+    padding-bottom: 160px; /* Aumentou o espaço embaixo */
 }
 
 .testimonials-grid {
