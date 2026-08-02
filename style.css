@@ -569,10 +569,13 @@ nav a.active::after {
 }
 
 .therapist-image img {
-    max-width: 100%;
-    border-radius: var(--radius);
+    max-width: 400%;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
     border: 1px solid rgba(226, 176, 55, 0.3);
-    box-shadow: var(--shadow-lg), var(--shadow-gold);
+    display: block;
+    margin: 0 auto;
 }
 
 /* ==========================================================================
