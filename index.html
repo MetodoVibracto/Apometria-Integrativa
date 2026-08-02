@@ -471,17 +471,23 @@
 
 .action-btn:hover {
     color: #ffffff;
+/* 1. Controla o tamanho e o visual da foto do Terapeuta */
+.therapist-image img {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(226, 176, 55, 0.3);
+    display: block;
+    margin: 0 auto;
 }
 
-
-
-       /* Espaçamento e leitura dos parágrafos do Terapeuta */
+/* 2. Espaçamento e leitura dos parágrafos do Terapeuta */
 .therapist-info p {
-    margin-bottom: 22px; /* Cria o espaço ideal entre cada parágrafo */
-    line-height: 1.7;    /* Deixa a leitura leve e fluida */
+    margin-bottom: 22px;
+    line-height: 1.7;
 }
 
-/* Evita margem desnecessária após o último parágrafo */
 .therapist-info p:last-child {
     margin-bottom: 0;
 }
