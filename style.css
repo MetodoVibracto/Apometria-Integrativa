@@ -569,13 +569,25 @@ nav a.active::after {
 }
 
 .therapist-image img {
-    max-width: 400%;
+    max-width: 400px;
     width: 100%;
     height: auto;
     border-radius: 14px;
     border: 1px solid rgba(226, 176, 55, 0.3);
     display: block;
     margin: 0 auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ESPAÇAMENTO DOS PARÁGRAFOS DO TEXTO AO LADO DA FOTO */
+.therapist-info p {
+    margin-bottom: 22px; /* Espaço entre os parágrafos */
+    line-height: 1.7;
+}
+
+.therapist-info p:last-child {
+    margin-bottom: 0;
+}
 }
 
 /* ==========================================================================
