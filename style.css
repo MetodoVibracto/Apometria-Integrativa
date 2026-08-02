@@ -563,16 +563,33 @@ nav a.active::after {
     border-bottom: 1px solid rgba(226, 176, 55, 0.2);
 }
 
+/* Regra Padrão (Computadores e Telas Grandes) */
 .therapist-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Lado a lado no computador */
+    display: grid !important;
+    grid-template-columns: 1fr 1.2fr !important; /* Força 2 colunas */
     gap: 50px;
     align-items: center;
 }
 
+.therapist-image img {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(226, 176, 55, 0.3);
+    display: block;
+    margin: 0 auto;
+}
+
+.therapist-info p {
+    margin-bottom: 22px;
+    line-height: 1.7;
+}
+
+/* Regra para Celulares e Telas Pequenas */
 @media (max-width: 768px) {
     .therapist-grid {
-        grid-template-columns: 1fr;   /* Empilhado no celular */
+        grid-template-columns: 1fr !important; /* Empilha no mobile */
         gap: 30px;
         text-align: center;
     }
