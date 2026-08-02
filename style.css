@@ -557,16 +557,26 @@ nav a.active::after {
 }
 
 .therapist {
-    padding: 80px 0;
-    background-color: rgba(17, 26, 51, 0.6);
+    padding: 90px 0;
+    background-color: var(--bg-card-alt);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .therapist-grid {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 50px;
-    align-items: center;
+    grid-template-columns: 1fr 1.2fr; /* Lado a lado */
+    gap: 50px;                        /* Espaço entre a foto e o texto */
+    align-items: center;               /* Alinha verticalmente pelo centro */
 }
+
+@media (max-width: 768px) {
+    .therapist-grid {
+        grid-template-columns: 1fr;   /* Em celulares fica um abaixo do outro */
+        gap: 30px;
+        text-align: center;
+   }
+   }
 
 .therapist-image img {
     max-width: 400px;
@@ -587,7 +597,6 @@ nav a.active::after {
 
 .therapist-info p:last-child {
     margin-bottom: 0;
-}
 }
 
 /* ==========================================================================
