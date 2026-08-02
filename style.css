@@ -576,21 +576,25 @@ nav a.active::after {
         grid-template-columns: 1fr;   /* Em telas pequenas fica um abaixo do outro */
         gap: 30px;
         text-align: center;
-    }
-} /* <--- AQUI ESTAVA O ERRO: FALTAVA FECHAR ESTA CHAVE! */
+   }
+}
 
+.action-btn:hover {
+    color: #ffffff;
+}
+
+/* 1. Controla o tamanho e o visual da foto do Terapeuta */
 .therapist-image img {
-    max-width: 400px;
+    max-width: 420px;
     width: 100%;
     height: auto;
-    border-radius: 14px;
+    border-radius: 12px;
     border: 1px solid rgba(226, 176, 55, 0.3);
     display: block;
     margin: 0 auto;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* ESPAÇAMENTO DOS PARÁGRAFOS DO TEXTO AO LADO DA FOTO */
+/* 2. Espaçamento e leitura dos parágrafos do Terapeuta */
 .therapist-info p {
     margin-bottom: 22px;
     line-height: 1.7;
