@@ -558,32 +558,30 @@ nav a.active::after {
 
 .therapist {
     padding: 90px 0;
-    background-color: var(--bg-card-alt);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(17, 26, 51, 0.6);
+    border-top: 1px solid rgba(226, 176, 55, 0.2);
+    border-bottom: 1px solid rgba(226, 176, 55, 0.2);
 }
 
 .therapist-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Coloca foto e texto lado a lado no PC */
+    grid-template-columns: 1fr 1.2fr; /* Lado a lado no computador */
     gap: 50px;
     align-items: center;
 }
 
-/* Ajuste exclusivo para celulares */
 @media (max-width: 768px) {
     .therapist-grid {
-        grid-template-columns: 1fr;   /* Em telas pequenas fica um abaixo do outro */
+        grid-template-columns: 1fr;   /* Empilhado no celular */
         gap: 30px;
         text-align: center;
-   }
+    }
 }
 
 .action-btn:hover {
     color: #ffffff;
 }
 
-/* 1. Controla o tamanho e o visual da foto do Terapeuta */
 .therapist-image img {
     max-width: 420px;
     width: 100%;
@@ -594,7 +592,6 @@ nav a.active::after {
     margin: 0 auto;
 }
 
-/* 2. Espaçamento e leitura dos parágrafos do Terapeuta */
 .therapist-info p {
     margin-bottom: 22px;
     line-height: 1.7;
