@@ -473,7 +473,20 @@
     color: #ffffff;
  }
         
-/* 1. Controla o tamanho e o visual da foto do Terapeuta */
+ .therapist {
+    padding: 90px 0;
+    background-color: rgba(17, 26, 51, 0.6);
+    border-top: 1px solid rgba(226, 176, 55, 0.2);
+    border-bottom: 1px solid rgba(226, 176, 55, 0.2);
+}    
+        
+.therapist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Lado a lado em telas de computador */
+    gap: 50px;
+    align-items: center;
+}
+        
 .therapist-image img {
     max-width: 420px;
     width: 100%;
