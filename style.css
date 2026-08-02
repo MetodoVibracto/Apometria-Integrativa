@@ -565,18 +565,19 @@ nav a.active::after {
 
 .therapist-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Lado a lado */
-    gap: 50px;                        /* Espaço entre a foto e o texto */
-    align-items: center;               /* Alinha verticalmente pelo centro */
+    grid-template-columns: 1fr 1.2fr; /* Coloca foto e texto lado a lado no PC */
+    gap: 50px;
+    align-items: center;
 }
 
+/* Ajuste exclusivo para celulares */
 @media (max-width: 768px) {
     .therapist-grid {
-        grid-template-columns: 1fr;   /* Em celulares fica um abaixo do outro */
+        grid-template-columns: 1fr;   /* Em telas pequenas fica um abaixo do outro */
         gap: 30px;
         text-align: center;
-   }
-   }
+    }
+} /* <--- AQUI ESTAVA O ERRO: FALTAVA FECHAR ESTA CHAVE! */
 
 .therapist-image img {
     max-width: 400px;
@@ -591,14 +592,13 @@ nav a.active::after {
 
 /* ESPAÇAMENTO DOS PARÁGRAFOS DO TEXTO AO LADO DA FOTO */
 .therapist-info p {
-    margin-bottom: 22px; /* Espaço entre os parágrafos */
+    margin-bottom: 22px;
     line-height: 1.7;
 }
 
 .therapist-info p:last-child {
     margin-bottom: 0;
 }
-
 /* ==========================================================================
    8. PREÇOS & CTA FINAL
    ========================================================================== */
