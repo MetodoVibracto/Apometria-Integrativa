@@ -1171,7 +1171,7 @@ nav a.active::after {
 }
 
 /* ==========================================================================
-   12. RESPONSIVIDADE
+   12. RESPONSIVIDADE & MENU MOBILE
    ========================================================================== */
 
 /* Esconde o botão do hambúrguer por padrão (Telas Grandes) */
@@ -1191,7 +1191,7 @@ nav a.active::after {
 .menu-toggle .bar {
     height: 3px;
     width: 100%;
-    background-color: var(--primary-color, #333); /* Cor das barrinhas */
+    background-color: var(--primary-color); /* Cor dourada das barrinhas */
     border-radius: 10px;
     transition: all 0.3s ease;
 }
@@ -1218,7 +1218,8 @@ nav a.active::after {
 }
 
 @media (max-width: 768px) {
-    /* Mantém logo, botão hambúrguer e botão CTA alinhados na mesma linha */
+    /* Alinha Logo e Botão Hambúrguer na mesma linha */
+    header .container,
     header .header-container {
         display: flex;
         justify-content: space-between;
@@ -1231,37 +1232,44 @@ nav a.active::after {
         display: flex;
     }
 
-    /* Esconde o botão CTA pequeno no cabeçalho se o espaço for curto (Opcional) */
+    /* Esconde o botão CTA no topo no celular para liberar espaço */
     .btn-header {
         display: none; 
     }
 
-    /* Transforma o menu em uma gaveta suspensa */
+    /* Transforma o nav em uma gaveta suspensa estilizada no tema escuro */
     #nav-menu {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #ffffff; /* Ajuste para a cor de fundo do seu tema */
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        background-color: var(--bg-deep-blue); /* Mesma cor do seu tema escuro */
+        border-bottom: 1px solid rgba(226, 176, 55, 0.3); /* Borda dourada sutil */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
         
         /* Efeito de revelar deslizando */
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease-in-out, padding 0.3s ease;
+        transition: max-height 0.35s ease-in-out, padding 0.3s ease;
         padding: 0;
+        z-index: 999;
     }
 
     /* Classe ativada via JS ao clicar no hambúrguer */
     #nav-menu.active {
-        max-height: 400px; /* Altura suficiente para mostrar os links */
+        max-height: 420px; /* Altura suficiente para mostrar todos os links */
         padding: 20px 0;
     }
 
     #nav-menu ul {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 18px;
+    }
+
+    #nav-menu a {
+        font-size: 1.05rem;
+        color: var(--text-light);
     }
 
     .steps-grid { grid-template-columns: 1fr; }
@@ -1274,6 +1282,11 @@ nav a.active::after {
     .whatsapp-float {
         padding: 14px;
         border-radius: 50%;
+        bottom: 20px;
+        right: 20px;
+    }
+    .btn-large { width: 100%; text-align: center; }
+}
         bottom: 20px;
         right: 20px;
     }
