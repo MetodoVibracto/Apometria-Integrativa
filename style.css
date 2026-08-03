@@ -624,13 +624,13 @@ nav a.active::after {
 .pricing-title-wrapper {
     position: relative;
     text-align: center;
-    margin-bottom: 45px;
-    padding-top: 20px;
+    margin-bottom: 50px;
+    padding-top: 40px;
 }
 
 .pricing-bg-text {
     position: absolute;
-    top: -25px;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 6rem;
