@@ -1171,10 +1171,10 @@ nav a.active::after {
 }
 
 /* ==========================================================================
-   12. RESPONSIVIDADE (Menu Hambúrguer + Correções do Grid)
+   12. RESPONSIVIDADE
    ========================================================================== */
 
-/* Botão hambúrguer fica ESCONDIDO no Computador */
+/* Esconde o botão do hambúrguer por padrão (Telas Grandes) */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -1185,93 +1185,83 @@ nav a.active::after {
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1000;
+    z-index: 1001;
 }
 
 .menu-toggle .bar {
     height: 3px;
     width: 100%;
-    background-color: var(--primary-color);
-    border-radius: 4px;
+    background-color: var(--primary-color, #333); /* Cor das barrinhas */
+    border-radius: 10px;
     transition: all 0.3s ease;
 }
 
+/* Animação do ícone mudando para "X" quando aberto */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
 @media (max-width: 992px) {
-    .hero-content, 
-    .what-is-grid, 
-    .therapist-grid, 
-    .pricing-grid {
+    .hero-content, .what-is-grid, .therapist-grid, .pricing-grid {
         grid-template-columns: 1fr;
         text-align: center;
     }
     .hero-text h1 { font-size: 2.2rem; }
-    .hero::before { width: 380px; height: 380px; }
     .steps-grid { grid-template-columns: 1fr 1fr; }
     .therapist-image { max-width: 400px; margin: 0 auto; }
-    
-    /* Previne sobreposição da imagem no hero em telas de tablet */
-    .hero-image img {
-        margin: 20px auto 0;
-    }
 }
 
 @media (max-width: 768px) {
-    header {
-        position: relative;
-        z-index: 999;
-        background-color: #080b12;
-    }
-
-    header .container {
+    /* Mantém logo, botão hambúrguer e botão CTA alinhados na mesma linha */
+    header .header-container {
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 20px;
+        position: relative;
     }
 
-    /* Exibe o botão hambúrguer no mobile */
+    /* Exibe o hambúrguer no mobile */
     .menu-toggle {
         display: flex;
     }
 
-    /* Oculta os links no celular por padrão sem quebrar a tela */
-    nav#nav-menu {
-        display: none;
+    /* Esconde o botão CTA pequeno no cabeçalho se o espaço for curto (Opcional) */
+    .btn-header {
+        display: none; 
+    }
+
+    /* Transforma o menu em uma gaveta suspensa */
+    #nav-menu {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #080b12;
+        background-color: #ffffff; /* Ajuste para a cor de fundo do seu tema */
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        
+        /* Efeito de revelar deslizando */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out, padding 0.3s ease;
+        padding: 0;
+    }
+
+    /* Classe ativada via JS ao clicar no hambúrguer */
+    #nav-menu.active {
+        max-height: 400px; /* Altura suficiente para mostrar os links */
         padding: 20px 0;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
-        z-index: 999;
     }
 
-    /* Abre e organiza o menu via Javascript com classe .active */
-    nav#nav-menu.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav#nav-menu ul {
-        display: flex;
+    #nav-menu ul {
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    /* Reduz o brilho azul no mobile para não cobrir conteúdos */
-    .hero::before {
-        width: 280px;
-        height: 280px;
-        top: 10%;
-        right: 50%;
-        transform: translateX(50%);
     }
 
     .steps-grid { grid-template-columns: 1fr; }
@@ -1280,10 +1270,6 @@ nav a.active::after {
 }
 
 @media (max-width: 480px) {
-    .btn-whatsapp-group {
-        min-width: 100%;
-        padding: 18px 20px;
-    }
     .whatsapp-float span { display: none; }
     .whatsapp-float {
         padding: 14px;
