@@ -348,66 +348,132 @@
             font-weight: 500;
         }
 
-        /* ==========================================================================
-           6. SEÇÃO O QUE É & PASSO A PASSO
-           ========================================================================== */
-        .what-is {
-            padding: 110px 0;
-        }
+        /* --- SEÇÃO SOBRE / O QUE É --- */
+.about-section {
+    padding: 100px 0 80px;
+}
 
-        .what-is-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
+/* Título Stylized com Marca d'água "O QUE É" */
+.about-title-wrapper {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
 
-        .steps {
-            padding: 110px 0;
-            background-color: var(--bg-card-alt);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
+.about-bg-text {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    opacity: 0.12;
+    letter-spacing: 6px;
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+    white-space: nowrap;
+}
 
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 65px;
-        }
+.about-title-wrapper h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--text-light);
+}
 
-        .step-item {
-            background-color: var(--bg-card);
-            padding: 30px 20px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-color);
-            position: relative;
-            transition: var(--transition);
-        }
+.about-title-wrapper h2 span {
+    color: var(--primary-color);
+}
 
-        .step-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-glow);
-        }
+/* Layout Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+}
 
-        .step-number {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            opacity: 0.55;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-         }
-        
-            .step-item h3 {
-    color: var(--primary-color); /* Deixa o título em dourado destacado */
-    margin-bottom: 14px;         /* Cria o espaço entre o título e o texto */
-        }
-        
-        .step-item p {
-    color: var(--text-muted); /* Ou use rgba(255, 255, 255, 0.85) se preferir mais claro */
-    line-height: 1.5;
+.about-text p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-text p strong {
+    color: var(--text-light);
+}
+
+/* Cards com Borda Dourada, Fundo var(--bg-card) e Reflexo/Sombra */
+.about-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.about-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--radius);
+    padding: 30px;
+    /* Reflexo e Sombra Dourada Elegante */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 22px rgba(212, 175, 55, 0.25);
+}
+
+.about-card h3 {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Estilo das Listas com Ícones Dourados Estilizados */
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-list li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.about-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Ícone de Brilho/Estrela Dourada em CSS */
+.about-list.star-icons li::before {
+    content: "✦";
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 4px var(--primary-color));
+}
+
+/* Ícone de Checkmark Dourado Estilizado em CSS */
+.about-list.check-icons li::before {
+    content: "✓";
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1;
+    filter: drop-shadow(0 0 4px var(--primary-color));
 }
 
         /* ==========================================================================
