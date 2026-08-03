@@ -621,6 +621,11 @@ nav a.active::after {
    8. PREÇOS & CTA FINAL
    ========================================================================== */
 /* --- TÍTULO SEÇÃO PREÇOS EM CAMADAS --- */
+
+.pricing {
+    padding: 100px 0 80px; 
+}
+
 .pricing-title-wrapper {
     position: relative;
     text-align: center;
