@@ -620,63 +620,120 @@ nav a.active::after {
 /* ==========================================================================
    8. PREÇOS & CTA FINAL
    ========================================================================== */
-.pricing {
-    padding: 110px 0;
+/* --- TÍTULO SEÇÃO PREÇOS EM CAMADAS --- */
+.pricing-title-wrapper {
+    position: relative;
+    text-align: center;
+    margin-bottom: 45px;
+    padding-top: 20px;
 }
 
+.pricing-bg-text {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    opacity: 0.12;
+    letter-spacing: 6px;
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+}
+
+.pricing-title-wrapper h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--text-light);
+}
+
+.pricing-title-wrapper h2 span {
+    color: var(--primary-color);
+}
+
+/* --- ESTRUTURA DOS CARDS DE PREÇO --- */
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin-top: 40px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: stretch;
 }
 
 .pricing-item {
-    background-color: var(--bg-card-blue);
-    padding: 40px 30px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    transition: var(--transition);
+    padding: 35px 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
 }
 
 .pricing-item.featured {
-    border-color: var(--primary-color);
-    box-shadow: var(--shadow-md), var(--shadow-gold);
-    position: relative;
-    background-color: rgba(26, 38, 70, 0.85);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
 }
 
-.pricing-item.featured::before {
-    content: 'Mais Recomendado';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--primary-color) 0%, #b8860b 100%);
-    color: #0b1021;
-    padding: 4px 15px;
+.badge-recommended {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #0d1322;
     font-size: 0.75rem;
-    font-weight: bold;
+    font-weight: 800;
+    padding: 4px 12px;
     border-radius: 20px;
-    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.pricing-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.pricing-item p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
 }
 
 .price {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 800;
     color: var(--primary-color);
-    margin: 15px 0;
-    text-shadow: 0 0 10px rgba(226, 176, 55, 0.3);
+    margin-bottom: 25px;
 }
 
+/* --- LISTA DE BENEFÍCIOS --- */
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 20px;
+}
+
+.pricing-features li {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pricing-features li span {
+    color: var(--primary-color);
+    font-weight: bold;
+}
 .final-cta {
     padding: 90px 0;
     background: linear-gradient(135deg, var(--bg-deep-blue) 0%, var(--bg-mid-blue) 100%);
