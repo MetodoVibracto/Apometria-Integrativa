@@ -1,33 +1,28 @@
-
+HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Método Vibracto - Apometria Integrativa</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Método Vibracto | Apometria Integrativa</title>
 
     <style>
         /* ==========================================================================
            1. VARIÁVEIS GLOBAIS E RESET
            ========================================================================== */
         :root {
-            --primary-color: #d4af37; /* Dourado */
-            --primary-hover: #f3e5ab;
-            --bg-deep: #0a0e17;       /* Fundo bem escuro */
-            --bg-card: #131b2e;       /* Fundo dos cartões */
-            --bg-card-alt: #0d1322;   /* Fundo alternativo */
+            --primary-color: #e2b037;
+            --primary-hover: #c99a2e;
+            --bg-deep: #0a0b10;
+            --bg-card: rgba(20, 22, 32, 0.7);
+            --bg-card-hover: rgba(28, 31, 45, 0.85);
             --text-light: #f4f4f6;
-            --text-muted: #a0aab8;
-            --border-color: rgba(212, 175, 55, 0.2);
-            --radius: 12px;
+            --text-muted: #a0a5b5;
+            --border-color: rgba(226, 176, 55, 0.2);
+            --border-hover: rgba(226, 176, 55, 0.5);
+            --shadow-gold: 0 8px 32px 0 rgba(226, 176, 55, 0.15);
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             --transition: all 0.3s ease;
-            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
-            --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
 
         * {
@@ -36,16 +31,18 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-deep);
             color: var(--text-light);
+            font-family: var(--font-family);
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
        /* ==========================================================================
@@ -354,15 +351,14 @@
     padding: 100px 0 80px;
 }
 
-/* Título Stylized com Marca d'água "O QUE É" */
-.about-title-wrapper {
+.title-wrapper {
     position: relative;
     text-align: center;
     margin-bottom: 50px;
     padding-top: 20px;
 }
 
-.about-bg-text {
+.title-bg-text {
     position: absolute;
     top: -10px;
     left: 50%;
@@ -377,7 +373,7 @@
     line-height: 1;
     white-space: nowrap;
 }
-
+        
 .about-title-wrapper h2 {
     position: relative;
     z-index: 2;
@@ -476,8 +472,7 @@
     line-height: 1;
     filter: drop-shadow(0 0 4px var(--primary-color));
 }
-
-        /* --- SEÇÃO PASSO A PASSO --- */
+/* --- SEÇÃO PASSO A PASSO --- */
 .steps-section {
     padding: 100px 0 80px;
 }
