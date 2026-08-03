@@ -47,7 +47,7 @@
             overflow-x: hidden;
         }
 
-        /* ==========================================================================
+       /* ==========================================================================
            2. COMPONENTES REUTILIZÁVEIS
            ========================================================================== */
         .container {
@@ -56,27 +56,63 @@
             padding: 0 20px;
         }
 
+        /* --- BOTÃO COM EFETOS DE ILUMINAÇÃO, BORDA E REFLEXO (SHINE) --- */
         .btn {
+            position: relative;
             display: inline-block;
+            overflow: hidden; /* Garante que o feixe de luz não passe fora das bordas */
             background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
             color: #0d1322;
             font-weight: 700;
             padding: 14px 28px;
             border-radius: var(--radius);
             text-decoration: none;
-            border: none;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
             text-transform: uppercase;
             font-size: 0.9rem;
             letter-spacing: 0.5px;
+
+            /* Borda semitransparente brilhante */
+            border: 1px solid rgba(255, 235, 170, 0.6);
+
+            /* Sombra neon dourada + iluminação 3D na borda interna */
+            box-shadow: 
+                0 4px 20px rgba(212, 175, 55, 0.4),
+                0 0 12px rgba(212, 175, 55, 0.2),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Feixe de reflexo metálico */
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(
+                120deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.55) 50%, 
+                transparent 100%
+            );
+            transform: skewX(-25deg);
+            transition: left 0.75s ease-in-out;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
             background: linear-gradient(135deg, #e5be48 0%, #bb931b 100%);
+            box-shadow: 
+                0 6px 28px rgba(212, 175, 55, 0.65),
+                0 0 18px rgba(212, 175, 55, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Animação do reflexo deslizando ao passar o mouse */
+        .btn:hover::before {
+            left: 140%;
         }
 
         .btn-large {
