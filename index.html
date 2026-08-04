@@ -1,27 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Método Vibracto | Apometria Integrativa</title>
+    <title>Método Vibracto - Apometria Integrativa</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* ==========================================================================
            1. VARIÁVEIS GLOBAIS E RESET
            ========================================================================== */
         :root {
-            --primary-color: #e2b037;
-            --primary-hover: #c99a2e;
-            --bg-deep: #0a0b10;
-            --bg-card: rgba(20, 22, 32, 0.7);
-            --bg-card-hover: rgba(28, 31, 45, 0.85);
+            --primary-color: #d4af37; /* Dourado */
+            --primary-hover: #f3e5ab;
+            --bg-deep: #0a0e17;       /* Fundo bem escuro */
+            --bg-card: #131b2e;       /* Fundo dos cartões */
+            --bg-card-alt: #0d1322;   /* Fundo alternativo */
             --text-light: #f4f4f6;
-            --text-muted: #a0a5b5;
-            --border-color: rgba(226, 176, 55, 0.2);
-            --border-hover: rgba(226, 176, 55, 0.5);
-            --shadow-gold: 0 8px 32px 0 rgba(226, 176, 55, 0.15);
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --text-muted: #a0aab8;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --radius: 12px;
             --transition: all 0.3s ease;
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.15);
         }
 
         * {
@@ -30,114 +36,130 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-deep);
             color: var(--text-light);
-            font-family: var(--font-family);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
+       /* ==========================================================================
+           2. COMPONENTES REUTILIZÁVEIS
+           ========================================================================== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* ==========================================================================
-           2. COMPONENTES REUTILIZÁVEIS
-           ========================================================================== */
+        /* --- BOTÃO COM EFETOS DE ILUMINAÇÃO, BORDA E REFLEXO (SHINE) --- */
         .btn {
+            position: relative;
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
-            color: #000;
+            overflow: hidden; /* Garante que o feixe de luz não passe fora das bordas */
+            background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+            color: #0d1322;
             font-weight: 700;
             padding: 14px 28px;
-            border-radius: 50px;
+            border-radius: var(--radius);
             text-decoration: none;
-            transition: var(--transition);
-            border: none;
             cursor: pointer;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(226, 176, 55, 0.3);
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+
+            /* Borda semitransparente brilhante */
+            border: 1px solid rgba(255, 235, 170, 0.6);
+
+            /* Sombra neon dourada + iluminação 3D na borda interna */
+            box-shadow: 
+                0 4px 20px rgba(212, 175, 55, 0.4),
+                0 0 12px rgba(212, 175, 55, 0.2),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Feixe de reflexo metálico */
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(
+                120deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.55) 50%, 
+                transparent 100%
+            );
+            transform: skewX(-25deg);
+            transition: left 0.75s ease-in-out;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(226, 176, 55, 0.5);
+            background: linear-gradient(135deg, #e5be48 0%, #bb931b 100%);
+            box-shadow: 
+                0 6px 28px rgba(212, 175, 55, 0.65),
+                0 0 18px rgba(212, 175, 55, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Animação do reflexo deslizando ao passar o mouse */
+        .btn:hover::before {
+            left: 140%;
+        }
+
+        .btn-large {
+            padding: 18px 36px;
+            font-size: 1.05rem;
         }
 
         .btn-sm {
             padding: 10px 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        .btn-large {
-            padding: 16px 36px;
-            font-size: 1.1rem;
-        }
-
-        /* Títulos estilizados universais com marca d'água */
-        .section-title-wrapper {
-            position: relative;
-            text-align: center;
-            margin-bottom: 50px;
-            padding-top: 15px;
-        }
-
-        .section-bg-text {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: clamp(3.5rem, 8vw, 5.5rem);
-            font-weight: 800;
-            color: var(--primary-color);
-            opacity: 0.08;
-            letter-spacing: 6px;
-            user-select: none;
-            pointer-events: none;
-            line-height: 1;
-            white-space: nowrap;
-        }
-
-        .section-title-wrapper h2 {
-            position: relative;
-            z-index: 1;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        h1, h2, h3, h4 {
             color: var(--text-light);
+            font-weight: 700;
         }
 
-        .section-title-wrapper h2 span {
-            color: var(--primary-color);
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
         }
 
         /* ==========================================================================
-           3. HEADER & MENU RESPONSIVO
+           3. CABEÇALHO / NAVBAR
            ========================================================================== */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 11, 16, 0.9);
+            background-color: rgba(10, 14, 23, 0.95);
             backdrop-filter: blur(10px);
+            position: relative;
+            top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
             padding: 15px 0;
         }
 
-        .header-container {
+        header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            letter-spacing: 1px;
+        .logo img {
+            max-height: 100px;
+            width: auto;
+            display: block;
         }
 
         nav ul {
@@ -149,541 +171,1107 @@
         nav a {
             color: var(--text-light);
             text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
             transition: var(--transition);
-            font-size: 0.95rem;
         }
 
         nav a:hover {
             color: var(--primary-color);
         }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-        }
+        /* ==========================================================================
+   4. SEÇÃO HERO
+   ========================================================================== */
+.hero {
+    padding: 90px 0 0;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 60%);
+}
 
-        .menu-toggle .bar {
-            width: 25px;
-            height: 3px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-            transition: var(--transition);
-        }
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: flex-end;
+}
+
+/* Garante um espaço abaixo do botão para não colar no banner */
+.hero-text {
+    margin-bottom: 30px; 
+}
+
+.hero-text h1 {
+    font-size: 2.3rem;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 span {
+    color: var(--primary-color);
+    font-size: 0.65em; /* Reduz o tamanho do span proporcionalmente ao H1 */
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;  /* Dá um espacinho sutil em relação ao título principal */
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+/* --- REGRA DA IMAGEM --- */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 auto;
+    vertical-align: bottom;
+}
+
+/* --- BANNER DE DESTAQUES (COLADO NA FOTO) --- */
+.hero-highlights-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 0; /* Colado na base da foto */
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(212, 175, 55, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon-circle svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--primary-color);
+}
+
+.highlight-text h4 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.highlight-text p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
 
         /* ==========================================================================
-           4. SEÇÕES
+           5. SEÇÃO PROBLEMAS & IDENTIFICAÇÃO
            ========================================================================== */
-        section {
-            padding: 80px 0;
-        }
-
-        /* Hero */
-        .hero {
-            padding-top: 160px;
-            text-align: center;
-            background: radial-gradient(circle at center, rgba(226, 176, 55, 0.08) 0%, transparent 70%);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            color: var(--primary-color);
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        /* Destaques (Highlights) */
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
-        }
-
-        .highlight-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 25px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            transition: var(--transition);
-        }
-
-        .highlight-item:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-5px);
-        }
-
-        .icon-circle {
-            width: 50px;
-            height: 50px;
-            background: rgba(226, 176, 55, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            flex-shrink: 0;
-        }
-
-        .icon-circle svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        /* Problemas & Identificação */
         .problems {
-            background: rgba(255, 255, 255, 0.01);
+            padding: 80px 0;
             text-align: center;
+        }
+
+        .problems h2 {
+            max-width: 800px;
+            margin: 0 auto 15px;
         }
 
         .problems-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin: 40px 0;
+            margin-top: 40px;
         }
 
         .problem-item {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 15px;
+            background-color: var(--bg-card);
+            padding: 35px 25px;
+            border-radius: var(--radius);
             border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+
+        .problem-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-glow);
         }
 
         .problem-item p:first-child {
             font-size: 2.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+        }
+
+        .identification {
+            padding: 80px 0;
+            background-color: var(--bg-card-alt);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .identification-list {
-            max-width: 700px;
+            max-width: 750px;
             margin: 30px auto;
             list-style: none;
         }
 
         .identification-list li {
-            background: var(--bg-card);
+            background-color: var(--bg-card);
+            padding: 16px 20px;
             margin-bottom: 12px;
-            padding: 15px 20px;
-            border-radius: 10px;
+            border-radius: var(--radius);
             border-left: 4px solid var(--primary-color);
-            text-align: left;
-        }
-
-        /* About (O que é) */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .about-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .about-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 25px;
-            border-radius: 15px;
-        }
-
-        .about-list {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .about-list li {
-            margin-bottom: 8px;
-            color: var(--text-muted);
-        }
-
-        /* Steps */
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        .step-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 30px 20px;
-            border-radius: 15px;
-            position: relative;
-        }
-
-        .step-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            opacity: 0.5;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        /* Depoimentos */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .testimonial-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 25px;
-            border-radius: 15px;
-        }
-
-        .social-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .avatar-circle {
-            width: 45px;
-            height: 45px;
-            background: var(--primary-color);
-            color: #000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .stars {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        /* Terapeuta */
-        .therapist-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .therapist-image img {
-            width: 100%;
-            border-radius: 15px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-gold);
-        }
-
-        blockquote {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            font-style: italic;
-            border-left: 3px solid var(--primary-color);
-            padding-left: 15px;
-            margin: 20px 0;
-        }
-
-        /* Preços */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .pricing-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 35px;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .pricing-item.featured {
-            border-color: var(--primary-color);
-            box-shadow: var(--shadow-gold);
-            position: relative;
-        }
-
-        .badge-recommended {
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background: var(--primary-color);
-            color: #000;
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 4px 12px;
-            border-radius: 20px;
-        }
-
-        .price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin: 20px 0;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .pricing-features li {
-            margin-bottom: 10px;
-            color: var(--text-muted);
-        }
-
-        .pricing-features span {
-            color: var(--primary-color);
-            margin-right: 8px;
-        }
-
-        /* Contato & FAQ */
-        .contact-form {
-            max-width: 600px;
-            margin: 30px auto 0;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-right: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             color: var(--text-light);
-            outline: none;
+            font-weight: 500;
         }
 
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        /* --- SEÇÃO SOBRE --- */
+.about-section {
+    padding: 100px 0 80px;
+}
 
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
+/* Título Stylized com Marca d'água "O QUE É" */
+.about-title-wrapper {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
 
-        .faq-question {
-            width: 100%;
-            padding: 20px;
-            background: none;
-            border: none;
-            color: var(--text-light);
-            font-size: 1.05rem;
-            font-weight: 600;
-            text-align: left;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.about-bg-text {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    opacity: 0.12;
+    letter-spacing: 6px;
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+    white-space: nowrap;
+}
 
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 20px;
-            color: var(--text-muted);
-        }
+.about-title-wrapper h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--text-light);
+}
 
-        .faq-item.active .faq-answer {
-            padding: 0 20px 20px 20px;
-            max-height: 500px;
-        }
+.about-title-wrapper h2 span {
+    color: var(--primary-color);
+}
 
-        /* Call to Action Final & Footer */
+/* Layout Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-text p strong {
+    color: var(--text-light);
+}
+
+/* Cards com Borda Dourada, Fundo var(--bg-card) e Reflexo/Sombra */
+.about-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.about-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--radius);
+    padding: 30px;
+    /* Reflexo e Sombra Dourada Elegante */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 22px rgba(212, 175, 55, 0.25);
+}
+
+.about-card h3 {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Estilo das Listas com Ícones Dourados Estilizados */
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-list li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.about-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Ícone de Brilho/Estrela Dourada em CSS */
+.about-list.star-icons li::before {
+    content: "✦";
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    line-height: 1;
+    filter: drop-shadow(0 0 4px var(--primary-color));
+}
+
+/* Ícone de Checkmark Dourado Estilizado em CSS */
+.about-list.check-icons li::before {
+    content: "✓";
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1;
+    filter: drop-shadow(0 0 4px var(--primary-color));
+}
+
+        /* --- SEÇÃO PASSO A PASSO --- */
+.steps-section {
+    padding: 100px 0 80px;
+}
+
+/* Título Stylized */
+.steps-title-wrapper {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
+
+.steps-bg-text {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    opacity: 0.12;
+    letter-spacing: 6px;
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.steps-title-wrapper h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--text-light);
+}
+
+.steps-title-wrapper h2 span {
+    color: var(--primary-color);
+}
+
+/* Layout Grid em 4 Colunas */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Card do Passo */
+.step-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 30px 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 18px rgba(212, 175, 55, 0.2);
+}
+
+/* Número Gigante em Destaque no Card */
+.step-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    opacity: 0.8;
+    margin-bottom: 15px;
+    display: block;
+    line-height: 1;
+}
+
+.step-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.step-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsividade para Telas Menores e Celulares */
+@media (max-width: 992px) {
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+        /* ==========================================================================
+           7. SEÇÃO DEPOIMENTOS & TERAPEUTA
+           ========================================================================== */
+        .testimonials {
+    padding-top: 160px;    /* Espaço extra em cima */
+    padding-bottom: 160px; /* Espaço extra embaixo */
+}
+     .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.testimonial-item {
+    background-color: #121723;
+    border: 1px solid rgba(226, 176, 55, 0.3);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-4px);
+    border-color: #e2b037;
+}
+
+/* Cabeçalho do Card (Avatar + Informações) */
+.social-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e2b037, #8a6d20);
+    color: #121723;
+    font-weight: bold;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.user-info h3 {
+    font-size: 0.95rem;
+    margin: 0;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.user-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted, #a0aec0);
+    display: block;
+}
+
+.stars {
+    color: #e2b037;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.testimonial-text {
+    font-size: 0.88rem;
+    color: #d1d5db;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* Rodapé dos botões de interação estilo Instagram */
+.social-actions {
+    display: flex;
+    gap: 15px;
+    font-size: 0.75rem;
+    color: #888;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 10px;
+}
+
+.action-btn {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.action-btn:hover {
+    color: #ffffff;
+ }
+        
+ .therapist {
+    padding: 90px 0;
+    background-color: rgba(17, 26, 51, 0.6);
+    border-top: 1px solid rgba(226, 176, 55, 0.2);
+    border-bottom: 1px solid rgba(226, 176, 55, 0.2);
+}    
+        
+.therapist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Lado a lado em telas de computador */
+    gap: 50px;
+    align-items: center;
+}
+        
+.therapist-image img {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(226, 176, 55, 0.3);
+    display: block;
+    margin: 0 auto;
+}
+
+/* 2. Espaçamento e leitura dos parágrafos do Terapeuta */
+.therapist-info p {
+    margin-bottom: 22px;
+    line-height: 1.7;
+}
+
+.therapist-info p:last-child {
+    margin-bottom: 0;
+}
+
+        /* ==========================================================================
+           8. PREÇOS & CTA FINAL
+           ========================================================================== */
+      /* --- TÍTULO SEÇÃO PREÇOS EM CAMADAS --- */
+
+        .pricing {
+    padding: 100px 0 80px; 
+}
+        
+.pricing-title-wrapper {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 40px;
+}
+
+.pricing-bg-text {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    opacity: 0.12;
+    letter-spacing: 6px;
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+}
+
+.pricing-title-wrapper h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--text-light);
+}
+
+.pricing-title-wrapper h2 span {
+    color: var(--primary-color);
+}
+
+/* --- ESTRUTURA DOS CARDS DE PREÇO --- */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
+
+.pricing-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 35px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
+}
+
+.pricing-item.featured {
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+.badge-recommended {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #0d1322;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.pricing-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.pricing-item p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+/* --- LISTA DE BENEFÍCIOS --- */
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 20px;
+}
+
+.pricing-features li {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pricing-features li span {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
         .final-cta {
+            padding: 90px 0;
+            background: linear-gradient(135deg, var(--bg-card-alt) 0%, var(--bg-deep) 100%);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-light);
             text-align: center;
-            background: radial-gradient(circle at center, rgba(226, 176, 55, 0.05) 0%, transparent 70%);
+        }
+
+        .final-cta h2 {
+            color: var(--text-light);
+            font-size: 2.2rem;
         }
 
         .cta-buttons {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 35px;
             flex-wrap: wrap;
         }
 
         .btn-whatsapp-group {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            color: var(--text-light);
-            padding: 16px 28px;
-            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            font-weight: 700;
             text-decoration: none;
             transition: var(--transition);
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
         }
 
         .btn-whatsapp-group:hover {
+            background-color: var(--primary-color);
+            color: #0d1322;
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* ==========================================================================
+           9. CONTATO & FAQ
+           ========================================================================== */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--bg-card-alt);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 30px auto 0;
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 6px;
+            color: var(--text-light);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
             border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .faq {
+            padding: 80px 0;
+        }
+
+        /* --- NOVO TÍTULO EM CAMADAS (FAQ) --- */
+        .faq-title-wrapper {
+            position: relative;
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+
+        .faq-bg-text {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 6rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            opacity: 0.12;
+            letter-spacing: 6px;
+            user-select: none;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .faq-title-wrapper h2 {
+            position: relative;
+            z-index: 2;
+            font-size: 2.2rem;
+            margin: 0;
+            color: var(--text-light);
+        }
+
+        .faq-title-wrapper h2 span {
             color: var(--primary-color);
         }
+        /* ------------------------------------ */
 
-        .footer {
-            border-top: 1px solid var(--border-color);
-            padding: 30px 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .faq-container {
+            max-width: 800px;
+            margin: 30px auto 0;
         }
 
-        /* Botão Flutuante WhatsApp */
+        .faq-item {
+            background-color: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 20px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.3s ease;
+            padding: 0 20px;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 20px 20px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-answer p {
+            margin-bottom: 12px;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ==========================================================================
+           10. BOTÃO FLUTUANTE DO WHATSAPP & RODAPÉ
+           ========================================================================== */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
             right: 25px;
             background-color: #25d366;
-            color: #fff;
-            padding: 12px 20px;
+            color: #ffffff;
             border-radius: 50px;
+            padding: 12px 22px 12px 16px;
             display: flex;
             align-items: center;
             gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            z-index: 9999;
             text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 999;
+            font-weight: 700;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
 
-        .whatsapp-float svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
         .whatsapp-float:hover {
-            transform: scale(1.05);
+            background-color: #128c7e;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            color: #ffffff;
         }
 
-        /* ==========================================================================
-           5. RESPONSIVIDADE
-           ========================================================================== */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--bg-deep);
-                border-bottom: 1px solid var(--border-color);
-                display: none;
-            }
-
-            nav.active {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                padding: 20px;
-                text-align: center;
-            }
-
-            .about-grid, .therapist-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .whatsapp-float span {
-                display: none;
-            }
-
-            .whatsapp-float {
-                padding: 15px;
-                border-radius: 50%;
-            }
+        .whatsapp-float svg {
+            width: 26px;
+            height: 26px;
+            fill: #ffffff;
+            flex-shrink: 0;
         }
-    </style>
-</head>
-<body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <div class="container header-container">
-            <!-- LOGO DA FÊNIX AQUI -->
-            <a href="#" class="logo-img">
-                <img src="logofenixdefogo.png" alt="logofenixdefogo.png" width="80"> 
-            </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav id="nav-menu">
-                <ul>
-                    <li><a href="#sobre">O que é</a></li>
-                    <li><a href="#passo-a-passo">Passo a Passo</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#terapeuta">O Terapeuta</a></li>
-                    <li><a href="#precos">Planos</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                    <li><a href="#faq">Dúvidas</a></li>
-                </ul>
-            </nav>
-            <a href="https://wa.me/5511987063494" class="btn btn-sm">QUERO MINHA SESSÃO</a>
+        footer.footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            background-color: var(--bg-deep);
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+
+       /* ==========================================================================
+   12. RESPONSIVIDADE & MENU MOBILE
+   ========================================================================== */
+
+/* Esconde o botão do hambúrguer por padrão (Telas Grandes) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color); /* Cor dourada das barrinhas */
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Animação do ícone mudando para "X" quando aberto */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 992px) {
+    .hero-content, .what-is-grid, .therapist-grid, .pricing-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-text h1 { font-size: 2.2rem; }
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .therapist-image { max-width: 400px; margin: 0 auto; }
+}
+
+@media (max-width: 768px) {
+    /* Alinha Logo e Botão Hambúrguer na mesma linha */
+    header .container,
+    header .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    /* Exibe o hambúrguer no mobile */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Esconde o botão CTA no topo no celular para liberar espaço */
+    .btn-header {
+        display: none; 
+    }
+
+    /* Transforma o nav em uma gaveta suspensa estilizada no tema escuro */
+    #nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-deep-blue); /* Mesma cor do seu tema escuro */
+        border-bottom: 1px solid rgba(226, 176, 55, 0.3); /* Borda dourada sutil */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        
+        /* Efeito de revelar deslizando */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease-in-out, padding 0.3s ease;
+        padding: 0;
+        z-index: 999;
+    }
+
+    /* Classe ativada via JS ao clicar no hambúrguer */
+    #nav-menu.active {
+        max-height: 420px; /* Altura suficiente para mostrar todos os links */
+        padding: 20px 0;
+    }
+
+    #nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    #nav-menu a {
+        font-size: 1.05rem;
+        color: var(--text-light);
+    }
+
+    .steps-grid { grid-template-columns: 1fr; }
+    .hero-highlights-banner { grid-template-columns: 1fr; }
+    .contact-form { padding: 25px 20px; }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-float span { display: none; }
+    .whatsapp-float {
+        padding: 14px;
+        border-radius: 50%;
+        bottom: 20px;
+        right: 20px;
+    }
+    .btn-large { width: 100%; text-align: center; }
+}
+
+
+
+   <!-- Cabeçalho -->
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <img src="logofenixdefogo.png" alt="Método Vibracto Logo">                           
         </div>
-    </header>
 
-    <!-- Hero Section -->
+        <!-- BOTÃO DO HAMBÚRGUER (Adicionado aqui) -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#sobre">O que é</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#terapeuta">Terapeuta</a></li>
+                <li><a href="#precos">Atendimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#faq">Dúvidas</a></li>
+            </ul>
+        </nav>
+
+        <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-header">Quero minha sessão</a>
+    </div>
+</header>
+    
+    <!-- Seção Hero -->
     <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>MÉTODO VIBRACTO<br><span>Apometria Integrativa</span></h1>
-                <p>Você sente que faz de tudo para mudar, mas continua repetindo os mesmos padrões.</p>
-                <p>Relacionamentos difíceis, ansiedade constante, sensação de estagnação e padrões que se repetem podem ter causas mais profundas do que aparentam.</p>
-                <a href="https://wa.me/5511987063494" target="_blank" rel="noopener noreferrer" class="btn btn-large" style="margin-top: 30px;">QUERO INICIAR MINHA SESSÃO</a>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Liberte-se de Padrões Repetitivos e Retome o Controle da Sua Vida<br>
+<span>Método Vibracto • Apometria Integrativa</span></h1>
+
+<p>Você sente que faz de tudo para mudar, mas continua caindo nos mesmos ciclos?</p>
+
+<p>Relacionamentos desgastantes, ansiedade constante e sensação de estagnação costumam ter raízes mais profundas do que aparentam. A Apometria Integrativa atua na causa para restabelecer seu equilíbrio.</p>
+                    
+                    <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn btn-large" style="margin-top: 15px;">Quero iniciar minha sessão</a>
+                </div>
+                <div class="hero-image">
+                    <img src="adauto-terno.png" alt="Adauto Santana">
+                </div>
             </div>
 
-            <div class="highlights-grid">
+            <!-- Banner de Destaques -->
+            <div class="hero-highlights-banner">
                 <div class="highlight-item">
                     <div class="icon-circle">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <div class="highlight-text">
+                        <h4>Atendimento Online</h4>
+                        <p>Para todo o Brasil</p>
+                    </div>
+                </div>
+
+                <div class="highlight-item">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
                     </div>
                     <div class="highlight-text">
                         <h4>Sessões Individuais</h4>
@@ -693,7 +1281,13 @@
 
                 <div class="highlight-item">
                     <div class="icon-circle">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
                     </div>
                     <div class="highlight-text">
                         <h4>Relatório Pós-Sessão</h4>
@@ -703,7 +1297,9 @@
 
                 <div class="highlight-item">
                     <div class="icon-circle">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
                     </div>
                     <div class="highlight-text">
                         <h4>Método Exclusivo</h4>
@@ -714,215 +1310,321 @@
         </div>
     </section>
 
-    <!-- Problemas -->
+    <!-- Seção Problemas -->
     <section class="problems">
         <div class="container">
-            <h2>Como a APOMETRIA pode ajudar você?</h2>
-            <p style="color: var(--text-muted); margin-top: 10px;">Identifique e transforme bloqueios emocionais, energéticos e espirituais.</p>
+            <h2>Como a APOMETRIA pode ajudar você a lidar melhor com os desafios da vida?</h2>
+            <p>Através da Apometria Integrativa, o Método Vibracto ajuda a identificar e transformar bloqueios emocionais, energéticos e espirituais.</p>
+            <p>Promovendo mais equilíbrio, clareza e desenvolvimento pessoal.</p>
             
             <div class="problems-grid">
                 <div class="problem-item">
                     <p>🔓</p>
                     <h3>Desbloqueios</h3>
-                    <p>Identifique e libere padrões que impedem seu crescimento.</p>
+                    <p>Identifique e libere padrões que impedem seu crescimento pessoal.</p>
                 </div>
                 <div class="problem-item">
                     <p>🌱</p>
                     <h3>Autonomia</h3>
-                    <p>Fortaleça sua capacidade de tomar decisões conscientes.</p>
+                    <p>Fortaleça sua capacidade de fazer escolhas mais conscientes.</p>
                 </div>
                 <div class="problem-item">
                     <p>⚖️</p>
                     <h3>Equilíbrio</h3>
-                    <p>Desenvolva clareza emocional e leveza para o dia a dia.</p>
+                    <p>Desenvolva mais clareza emocional, foco e leveza para lidar com a vida.</p>
                 </div>
+            </div>
+            
+            <div style="margin-top:40px;">
+                <p>Muitas vezes, não se trata de falta de esforço ou capacidade.</p>
+                <p>Bloqueios emocionais, energéticos e espirituais podem estar influenciando sua vida de maneira silenciosa.</p>
             </div>
         </div>
     </section>
 
-    <!-- Identificação -->
+    <!-- Seção Identificação -->
     <section class="identification">
         <div class="container">
-            <h2 style="text-align: center;">Você se identifica com alguma destas situações?</h2>
+            <h2 style="text-align:center;">Você se identifica com alguma destas situações?</h2>
             <ul class="identification-list">
                 <li>Vive em estado constante de ansiedade ou tensão;</li>
                 <li>Sente-se emocionalmente esgotado;</li>
                 <li>Tem dificuldade para agir apesar de saber o que precisa fazer;</li>
                 <li>Enfrenta desafios recorrentes nos relacionamentos;</li>
+                <li>Guarda sentimentos e encontra dificuldade para se expressar;</li>
                 <li>Tem a sensação de estar desconectado de si mesmo.</li>
             </ul>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://wa.me/5511987063494" target="_blank" rel="noopener noreferrer" class="btn">Quero iniciar minha sessão</a>
+            <div style="text-align:center; margin-top:30px;">
+                <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn">Quero iniciar minha sessão</a>
             </div>
         </div>
     </section>
 
-    <!-- O que é -->
-    <section id="sobre" class="about-section">
-        <div class="container">
-            <div class="section-title-wrapper">
-                <span class="section-bg-text">O QUE É</span>
-                <h2>O que é a <span>Apometria Integrativa</span></h2>
+    <!-- Seção O que é -->
+<section id="sobre" class="about-section">
+    <div class="container">
+        
+        <!-- Título em Camadas com Marca d'água "O QUE É" -->
+        <div class="about-title-wrapper">
+            <span class="about-bg-text">O QUE É</span>
+            <h2>O que é a <span>Apometria Integrativa</span></h2>
+        </div>
+
+        <div class="about-grid">
+            
+            <!-- Lado Esquerdo: Texto Explicativo -->
+            <div class="about-text">
+                <p>A <strong>Apometria Integrativa</strong> é uma abordagem terapêutica integrativa que atua nos aspectos emocionais, energéticos e espirituais do ser humano, buscando compreender as causas profundas de padrões, bloqueios e desequilíbrios que podem influenciar diferentes áreas da vida.</p>
+                <p>Seu propósito é favorecer o autoconhecimento, promover a reorganização interna e ampliar a consciência, auxiliando cada pessoa a viver com mais equilíbrio, clareza e conexão com sua própria essência.</p>
             </div>
 
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>A <strong>Apometria Integrativa</strong> é uma abordagem que atua nos aspectos emocionais, energéticos e espirituais, buscando as causas profundas de bloqueios e desequilíbrios.</p>
-                    <p style="margin-top: 15px;">Seu propósito é favorecer o autoconhecimento, promover a reorganização interna e ampliar a consciência.</p>
+            <!-- Lado Direito: Cards com Reflexo, Sombra e Borda Dourada -->
+            <div class="about-cards">
+                
+                <!-- Card 1 -->
+                <div class="about-card">
+                    <h3>Durante as sessões, trabalhamos:</h3>
+                    <ul class="about-list star-icons">
+                        <li>Padrões repetitivos</li>
+                        <li>Cargas emocionais</li>
+                        <li>Conflitos energéticos</li>
+                        <li>Questões espirituais</li>
+                    </ul>
                 </div>
 
-                <div class="about-cards">
-                    <div class="about-card">
-                        <h3>Trabalhamos em sessão:</h3>
-                        <ul class="about-list">
-                            <li>✦ Padrões repetitivos</li>
-                            <li>✦ Cargas emocionais</li>
-                            <li>✦ Conflitos energéticos</li>
-                        </ul>
-                    </div>
-                    <div class="about-card">
-                        <h3>Áreas impactadas:</h3>
-                        <ul class="about-list">
-                            <li>✓ Relacionamentos</li>
-                            <li>✓ Prosperidade</li>
-                            <li>✓ Equilíbrio Emocional</li>
-                        </ul>
+                <!-- Card 2 -->
+                <div class="about-card">
+                    <h3>Que podem afetar áreas como:</h3>
+                    <ul class="about-list check-icons">
+                        <li>Relacionamentos</li>
+                        <li>Prosperidade</li>
+                        <li>Sensação de leveza</li>
+                        <li>Equilíbrio emocional</li>
+                        <li>Desenvolvimento espiritual</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+   <!-- Seção Passo a Passo -->
+<section id="passo-a-passo" class="steps-section">
+    <div class="container">
+        
+        <!-- Título em Camadas com Marca d'água "ETAPAS" -->
+        <div class="steps-title-wrapper">
+            <span class="steps-bg-text">ETAPAS</span>
+            <h2>Como funciona a sessão? <span>Passo a Passo</span></h2>
+        </div>
+
+        <div class="steps-grid">
+            
+            <!-- Passo 01 -->
+            <div class="step-card">
+                <span class="step-number">01</span>
+                <h3>Você escolhe a modalidade</h3>
+                <p>Sessão de Apometria a distância conforme seu momento.</p>
+            </div>
+
+            <!-- Passo 02 -->
+            <div class="step-card">
+                <span class="step-number">02</span>
+                <h3>Identificação dos Bloqueios</h3>
+                <p>Mapeamos padrões, influências e questões que podem estar impactando sua vida.</p>
+            </div>
+
+            <!-- Passo 03 -->
+            <div class="step-card">
+                <span class="step-number">03</span>
+                <h3>Sessão Apométrica</h3>
+                <p>Harmonização emocional, energética e espiritual.</p>
+            </div>
+
+            <!-- Passo 04 -->
+            <div class="step-card">
+                <span class="step-number">04</span>
+                <h3>Integração e Orientações</h3>
+                <p>Você recebe o relatório de apometria com o que foi trabalhado no seu campo energético.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+    <!-- Seção Depoimentos (Estilo Rede Social) -->
+<section id="depoimentos" class="testimonials">
+    <div class="container">
+        
+        <div class="testimonials-header" style="text-align:center; margin-bottom: 40px;">
+            <h2 style="font-size: 2.2rem; letter-spacing: 1px;">VIDAS <span style="color: var(--primary-color, #e2b037);">TRANSFORMADAS</span></h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 8px;">Histórias reais de pessoas que encontraram o equilíbrio através dos nossos atendimentos.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            
+            <!-- 1. Amanda -->
+            <div class="testimonial-item">
+                <div class="social-header">
+                    <div class="avatar-circle">A</div>
+                    <div class="user-info">
+                        <h3>Amanda R.</h3>
+                        <span class="user-meta">27 anos – Praia Grande/SP</span>
                     </div>
                 </div>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"A cada sessão de Apometria Integrativa, percebo o quanto tenho me libertado de padrões que antes limitavam minha vida. É um processo de transformação que me fortalece e me permite seguir em frente com mais consciência. Sou profundamente grata por essa ferramenta."</p>
+                <div class="social-actions">
+                    <span class="action-btn">❤️ Responder</span>
+                    <span class="action-btn">Responder com um reel</span>
+                </div>
+            </div>
+
+            <!-- 2. Ricardo -->
+            <div class="testimonial-item">
+                <div class="social-header">
+                    <div class="avatar-circle">R</div>
+                    <div class="user-info">
+                        <h3>Ricardo Mendonça</h3>
+                        <span class="user-meta">42 anos – São Paulo/SP</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Percebi mudanças na forma como lidava com situações que antes me causavam sofrimento. Passei a enxergar minha vida com mais clareza e tranquilidade."</p>
+                <div class="social-actions">
+                    <span class="action-btn">❤️ Responder</span>
+                    <span class="action-btn">Responder com um reel</span>
+                </div>
+            </div>
+
+            <!-- 3. Patricia -->
+            <div class="testimonial-item">
+                <div class="social-header">
+                    <div class="avatar-circle">P</div>
+                    <div class="user-info">
+                        <h3>Patricia Costa</h3>
+                        <span class="user-meta">38 anos – São Paulo/SP</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Passei a tomar decisões com mais clareza e confiança, o que refletiu positivamente na minha vida profissional."</p>
+                <div class="social-actions">
+                    <span class="action-btn">❤️ Responder</span>
+                    <span class="action-btn">Responder com um reel</span>
+                </div>
+            </div>
+
+            <!-- 4. Carla Mendes (NOVO) -->
+            <div class="testimonial-item">
+                <div class="social-header">
+                    <div class="avatar-circle">C</div>
+                    <div class="user-info">
+                        <h3>Carla Mendes</h3>
+                        <span class="user-meta">40 anos</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Tanta cura, tratamento e quebra de padrões... A cada sessão de Apometria eu me liberto mais. Eu amo este método!"</p>
+                <div class="social-actions">
+                    <span class="action-btn">❤️ Responder</span>
+                    <span class="action-btn">Responder com um reel</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:40px;">
+            <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20Seja%20bem%20vindo(a)." target="_blank" rel="noopener noreferrer" class="btn">Falar com o terapeuta</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Seção Terapeuta -->
+<section id="terapeuta" class="therapist">
+    <div class="container">
+        <div class="therapist-grid">
+            <div class="therapist-image">
+                <img src="adautosantana.png" alt="Adauto Santana Terapeuta">
+            </div>
+            
+            <div class="therapist-info">
+                <h2>Quem é Adauto Santana</h2>
+                
+                <!-- Frase de destaque em dourado com espaçamento inferior -->
+                <blockquote style="color: #D4AF37; font-size: 1.25rem; font-weight: 600; line-height: 1.6; margin-bottom: 2rem; font-style: italic;">
+                    "Acredito que a transformação verdadeira só acontece quando olhamos além dos sintomas e tratamos a raiz do problema."
+                </blockquote>
+
+                <p>Há mais de 15 anos, ajudo pessoas a liberarem bloqueios emocionais, energéticos e espirituais para viverem com mais leveza e propósito. Minha jornada começou na Dança de Salão, onde, através do movimento e do contato com centenas de histórias, percebi como nossos padrões emocionais se refletem na forma como nos relacionamos com o mundo e conosco mesmos.</p>
+                
+                <p>Em busca de respostas profundas, especializei-me em Terapia Comportamental, Reiki, Apometria e terapias energéticas integrativas.</p>
+                
+                <p>A síntese dessa bagagem deu origem ao <strong>Método Vibracto</strong> — uma abordagem exclusiva projetada para identificar e destravar áreas como relacionamentos, prosperidade, autoestima e equilíbrio emocional.</p>
+                
+                <p>Hoje, através de atendimentos individuais, cursos e vivências, ofereço um espaço seguro e acolhedor para você se reconectar com a sua verdadeira essência.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Passo a Passo -->
-    <section id="passo-a-passo" class="steps-section">
-        <div class="container">
-            <div class="section-title-wrapper">
-                <span class="section-bg-text">ETAPAS</span>
-                <h2>Como funciona? <span>Passo a Passo</span></h2>
-            </div>
-
-            <div class="steps-grid">
-                <div class="step-card">
-                    <span class="step-number">01</span>
-                    <h3>Escolha da Modalidade</h3>
-                    <p>Atendimento 100% online conforme o seu momento.</p>
-                </div>
-                <div class="step-card">
-                    <span class="step-number">02</span>
-                    <h3>Mapeamento</h3>
-                    <p>Identificação de padrões e bloqueios energéticos.</p>
-                </div>
-                <div class="step-card">
-                    <span class="step-number">03</span>
-                    <h3>Harmonização</h3>
-                    <p>Sessão de limpeza e equilíbrio dos campos.</p>
-                </div>
-                <div class="step-card">
-                    <span class="step-number">04</span>
-                    <h3>Relatório em Áudio</h3>
-                    <p>Envio das percepções e orientações pós-sessão.</p>
-                </div>
-            </div>
+    <!-- Seção Preços -->
+<section id="precos" class="pricing">
+    <div class="container">
+        
+        <!-- Título Stylized com Marca d'água -->
+        <div class="pricing-title-wrapper">
+            <span class="pricing-bg-text">PLANOS</span>
+            <h2>Opções de <span>Atendimento</span></h2>
         </div>
-    </section>
 
-    <!-- Depoimentos -->
-    <section id="depoimentos">
-        <div class="container">
-            <div class="section-title-wrapper">
-                <span class="section-bg-text">DEPOIMENTOS</span>
-                <h2>Vidas <span>Transformadas</span></h2>
+        <div class="pricing-grid">
+            
+            <!-- Card 1: Sessão Avulsa -->
+            <div class="pricing-item">
+                <div class="pricing-content">
+                    <h3>Sessão Avulsa</h3>
+                    <p>Atendimento individual focado na resolução imediata de bloqueios pontuais.</p>
+                    <div class="price">R$ 180,00</div>
+                    
+                    <!-- Lista de Benefícios -->
+                    <ul class="pricing-features">
+                        <li><span>✓</span> Atendimento individual e 100% online</li>
+                        <li><span>✓</span> Diagnóstico energético inicial</li>
+                        <li><span>✓</span> Áudio com orientações pós-sessão</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/5511987063494?text=Quero%20agendar%20uma%20Sess%C3%A3o%20Avulsa." target="_blank" rel="noopener noreferrer" class="btn btn-sm">Agendar Sessão</a>
             </div>
 
-            <div class="testimonials-grid">
-                <div class="testimonial-item">
-                    <div class="social-header">
-                        <div class="avatar-circle">A</div>
-                        <div>
-                            <h3>Amanda R.</h3>
-                            <small style="color: var(--text-muted)">27 anos - SP</small>
-                        </div>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <p>"A cada sessão percebo o quanto tenho me libertado de padrões que me limitavam. Sou muito grata!"</p>
-                </div>
+            <!-- Card 2: Acompanhamento Completo (Destaque) -->
+            <div class="pricing-item featured">
+                <div class="pricing-content">
+                    <span class="badge-recommended">MAIS RECOMENDADO</span>
+                    <h3>Acompanhamento Completo</h3>
+                    <p>Processo contínuo para transformação profunda de padrões repetitivos.</p>
+                    <div class="price">R$ 480,00</div>
 
-                <div class="testimonial-item">
-                    <div class="social-header">
-                        <div class="avatar-circle">R</div>
-                        <div>
-                            <h3>Ricardo M.</h3>
-                            <small style="color: var(--text-muted)">42 anos - SP</small>
-                        </div>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <p>"Passei a enxergar minha vida com mais clareza e tranquilidade para tomar decisões."</p>
+                    <!-- Lista de Benefícios -->
+                    <ul class="pricing-features">
+                        <li><span>✓</span> Acompanhamento contínuo e profundo</li>
+                        <li><span>✓</span> Relatórios detalhados a cada etapa</li>
+                        <li><span>✓</span> Suporte individual via WhatsApp</li>
+                        <li><span>✓</span> Prioridade no agendamento de horários</li>
+                    </ul>
                 </div>
+                <a href="https://wa.me/5511987063494?text=Quero%20agendar%20o%20Acompanhamento%20Completo." target="_blank" rel="noopener noreferrer" class="btn btn-sm">Agendar Tratamento</a>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Terapeuta -->
-    <section id="terapeuta">
+    <!-- Seção Contato -->
+    <section id="contato" class="contact">
         <div class="container">
-            <div class="therapist-grid">
-                <div class="therapist-image">
-                    <img src="adautosantana.png" alt="Adauto Santana Terapeuta">
-                </div>
-                <div>
-                    <h2>Quem é Adauto Santana</h2>
-                    <blockquote>"A transformação verdadeira acontece quando tratamos a raiz do problema."</blockquote>
-                    <p>Há mais de 15 anos ajudo pessoas a liberarem bloqueios através do **Método Vibracto** — unindo Terapia Comportamental, Reiki e Apometria Integrativa para trazer leveza e clareza para sua vida.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Preços -->
-    <section id="precos">
-        <div class="container">
-            <div class="section-title-wrapper">
-                <span class="section-bg-text">PLANOS</span>
-                <h2>Opções de <span>Atendimento</span></h2>
-            </div>
-
-            <div class="pricing-grid">
-                <div class="pricing-item">
-                    <div>
-                        <h3>Sessão Avulsa</h3>
-                        <p>Focada em bloqueios pontuais.</p>
-                        <div class="price">R$ 180,00</div>
-                        <ul class="pricing-features">
-                            <li><span>✓</span> Atendimento 100% online</li>
-                            <li><span>✓</span> Diagnóstico inicial</li>
-                            <li><span>✓</span> Áudio explicativo pós-sessão</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5511987063494" class="btn btn-sm">Agendar Sessão</a>
-                </div>
-
-                <div class="pricing-item featured">
-                    <span class="badge-recommended">RECOMENDADO</span>
-                    <div>
-                        <h3>Acompanhamento Completo</h3>
-                        <p>Transformação profunda de padrões.</p>
-                        <div class="price">R$ 480,00</div>
-                        <ul class="pricing-features">
-                            <li><span>✓</span> Acompanhamento contínuo</li>
-                            <li><span>✓</span> Relatórios detalhados</li>
-                            <li><span>✓</span> Suporte via WhatsApp</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/5511987063494" class="btn btn-sm">Agendar Tratamento</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contato -->
-    <section id="contato">
-        <div class="container">
-            <h2 style="text-align: center;">Entre em Contato</h2>
+            <h2 style="text-align:center;">Entre em Contato</h2>
+            <p style="text-align:center;">Tem alguma dúvida específica? Envie sua mensagem e responderemos em breve.</p>
             <div class="contact-form">
                 <form action="https://formspree.io/f/xkodyzeq" method="POST">
                     <div class="form-group">
@@ -935,7 +1637,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Mensagem</label>
-                        <textarea id="message" name="message" rows="4" required placeholder="Sua mensagem..."></textarea>
+                        <textarea id="message" name="message" rows="4" required placeholder="Como podemos ajudar?"></textarea>
                     </div>
                     <button type="submit" class="btn" style="width:100%;">Enviar Mensagem</button>
                 </form>
@@ -943,97 +1645,150 @@
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq">
+   <!-- Seção FAQ -->
+    <section id="faq" class="faq">
         <div class="container">
-            <div class="section-title-wrapper">
-                <span class="section-bg-text">FAQ</span>
+            
+            <!-- TÍTULO ATUALIZADO EM CAMADAS -->
+            <div class="faq-title-wrapper">
+                <span class="faq-bg-text">FAQ</span>
                 <h2>Dúvidas <span>Frequentes</span></h2>
             </div>
-
+            
             <div class="faq-container">
                 <div class="faq-item">
-                    <button class="faq-question">A sessão é a distância ou presencial? <span>+</span></button>
+                    <button class="faq-question">A sessão é a distância ou presencial?</button>
                     <div class="faq-answer">
-                        <p>Os atendimentos acontecem à distância, garantindo total privacidade e acolhimento.</p>
+                        <p>Sim. Os atendimentos acontecem à distância, com privacidade e acolhimento.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Preciso acreditar em espiritualidade? <span>+</span></button>
+                    <button class="faq-question">Preciso acreditar em espiritualidade?</button>
                     <div class="faq-answer">
-                        <p>Não. O processo respeita a experiência e as crenças individuais de cada cliente.</p>
+                        <p>Não. O processo respeita a experiência e as crenças individuais.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">Substitui tratamento médico? <span>+</span></button>
+                    <button class="faq-question">Quantas sessões são necessárias?</button>
                     <div class="faq-answer">
-                        <p>Não. A Apometria Integrativa é complementar e não substitui acompanhamentos medicinais ou psicológicos.</p>
+                        <p>Cada pessoa possui necessidades diferentes. Isso é avaliado individualmente.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">A apometria substitui tratamento médico ou psicológico?</button>
+                    <div class="faq-answer">
+                        <p>Não. A Apometria Integrativa é uma prática complementar e não substitui acompanhamentos médicos ou psicológicos quando necessários.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Preciso de algum preparo no dia da sessão marcado?</button>
+                    <div class="faq-answer">
+                        <p>Não. No dia da realização do tratamento, você pode manter sua rotina normal de trabalho, estudo ou outras atividades às quais precise se dedicar.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Qual o primeiro passo após agendar a sessão?</button>
+                    <div class="faq-answer">
+                        <p>Primeiramente, é feito um relatório inicial com perguntas sobre o seu caso, estado físico, mental, emocional e espiritual, além das questões que você deseja que sejam trabalhadas. Após colher suas queixas, faço um estudo aprofundado para tratar o seu caso da melhor maneira possível.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Como fico sabendo dos resultados do tratamento apométrico?</button>
+                    <div class="faq-answer">
+                        <p>Ao final de cada sessão, você recebe um retorno detalhado sobre o trabalho realizado. Compartilho, por meio de áudio e/ou mensagem, os principais aspectos observados durante o atendimento, os padrões identificados e os pontos que receberam maior atenção ao longo do processo.</p>
+                        <p>Além disso, apresento minhas percepções como terapeuta e as orientações que podem contribuir para a continuidade do seu desenvolvimento e integração das experiências vivenciadas na sessão.</p>
+                        <p>No pós-sessão, você também recebe recomendações práticas para favorecer a manutenção do seu equilíbrio emocional, energético e espiritual, como cuidados com o descanso, hidratação, momentos de introspecção, observação das emoções e atitudes que fortaleçam seu bem-estar no dia a dia.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Final -->
+    <!-- Call to Action Final -->
     <section class="final-cta">
         <div class="container">
             <h2>Pronto para iniciar sua transformação?</h2>
-            <p style="margin-top: 10px; color: var(--text-muted);">Faça parte do Método Vibracto e recupere seu equilíbrio.</p>
+            <p style="margin-top: 15px;">
+                O Método Vibracto tem ajudado pessoas a superar bloqueios,
+                ressignificar experiências e construir uma vida com mais equilíbrio,
+                consciência e bem-estar.
+            </p>
+            <p style="font-weight: 600; margin-top: 10px;">Faça parte dessa transformação.</p>
+
             <div class="cta-buttons">
-                <a href="https://wa.me/5511987063494" class="btn btn-large">Agendar via WhatsApp</a>
-                <a href="https://chat.whatsapp.com/GluwyDBearHERxa67b8f9o" class="btn-whatsapp-group">✨ Comunidade VIP</a>
+                <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20quero%20iniciar%20minha%20transforma%C3%A7%C3%A3o."
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-large">
+                    Agendar via WhatsApp
+                </a>
+
+                <a href="https://chat.whatsapp.com/GluwyDBearHERxa67b8f9o?s=em&p=a&ilr=0&amv=3"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn-whatsapp-group">
+                    ✨ Comunidade Método Vibracto
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Rodapé -->
     <footer class="footer">
         <div class="container">
-            <p>Método Vibracto Terapias - Todos os direitos reservados.</p>
-            <p style="margin-top: 5px;">@metodovibracto</p>
+            <p style="margin-bottom: 8px;">Método Vibracto Terapias - Todos os direitos reservados.</p>
+            <p>@metodovibracto</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Flutuante -->
-    <a href="https://wa.me/5511987063494" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
-        <svg viewBox="0 0 32 32"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.135-2.133c2.351 1.284 5.019 1.961 7.865 1.961 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.35c-2.45 0-4.85-0.65-6.96-1.89l-0.5-0.3-5.17 1.35 1.38-5.04-0.33-0.52c-1.36-2.17-2.07-4.68-2.07-7.25 0-7.53 6.12-13.65 13.65-13.65s13.65 6.12 13.65 13.65-6.12 13.65-13.65 13.65zM22.51 19.38c-0.36-0.18-2.12-1.05-2.45-1.17s-0.57-0.18-0.81 0.18c-0.24 0.36-0.93 1.17-1.14 1.41s-0.42 0.27-0.78 0.09c-0.36-0.18-1.52-0.56-2.9-1.79-1.07-0.96-1.8-2.14-2.01-2.5-0.21-0.36-0.02-0.56 0.16-0.74 0.16-0.16 0.36-0.42 0.54-0.63s0.24-0.36 0.36-0.6c0.12-0.24 0.06-0.45-0.03-0.63s-0.81-1.95-1.11-2.67c-0.3-0.72-0.6-0.62-0.81-0.63h-0.69c-0.24 0-0.63 0.09-0.96 0.45s-1.26 1.23-1.26 3 1.29 3.48 1.47 3.72c0.18 0.24 2.54 3.88 6.15 5.44 0.86 0.37 1.53 0.59 2.05 0.76 0.86 0.27 1.65 0.23 2.27 0.14 0.69-0.1 2.12-0.87 2.42-1.71s0.3-1.56 0.21-1.71c-0.09-0.15-0.33-0.24-0.69-0.42z"></path></svg>
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5511987063494?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20M%C3%A9todo%20Vibracto." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Atendimento via WhatsApp">
+        <svg viewBox="0 0 32 32">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.135-2.133c2.351 1.284 5.019 1.961 7.865 1.961 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.35c-2.45 0-4.85-0.65-6.96-1.89l-0.5-0.3-5.17 1.35 1.38-5.04-0.33-0.52c-1.36-2.17-2.07-4.68-2.07-7.25 0-7.53 6.12-13.65 13.65-13.65s13.65 6.12 13.65 13.65-6.12 13.65-13.65 13.65zM22.51 19.38c-0.36-0.18-2.12-1.05-2.45-1.17s-0.57-0.18-0.81 0.18c-0.24 0.36-0.93 1.17-1.14 1.41s-0.42 0.27-0.78 0.09c-0.36-0.18-1.52-0.56-2.9-1.79-1.07-0.96-1.8-2.14-2.01-2.5-0.21-0.36-0.02-0.56 0.16-0.74 0.16-0.16 0.36-0.42 0.54-0.63s0.24-0.36 0.36-0.6c0.12-0.24 0.06-0.45-0.03-0.63s-0.81-1.95-1.11-2.67c-0.3-0.72-0.6-0.62-0.81-0.63h-0.69c-0.24 0-0.63 0.09-0.96 0.45s-1.26 1.23-1.26 3 1.29 3.48 1.47 3.72c0.18 0.24 2.54 3.88 6.15 5.44 0.86 0.37 1.53 0.59 2.05 0.76 0.86 0.27 1.65 0.23 2.27 0.14 0.69-0.1 2.12-0.87 2.42-1.71s0.3-1.56 0.21-1.71c-0.09-0.15-0.33-0.24-0.69-0.42z"></path>
+        </svg>
         <span>Fale Conosco</span>
     </a>
 
-    <!-- Scripts JavaScript -->
+    <!-- Interatividade com Javascript -->
     <script>
-        // 1. Alternar Menu Mobile
-        const menuToggle = document.getElementById('menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
-
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Fechar menu mobile ao clicar em um link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // 2. Lógica Acessível do FAQ (Accordion)
+        // Lógica do FAQ (Accordion)
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
-                const isActive = faqItem.classList.contains('active');
                 
-                // Fecha todos os itens
+                // Fecha outros itens abertos
                 document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
                 });
 
-                // Se não estava ativo, ativa o clicado
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
+                // Alterna o estado do item clicado
+                faqItem.classList.toggle('active');
             });
         });
+        
+    // ==========================================
+        // Lógica do Menu Hambúrguer (ADICIONADO AQUI)
+        // ==========================================
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (menuToggle && navMenu) {
+            // Abre e fecha o menu ao clicar no botão
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Fecha o menu automaticamente ao clicar em qualquer link
+            document.querySelectorAll('#nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
     </script>
 </body>
 </html>
