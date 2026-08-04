@@ -1694,22 +1694,41 @@
         <span>Fale Conosco</span>
     </a>
 
-    <!-- Interatividade com Javascript -->
+    <!-- Scripts JavaScript -->
     <script>
-        // Lógica do FAQ (Accordion)
+        // 1. Menu Mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // 2. FAQ (Accordion)
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
-                
-                // Fecha outros itens abertos
+                const isActive = faqItem.classList.contains('active');
+
+                // Fecha todos os itens abertos
                 document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                    }
+                    item.classList.remove('active');
                 });
 
-                // Alterna o estado do item clicado
-                faqItem.classList.toggle('active');
+                // Abre apenas se o item clicado estava fechado
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
             });
         });
     </script>
