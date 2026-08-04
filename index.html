@@ -1058,86 +1058,189 @@
             border-top: 1px solid var(--border-color);
         }
 
-        /* ==========================================================================
-           11. RESPONSIVIDADE (CELULARES E TABLETS)
-           ========================================================================== */
-        @media (max-width: 992px) {
-            .hero-content, 
-            .what-is-grid, 
-            .about-grid, 
-            .therapist-grid, 
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-text h1 { font-size: 2.2rem; }
-            .steps-grid { grid-template-columns: repeat(2, 1fr); }
-            .therapist-image { max-width: 400px; margin: 0 auto; }
-            .therapist-info { text-align: left; }
-        }
+ /* =====================================================
+   11. MENU HAMBÚRGUER RESPONSIVO
+===================================================== */
 
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-                gap: 12px;
-            }
+/* Botão do menu */
 
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px 18px;
-            }
+.menu-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    width:42px;
+    height:42px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    z-index:1101;
+}
 
-            .steps-grid { grid-template-columns: 1fr; }
-            .hero-highlights-banner { grid-template-columns: 1fr; }
-            .contact-form { padding: 25px 20px; }
+.menu-toggle .bar{
+    width:28px;
+    height:3px;
+    background:var(--primary-color);
+    border-radius:3px;
+    transition:all .3s ease;
+}
 
-            /* Redução das Marcas d'água de fundo para caber no celular */
-            .about-bg-text,
-            .steps-bg-text,
-            .pricing-bg-text,
-            .faq-bg-text {
-                font-size: 3rem;
-                top: 0;
-                letter-spacing: 2px;
-            }
+/* Ícone X */
 
-            .about-text {
-                text-align: left;
-            }
+.menu-toggle.open .bar:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+}
 
-            .about-list li {
-                align-items: flex-start;
-            }
+.menu-toggle.open .bar:nth-child(2){
+    opacity:0;
+}
 
-            .about-list li::before {
-                margin-top: 2px;
-            }
-        }
+.menu-toggle.open .bar:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg);
+}
 
-        @media (max-width: 480px) {
-            .whatsapp-float span { display: none; }
-            .whatsapp-float {
-                padding: 14px;
-                border-radius: 50%;
-                bottom: 20px;
-                right: 20px;
-            }
-            .btn-large { width: 100%; text-align: center; }
-            .hero-text h1 { font-size: 1.75rem; }
-            .about-title-wrapper h2, 
-            .steps-title-wrapper h2, 
-            .pricing-title-wrapper h2, 
-            .faq-title-wrapper h2 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
-</head>
-<body>
+/* Animação do menu */
 
+@keyframes menuFade{
+    from{
+        opacity:0;
+        transform:translateY(-15px);
+    }
 
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =====================================================
+   RESPONSIVO - TABLET E CELULAR
+===================================================== */
+
+@media (max-width:768px){
+
+    header{
+        position:relative;
+    }
+
+    header .container{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    .btn-header{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    #nav-menu{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:#0a0e17;
+        border-top:1px solid rgba(255,255,255,.08);
+        box-shadow:0 15px 35px rgba(0,0,0,.45);
+        animation:menuFade .25s ease;
+        z-index:1100;
+    }
+
+    #nav-menu.active{
+        display:block;
+    }
+
+    #nav-menu ul{
+        display:flex;
+        flex-direction:column;
+        list-style:none;
+        margin:0;
+        padding:10px 0;
+        gap:0;
+    }
+
+    #nav-menu li{
+        width:100%;
+    }
+
+    #nav-menu a{
+        display:block;
+        padding:18px 25px;
+        color:#fff;
+        text-decoration:none;
+        border-bottom:1px solid rgba(255,255,255,.06);
+        transition:.3s;
+    }
+
+    #nav-menu a:hover{
+        background:rgba(212,175,55,.08);
+        color:var(--primary-color);
+    }
+
+    /* Ajustes das marcas d'água */
+
+    .about-bg-text,
+    .steps-bg-text,
+    .pricing-bg-text,
+    .faq-bg-text{
+        font-size:3rem;
+        top:0;
+        letter-spacing:2px;
+    }
+
+    .about-text{
+        text-align:left;
+    }
+
+    .about-list li{
+        align-items:flex-start;
+    }
+
+    .about-list li::before{
+        margin-top:2px;
+    }
+
+}
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width:480px){
+
+    .whatsapp-float span{
+        display:none;
+    }
+
+    .whatsapp-float{
+        padding:14px;
+        border-radius:50%;
+        bottom:20px;
+        right:20px;
+    }
+
+    .btn-large{
+        width:100%;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:1.75rem;
+    }
+
+    .about-title-wrapper h2,
+    .steps-title-wrapper h2,
+    .pricing-title-wrapper h2,
+    .faq-title-wrapper h2{
+        font-size:1.6rem;
+    }
+
+}
    <!-- Cabeçalho -->
 <header>
     <div class="container header-container">
@@ -1686,24 +1789,29 @@
         <span>Fale Conosco</span>
     </a>
 
-    <!-- Interatividade com Javascript -->
     <script>
-        // Lógica do FAQ (Accordion)
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                
-                // Fecha outros itens abertos
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                    }
-                });
 
-                // Alterna o estado do item clicado
-                faqItem.classList.toggle('active');
-            });
-        });
-    </script>
+const menu = document.getElementById("nav-menu");
+const toggle = document.getElementById("menu-toggle");
+
+toggle.addEventListener("click",()=>{
+
+    menu.classList.toggle("active");
+    toggle.classList.toggle("open");
+
+});
+
+document.querySelectorAll("#nav-menu a").forEach(item=>{
+
+    item.addEventListener("click",()=>{
+
+        menu.classList.remove("active");
+        toggle.classList.remove("open");
+
+    });
+
+});
+
+</script>
 </body>
 </html>
