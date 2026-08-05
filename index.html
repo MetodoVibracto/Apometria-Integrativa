@@ -574,20 +574,40 @@
 
     <!-- Interatividade com Javascript -->
     <script>
-        // Lógica do FAQ (Accordion)
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                
-                // Fecha outros itens abertos
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                    }
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Lógica do Menu Hambúrguer (Mobile)
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
                 });
 
-                // Alterna o estado do item clicado
-                faqItem.classList.toggle('active');
+                // Fecha o menu ao clicar em qualquer link
+                const navLinks = nav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        nav.classList.remove('active');
+                    });
+                });
+            }
+
+            // 2. Lógica do FAQ (Accordion)
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const faqItem = button.parentElement;
+                    
+                    // Fecha outros itens abertos
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        if (item !== faqItem) {
+                            item.classList.remove('active');
+                        }
+                    });
+
+                   // Alterna o estado do item clicado
+                    faqItem.classList.toggle('active');
+                });
             });
         });
     </script>
