@@ -1,39 +1,94 @@
-    <style>
-        /* ==========================================================================
-           1. VARIÁVEIS GLOBAIS E RESET
-           ========================================================================== */
+   <style>
+
+/* ==========================================================================
+   1. VARIÁVEIS GLOBAIS
+   ========================================================================== */
+
+:root {
+    /* Cores principais da identidade */
+    --primary-color: #d4af37;        /* Dourado premium */
+    --primary-hover: #f3e5ab;
+
+    /* Fundos */
+    --bg-deep: #05070c;              /* Fundo principal */
+    --bg-card: #111827;              /* Cards */
+    --bg-card-alt: #0d1322;          /* Seções alternadas */
+
+    /* Textos */
+    --text-light: #f4f4f6;
+    --text-muted: #a0aab8;
+
+    /* Bordas */
+    --border-color: rgba(212,175,55,0.20);
+
+    /* Efeitos */
+    --shadow-card: 0 10px 30px rgba(0,0,0,0.45);
+    --shadow-gold: 0 0 25px rgba(212,175,55,0.20);
+
+    /* Layout */
+    --radius: 12px;
+
+    /* Animações */
+    --transition: all 0.3s ease;
+
+    /* Fonte */
+    --font-primary: 'Montserrat', sans-serif;
+}
+
+/* ==========================================================================
+ 1. VARIÁVEIS GLOBAIS
+========================================================================== */
         :root {
-            --primary-color: #d4af37; /* Dourado */
-            --primary-hover: #f3e5ab;
-            --bg-deep: #0a0e17;       /* Fundo bem escuro */
-            --bg-card: #131b2e;       /* Fundo dos cartões */
-            --bg-card-alt: #0d1322;   /* Fundo alternativo */
-            --text-light: #f4f4f6;
-            --text-muted: #a0aab8;
+    /* Cores principais da identidade */
+    --primary-color: #d4af37;        /* Dourado premium */
+    --primary-hover: #f3e5ab;
+
+    /* Fundos */
+    --bg-deep: #0a0e17;       /* Fundo bem escuro */
+    --bg-card: #131b2e;       /* Fundo dos cartões */
+    --bg-card-alt: #0d1322;   /* Fundo alternativo */
+            
+     --text-light: #f4f4f6;
+     --text-muted: #a0aab8;
+            
             --border-color: rgba(212, 175, 55, 0.2);
-            --radius: 12px;
-            --transition: all 0.3s ease;
+            
             --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
             --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.15);
-        }
+            
+    /* Layout */
+    --radius: 12px;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    /* Animações */
+    --transition: all 0.3s ease;
 
-        html {
-            scroll-behavior: smooth;
-        }
+    /* Fonte */
+    --font-primary: 'Montserrat', sans-serif;
+}
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-deep);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+/* ==========================================================================
+   2. RESET GLOBAL
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-deep);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
         /* ==========================================================================
            2. COMPONENTES REUTILIZÁVEIS
