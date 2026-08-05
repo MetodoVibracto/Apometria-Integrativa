@@ -1320,9 +1320,8 @@ nav a:hover::after {
             .pricing-bg-text,
             .faq-bg-text {
                 font-size: 3rem;
-                top: 0;
-                letter-spacing: 2px;
-            }
+               }
+        }
 
             .about-text {
                 text-align: left;
