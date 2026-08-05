@@ -36,37 +36,6 @@
 }
 
 /* ==========================================================================
- 1. VARIÁVEIS GLOBAIS
-========================================================================== */
-        :root {
-    /* Cores principais da identidade */
-    --primary-color: #d4af37;        /* Dourado premium */
-    --primary-hover: #f3e5ab;
-
-    /* Fundos */
-    --bg-deep: #0a0e17;       /* Fundo bem escuro */
-    --bg-card: #131b2e;       /* Fundo dos cartões */
-    --bg-card-alt: #0d1322;   /* Fundo alternativo */
-            
-     --text-light: #f4f4f6;
-     --text-muted: #a0aab8;
-            
-            --border-color: rgba(212, 175, 55, 0.2);
-            
-            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
-            --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.15);
-            
-    /* Layout */
-    --radius: 12px;
-
-    /* Animações */
-    --transition: all 0.3s ease;
-
-    /* Fonte */
-    --font-primary: 'Montserrat', sans-serif;
-}
-
-/* ==========================================================================
    2. RESET GLOBAL
    ========================================================================== */
 
@@ -88,6 +57,44 @@ body {
     color: var(--text-light);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+/* ==========================================================================
+   3. CONTAINER GLOBAL
+   ========================================================================== */
+
+.container {
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
         /* ==========================================================================
