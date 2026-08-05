@@ -97,36 +97,61 @@ textarea {
     padding-right: 20px;
 }
 
-        /* ==========================================================================
-           2. COMPONENTES REUTILIZÁVEIS
-           ========================================================================== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+       /* ==========================================================================
+   4. COMPONENTES REUTILIZÁVEIS
+   ========================================================================== */
 
-        .btn {
-            position: relative;
-            display: inline-block;
-            overflow: hidden;
-            background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+
+/* Container principal */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   Botões
+   ========================================================================== */
+
+.btn {
+
+     position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+     background: linear-gradient(135deg,
+                 var(--primary-color) 0%,
+                  #aa820a 100%);
+   
             color: #0d1322;
+   
             font-weight: 700;
             padding: 14px 28px;
+   
             border-radius: var(--radius);
+   
             text-decoration: none;
             cursor: pointer;
+   
             transition: var(--transition);
+   
             text-transform: uppercase;
             font-size: 0.9rem;
             letter-spacing: 0.5px;
+   
             border: 1px solid rgba(255, 235, 170, 0.6);
+   
             box-shadow: 
                 0 4px 20px rgba(212, 175, 55, 0.4),
                 0 0 12px rgba(212, 175, 55, 0.2),
                 inset 0 1px 1px rgba(255, 255, 255, 0.6);
         }
+
+/* Reflexo dourado passando no botão */
 
         .btn::before {
             content: "";
