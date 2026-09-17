@@ -884,38 +884,83 @@ nav a:hover::after {
         }
 
         .therapist {
-            padding: 90px 0;
-            background-color: rgba(17, 26, 51, 0.6);
-            border-top: 1px solid rgba(226, 176, 55, 0.2);
-            border-bottom: 1px solid rgba(226, 176, 55, 0.2);
-        }        
+    padding: 90px 20px; /* Adicionado padding lateral para criar respiro */
+    background-color: rgba(17, 26, 51, 0.6);
+    border-top: 1px solid rgba(226, 176, 55, 0.2);
+    border-bottom: 1px solid rgba(226, 176, 55, 0.2);
+}
 
-        .therapist-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
-            align-items: center;
-        }
+.therapist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: flex-start; /* Alinha o topo do texto com o topo da imagem */
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
-        .therapist-image img {
-            max-width: 420px;
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            border: 1px solid rgba(226, 176, 55, 0.3);
-            display: block;
-            margin: 0 auto;
-        }
+/* Coluna da Imagem e Carrosel */
+.therapist-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .therapist-info p {
-            margin-bottom: 22px;
-            line-height: 1.7;
-        }
+.therapist-image img {
+    max-width: 350px; /* Reduzido de 420px para ajustar o tamanho do certificado */
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(226, 176, 55, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    display: block;
+    margin: 0 auto;
+}
 
-        .therapist-info p:last-child {
-            margin-bottom: 0;
-        }
+/* Carrosel 40x40 posicionado abaixo da imagem */
+.carousel-container {
+    width: 100%;
+    max-width: 350px; /* Alinhado com a largura máxima da foto */
+    margin-top: 15px; /* Espaçamento entre a foto e as miniaturas */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
 
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.carousel-track img {
+    width: 40px;  /* Tamanho das miniaturas */
+    height: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(226, 176, 55, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.carousel-track img:hover {
+    transform: scale(1.1);
+    border-color: rgba(226, 176, 55, 0.8);
+}
+
+/* Coluna de Texto */
+.therapist-info p {
+    margin-bottom: 22px;
+    line-height: 1.7;
+    color: #cccccc;
+}
+
+.therapist-info p:last-child {
+    margin-bottom: 0;
+}
         /* ==========================================================================
            11. PREÇOS & CTA FINAL
            ========================================================================== */
