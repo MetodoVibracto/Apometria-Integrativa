@@ -396,34 +396,69 @@
 </section>
 
 <section class="formacao-section">
-  <div class="formacao-container">
+  <div class="therapist-grid">
     
-    <!-- Coluna Esquerda: Textos e Foto Principal -->
-    <div class="formacao-info">
-      <span class="subtitulo-tag">FORMAÇÃO</span>
-      <h2>Um processo com estudo por trás</h2>
-      <p>Cada etapa do trabalho vem de estudo formal, feito ao longo de minha trajetória e apoiado por diversos certificados.</p>
-      <p>Minha formação reúne Apometria, Reiki nível Mestre, cromoterapia, terapia vibracional e emocional .</p>
+    <!-- Coluna Esquerda: Texto + Imagem Principal em Destaque + Miniaturas -->
+    <div class="therapist-image">
+      <img id="certificado-destaque" src="Certificado1.png" alt="Certificado em Destaque">
       
-      <div class="foto-destaque-wrapper">
-        
+      <!-- Carrossel de Miniaturas (40x40) -->
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <img src="certificado1.png" alt="Certificado 1" onclick="trocarDestaque(this.src)">
+          <img src="certificado2.png" alt="Certificado 2" onclick="trocarDestaque(this.src)">
+          <img src="certificado3.png" alt="Certificado 3" onclick="trocarDestaque(this.src)">
+          <img src="certificado4.png" alt="Certificado 4" onclick="trocarDestaque(this.src)">
+          <img src="certificado5.png" alt="Certificado 5" onclick="trocarDestaque(this.src)">
+          <img src="certificado6.png" alt="Certificado 6" onclick="trocarDestaque(this.src)">
+          <img src="certificado7.png" alt="Certificado 7" onclick="trocarDestaque(this.src)">
+          <img src="certificado8.png" alt="Certificado 8" onclick="trocarDestaque(this.src)">
+        </div>
       </div>
     </div>
 
-    <!-- Coluna Direita: Grade de Certificados -->
-    <div class="certificados-grid">
-      <img src="Certificado1png.png" alt="Certificado 1" 
-      <img src="Certificado2png.png" alt="Certificado 2" 
-      <img src="Certificado3.png" alt="Certificado 3"  
-      <img src="Certificado 4.png" alt="Certificado 4"  
-      <img src="Certificado 5.png" alt="Certificado 5"  
-      <img src="Certificado 6.png" alt="Certificado 6" 
-      <img src="Certificado 7.png" alt="Certificado 7" 
-      <img src="Certificado 8.png" alt="Certificado 8"
+    <!-- Coluna Direita: Informações de Formação -->
+    <div class="therapist-info">
+      <span class="subtitulo-tag">FORMAÇÃO</span>
+      <h2>Um processo com estudo por trás</h2>
+      <p>Cada etapa do trabalho vem de estudo formal, feito ao longo de minha trajetória e apoiado por diversos certificados.</p>
+      <p>Minha formação reúne Apometria, Reiki nível Mestre, cromoterapia, terapia vibracional e emocional.</p>
     </div>
 
   </div>
-</section>                    
+</section>
+
+<!-- Script para trocar a foto principal ao clicar na miniatura -->
+<script>
+  function trocarDestaque(src) {
+    document.getElementById('certificado-destaque').src = src;
+  }
+</script>
+
+<!-- Seção Preços -->
+<section id="precos" class="pricing">
+    <div class="container">
+        
+        <!-- Título Stylized com Marca d'água -->
+        <div class="pricing-title-wrapper">
+            <span class="pricing-bg-text">PLANOS</span>
+            <h2>Opções de <span>Atendimento</span></h2>
+        </div>
+
+        <div class="pricing-grid">
+            
+            <!-- Card 1: Sessão Avulsa -->
+            <div class="pricing-item">
+                <div class="pricing-content">
+                    <h3>Sessão Avulsa</h3>
+                    <p>Atendimento individual focado em uma questão específica</p>
+                    <div class="price">R$ ...</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <!-- Seção Preços -->
 <section id="precos" class="pricing">
