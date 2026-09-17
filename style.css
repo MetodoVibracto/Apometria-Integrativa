@@ -1761,7 +1761,8 @@ nav a:hover::after {
         /* --- ADICIONE O CSS DO CARROSEL AQUI --- */
         .carousel-container {
             width: 100%;
-            margin-top: 15px;
+            max-width: 250px; /* Limita a largura para combinar com as imagens menores */
+            margin-top: 10px;
             overflow-x: auto;
             scroll-behavior: smooth;
         }
@@ -1772,21 +1773,21 @@ nav a:hover::after {
 
         .carousel-track {
             display: flex;
-            gap: 10px;
+            gap: 6px;
         }
 
         .carousel-track img {
-            width: 80px;
-            height: 80px;
+            width: 40px;
+            height: 40px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid var(--border-color);
             cursor: pointer;
             transition: transform 0.2s ease;
         }
 
         .carousel-track img:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         /* -------------------------------------- */
 
