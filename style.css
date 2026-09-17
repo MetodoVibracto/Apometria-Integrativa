@@ -1743,6 +1743,62 @@ nav a:hover::after {
             box-shadow: var(--shadow-gold);
         }
 
+/* Terapeuta */
+        .therapist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .therapist-image img {
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-gold);
+        }
+
+        /* --- ADICIONE O CSS DO CARROSEL AQUI --- */
+        .carousel-container {
+            width: 100%;
+            margin-top: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-track img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .carousel-track img:hover {
+            transform: scale(1.05);
+        }
+        /* -------------------------------------- */
+
+        blockquote {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-style: italic;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+
         blockquote {
             color: var(--primary-color);
             font-size: 1.2rem;
