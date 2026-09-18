@@ -397,26 +397,83 @@
 
 <section class="formacao-section">
   <div class="therapist-grid">
-    
-    <!-- Coluna Esquerda: Texto + Imagem Principal em Destaque + Miniaturas -->
-    <div class="therapist-image">
-      <img id="certificado-destaque" src="Certificado1.png" alt="Certificado em Destaque">
-      
-      <!-- Carrossel de Miniaturas (40x40) -->
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <img src="certificado1.png" alt="Certificado 1" onclick="trocarDestaque(this.src)">
-          <img src="certificado2.png" alt="Certificado 2" onclick="trocarDestaque(this.src)">
-          <img src="certificado3.png" alt="Certificado 3" onclick="trocarDestaque(this.src)">
-          <img src="certificado4.png" alt="Certificado 4" onclick="trocarDestaque(this.src)">
-          <img src="certificado5.png" alt="Certificado 5" onclick="trocarDestaque(this.src)">
-          <img src="certificado6.png" alt="Certificado 6" onclick="trocarDestaque(this.src)">
-          <img src="certificado7.png" alt="Certificado 7" onclick="trocarDestaque(this.src)">
-          <img src="certificado8.png" alt="Certificado 8" onclick="trocarDestaque(this.src)">
-        </div>
-      </div>
+    !-- Coluna Esquerda: Imagem Principal em Destaque + Miniaturas -->
+<div class="therapist-image">
+  <!-- Certificado Principal em Destaque -->
+  <img id="certificado-destaque" src="certificado1.png" alt="Certificado em Destaque">
+  
+  <!-- Carrossel de Miniaturas -->
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <img class="mini-cert" src="certificado1.png" alt="Certificado 1" onclick="trocarDestaqueManualmente(0)">
+      <img class="mini-cert" src="certificado2.png" alt="Certificado 2" onclick="trocarDestaqueManualmente(1)">
+      <img class="mini-cert" src="certificado3.png" alt="Certificado 3" onclick="trocarDestaqueManualmente(2)">
+      <img class="mini-cert" src="certificado4.png" alt="Certificado 4" onclick="trocarDestaqueManualmente(3)">
+      <img class="mini-cert" src="certificado5.png" alt="Certificado 5" onclick="trocarDestaqueManualmente(4)">
+      <img class="mini-cert" src="certificado6.png" alt="Certificado 6" onclick="trocarDestaqueManualmente(6)">
+      <img class="mini-cert" src="certificado7.png" alt="Certificado 7" onclick="trocarDestaqueManualmente(6)">
+      <img class="mini-cert" src="certificado8.png" alt="Certificado 8" onclick="trocarDestaqueManualmente(7)">
     </div>
+  </div>
+</div>
 
+<!-- Script de Controle Automático e Manual -->
+<script>
+  // Lista com o nome exato das suas imagens (respeite maiúsculas/minúsculas)
+  const listaCertificados = [
+    "certificado1.png",
+    "certificado2.png",
+    "certificado3.png",
+    "certificado4.png",
+    "certificado5.png",
+    "certificado6.png",
+    "certificado7.png",
+    "certificado8.png"
+  ];
+
+  let indiceAtual = 0;
+  let temporizadorSlide;
+
+  function atualizarCertificado(index) {
+    const imgDestaque = document.getElementById('certificado-destaque');
+    const miniaturas = document.querySelectorAll('.mini-cert');
+
+    if (imgDestaque) {
+      imgDestaque.src = listaCertificados[index];
+    }
+
+    // Marca a miniatura correspondente (opcional para efeito visual)
+    miniaturas.forEach((mini, i) => {
+      if (i === index) {
+        mini.style.opacity = "1";
+        mini.style.border = "2px solid #00ff88";
+      } else {
+        mini.style.opacity = "0.6";
+        mini.style.border = "none";
+      }
+    });
+  }
+
+  function proximoSlide() {
+    indiceAtual = (indiceAtual + 1) % listaCertificados.length;
+    atualizarCertificado(indiceAtual);
+  }
+
+  function trocarDestaqueManualmente(index) {
+    indiceAtual = index;
+    atualizarCertificado(indiceAtual);
+    // Reinicia o tempo automático quando o usuário clica
+    clearInterval(temporizadorSlide);
+    temporizadorSlide = setInterval(proximoSlide, 3500);
+  }
+
+  // Inicia a troca automática a cada 3,5 segundos
+  window.addEventListener('DOMContentLoaded', () => {
+    atualizarCertificado(0);
+    temporizadorSlide = setInterval(proximoSlide, 3500);
+  });
+</script>
+      
     <!-- Coluna Direita: Informações de Formação -->
     <div class="therapist-info">
       <span class="subtitulo-tag">FORMAÇÃO</span>
