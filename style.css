@@ -230,173 +230,97 @@ h3 {
 
 
 header {
-
     position: relative;
     top: 0;
     left: 0;
-
     width: 100%;
-
     background-color: rgba(10, 14, 23, 0.92);
-
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-
     z-index: 1000;
-
     border-bottom: 1px solid var(--border-color);
-
     padding: 12px 0;
-
     transition: var(--transition);
-
 }
-
 
 /* Espaçamento interno do cabeçalho */
-
-header .container {
-
+.header-top {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
+    width: 100%;
 }
-
-
-/* Logo */
 
 .logo img {
-
     max-height: 85px;
-
     width: auto;
-
     display: block;
-
     transition: var(--transition);
-
 }
-
 
 .logo img:hover {
-
     transform: scale(1.03);
-
 }
-
-
 
 /* Menu de navegação */
-
 nav ul {
-
     display: flex;
-
     align-items: center;
-
     gap: 30px;
-
     list-style: none;
-
 }
-
-
 
 /* Links do menu */
-
 nav a {
-
     position: relative;
-
     color: var(--text-light);
-
     text-decoration: none;
-
     font-size: 0.9rem;
-
     font-weight: 500;
-
     transition: var(--transition);
-
 }
-
-
 
 /* Linha dourada animada abaixo do link */
-
 nav a::after {
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-8px;
-
-    width:0;
-
-    height:2px;
-
-    background:var(--primary-color);
-
-    transition:var(--transition);
-
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
 }
-
 
 nav a:hover {
-
-    color:var(--primary-color);
-
+    color: var(--primary-color);
 }
-
 
 nav a:hover::after {
-
-    width:100%;
-
+    width: 100%;
 }
-
-
 
 /* Botão menu mobile */
-
 .menu-toggle {
-
-    display:none;
-
-    background:none;
-
-    border:none;
-
-    cursor:pointer;
-
-    flex-direction:column;
-
-    gap:5px;
-
+    display: flex; /* Mudado para flex para aparecer no mobile */
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
 }
 
-
-
-/* Barras do menu mobile */
-
 .menu-toggle .bar {
+    width: 26px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: var(--transition);
+}
 
-    width:26px;
-
-    height:3px;
-
-    background-color:var(--primary-color);
-
-    border-radius:3px;
-
-    transition:var(--transition);
-
+/* Ajuste para o botão 'Quero minha sessão' ficar com espaçamento correto */
+.btn-header {
+    margin-top: 15px;
 }
         
         /* ==========================================================================
