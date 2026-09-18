@@ -366,96 +366,105 @@ nav a:hover::after {
 
 }
         .hero-content {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 40px;
-            align-items: flex-end;
-        }
+    display: flex;
+    align-items: center; /* Centraliza o texto e a foto verticalmente */
+    justify-content: space-between;
+    gap: 40px; /* Espaçamento entre texto e imagem */
+    margin-bottom: 40px; /* Distância do banner inferior */
+}
 
-        .hero-text {
-            margin-bottom: 30px; 
-        }
+/* Coluna de Texto */
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
 
-        .hero-text h1 {
-            font-size: 2.3rem;
-            line-height: 1.25;
-            margin-bottom: 20px;
-        }
+.hero-text h1 {
+    font-size: 2.3rem;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
 
-        .hero-text h1 span {
-            color: var(--primary-color);
-            font-size: 0.65em;
-            font-weight: 600;
-            display: block;
-            margin-top: 10px; 
-        }
+.hero-text h1 span {
+    color: var(--primary-color);
+    font-size: 0.65em;
+    font-weight: 600;
+    display: block;
+    margin-top: 10px; 
+}
 
-        .hero-text p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-        }
+.hero-text p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
 
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-        }
+/* Coluna da Imagem */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
 
-        .hero-image img {
-            width: 100%;
-            max-width: 700px;
-            display: block;
-            border: none !important;
-            box-shadow: none !important;
-            margin: 0 auto;
-            vertical-align: bottom;
-        }
+/* Imagem do Terapeuta */
+.hero-image img {
+    width: 100%;
+    max-width: 380px; /* Controla o tamanho proporcional da imagem */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 auto;
+    vertical-align: bottom;
+}
 
-        .hero-highlights-banner {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 0;
-            background-color: var(--bg-card);
-            padding: 30px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-card);
-        }
+/* Banner de Destaques (Cards) */
+.hero-highlights-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 0;
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+}
 
-        .highlight-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-        .icon-circle {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: rgba(212, 175, 55, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(212, 175, 55, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
 
-        .icon-circle svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--primary-color);
-        }
+.icon-circle svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--primary-color);
+}
 
-        .highlight-text h4 {
-            font-size: 0.95rem;
-            margin-bottom: 2px;
-        }
+.highlight-text h4 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
 
-        .highlight-text p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
+.highlight-text p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
 
         /* ==========================================================================
            8. SEÇÃO PROBLEMAS & IDENTIFICAÇÃO
