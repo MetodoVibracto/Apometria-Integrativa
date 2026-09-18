@@ -397,24 +397,37 @@
 
 <section class="formacao-section">
   <div class="therapist-grid">
-<div class="therapist-image">
-  <!-- Certificado Principal em Destaque -->
-  <img id="certificado-destaque" src="certificado1.png" alt="Certificado em Destaque">
-  
-  <!-- Carrossel de Miniaturas -->
-  <div class="carousel-container">
-    <div class="carousel-track">
-      <img class="mini-cert" src="certificado1.png" alt="Certificado 1" onclick="trocarDestaqueManualmente(0)">
-      <img class="mini-cert" src="certificado2.png" alt="Certificado 2" onclick="trocarDestaqueManualmente(1)">
-      <img class="mini-cert" src="certificado3.png" alt="Certificado 3" onclick="trocarDestaqueManualmente(2)">
-      <img class="mini-cert" src="certificado4.png" alt="Certificado 4" onclick="trocarDestaqueManualmente(3)">
-      <img class="mini-cert" src="certificado5.png" alt="Certificado 5" onclick="trocarDestaqueManualmente(4)">
-      <img class="mini-cert" src="certificado6.png" alt="Certificado 6" onclick="trocarDestaqueManualmente(6)">
-      <img class="mini-cert" src="certificado7.png" alt="Certificado 7" onclick="trocarDestaqueManualmente(6)">
-      <img class="mini-cert" src="certificado8.png" alt="Certificado 8" onclick="trocarDestaqueManualmente(7)">
+
+    <!-- Coluna Esquerda: Informações de Formação -->
+    <div class="therapist-info">
+      <span class="subtitulo-tag">FORMAÇÃO</span>
+      <h2>Fundamentação teórica e prática técnica.</h2>
+      <p>Um trabalho construido com dedicação, estudo formal e conhecimento constante ao longo de minha trajetória.</p>
+      <p>Minha formação reúne Apometria, Reiki (Nível Mestre), terapia vibracional e emocional.</p>
     </div>
+
+    <!-- Coluna Direita: Imagem Principal em Destaque + Miniaturas -->
+    <div class="therapist-image">
+      <!-- Certificado Principal em Destaque -->
+      <img id="certificado-destaque" src="certificado1.png" alt="Certificado em Destaque">
+      
+      <!-- Carrossel de Miniaturas -->
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <img class="mini-cert" src="certificado1.png" alt="Certificado 1" onclick="trocarDestaqueManualmente(0)">
+          <img class="mini-cert" src="certificado2.png" alt="Certificado 2" onclick="trocarDestaqueManualmente(1)">
+          <img class="mini-cert" src="certificado3.png" alt="Certificado 3" onclick="trocarDestaqueManualmente(2)">
+          <img class="mini-cert" src="certificado4.png" alt="Certificado 4" onclick="trocarDestaqueManualmente(3)">
+          <img class="mini-cert" src="certificado5.png" alt="Certificado 5" onclick="trocarDestaqueManualmente(4)">
+          <img class="mini-cert" src="certificado6.png" alt="Certificado 6" onclick="trocarDestaqueManualmente(5)">
+          <img class="mini-cert" src="certificado7.png" alt="Certificado 7" onclick="trocarDestaqueManualmente(6)">
+          <img class="mini-cert" src="certificado8.png" alt="Certificado 8" onclick="trocarDestaqueManualmente(7)">
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
 <!-- Script de Controle Automático e Manual -->
 <script>
@@ -441,7 +454,7 @@
       imgDestaque.src = listaCertificados[index];
     }
 
-    // Marca a miniatura correspondente (opcional para efeito visual)
+    // Marca a miniatura correspondente com borda ativa
     miniaturas.forEach((mini, i) => {
       if (i === index) {
         mini.style.opacity = "1";
@@ -471,24 +484,6 @@
     atualizarCertificado(0);
     temporizadorSlide = setInterval(proximoSlide, 3500);
   });
-</script>
-      
-    <!-- Coluna Direita: Informações de Formação -->
-    <div class="therapist-info">
-      <span class="subtitulo-tag">FORMAÇÃO</span>
-      <h2>Fundamentação teórica e prática técnica.</h2>
-      <p>Um trabalho construido com dedicação, estudo formal e conhecimento constante ao longo de minha trajetória.</p>
-      <p>Minha formação reúne Apometria, Reiki (Nível Mestre), terapia vibracional e emocional.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- Script para trocar a foto principal ao clicar na miniatura -->
-<script>
-  function trocarDestaque(src) {
-    document.getElementById('certificado-destaque').src = src;
-  }
 </script>
         
         <!-- Título Stylized com Marca d'água -->
