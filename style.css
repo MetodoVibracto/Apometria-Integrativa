@@ -227,8 +227,6 @@ h3 {
         /* ==========================================================================
    6. CABEÇALHO / NAVBAR
    ========================================================================== */
-
-
 header {
     position: relative;
     top: 0;
@@ -243,14 +241,19 @@ header {
     transition: var(--transition);
 }
 
-/* Espaçamento interno do cabeçalho */
-.header-top {
+/* Base Geral (Desktop por padrão) */
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
+.header-top {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo */
 .logo img {
     max-height: 85px;
     width: auto;
@@ -300,9 +303,9 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* Botão menu mobile */
+/* Botão menu mobile escondido no Desktop */
 .menu-toggle {
-    display: flex; /* Mudado para flex para aparecer no mobile */
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
@@ -310,6 +313,7 @@ nav a:hover::after {
     gap: 5px;
 }
 
+/* Barras do menu mobile */
 .menu-toggle .bar {
     width: 26px;
     height: 3px;
@@ -318,9 +322,30 @@ nav a:hover::after {
     transition: var(--transition);
 }
 
-/* Ajuste para o botão 'Quero minha sessão' ficar com espaçamento correto */
-.btn-header {
-    margin-top: 15px;
+/* ==========================================================================
+   AJUSTES EXCLUSIVOS PARA MOBILE (Telas menores que 992px)
+   ========================================================================== */
+@media (max-width: 991px) {
+    header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-top {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: flex; /* Exibe o botão hambúrguer apenas no celular */
+    }
+
+    .btn-header {
+        margin-top: 15px;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
 }
         
         /* ==========================================================================
