@@ -352,31 +352,32 @@ nav a:hover::after {
            7. SEÇÃO HERO
            ========================================================================== */
 
+/* Seção Hero com background original */
 .hero {
-
     padding: 90px 0 0;
-
-    background:
-    radial-gradient(
+    background: radial-gradient(
         circle at top right,
         rgba(212,175,55,0.10),
         transparent 60%
-    ),
-    var(--bg-deep);
-
+    ), var(--bg-deep);
+    position: relative;
+    overflow: hidden;
 }
-        .hero-content {
+
+/* Container do Hero */
+.hero-content {
     display: flex;
-    align-items: center; /* Centraliza o texto e a foto verticalmente */
+    align-items: flex-end; /* Alinha o texto e a base da foto */
     justify-content: space-between;
-    gap: 40px; /* Espaçamento entre texto e imagem */
-    margin-bottom: 40px; /* Distância do banner inferior */
+    gap: 40px;
+    margin-bottom: 0;
 }
 
 /* Coluna de Texto */
 .hero-text {
     flex: 1;
-    max-width: 600px;
+    max-width: 580px;
+    padding-bottom: 30px; /* Eleva o conteúdo para não colar no banner */
 }
 
 .hero-text h1 {
@@ -403,21 +404,22 @@ nav a:hover::after {
 .hero-image {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-end;
+    margin-bottom: -5px;
 }
 
 /* Imagem do Terapeuta */
 .hero-image img {
     width: 100%;
-    max-width: 380px; /* Controla o tamanho proporcional da imagem */
+    max-width: 520px; /* Foto maior e com destaque */
     height: auto;
+    max-height: 480px;
     object-fit: contain;
+    object-position: bottom right;
     display: block;
     border: none !important;
     box-shadow: none !important;
-    margin: 0 auto;
-    vertical-align: bottom;
 }
 
 /* Banner de Destaques (Cards) */
@@ -431,6 +433,8 @@ nav a:hover::after {
     border-radius: var(--radius);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-card);
+    position: relative;
+    z-index: 2;
 }
 
 .highlight-item {
