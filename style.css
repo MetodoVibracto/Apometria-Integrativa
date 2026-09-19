@@ -409,17 +409,39 @@ nav a:hover::after {
     margin-bottom: -5px;
 }
 
-/* Imagem do Terapeuta */
+/* Ajuste na Imagem do Terapeuta */
 .hero-image img {
     width: 100%;
-    max-width: 520px; /* Foto maior e com destaque */
-    height: auto;
-    max-height: 480px;
-    object-fit: contain;
-    object-position: bottom right;
+    max-width: 450px; /* Mantém a largura equilibrada com o texto ao lado */
+    height: auto; /* Mantém a proporção real de aspecto da foto */
+    object-fit: cover; /* Evita achatamento ou estiramento */
     display: block;
     border: none !important;
     box-shadow: none !important;
+}
+
+/* Responsividade (evita quebrar o layout em telas menores e celulares) */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+        padding-bottom: 0;
+    }
+
+    .hero-image {
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+        max-width: 350px;
+    }
 }
 
 /* Banner de Destaques (Cards) */
