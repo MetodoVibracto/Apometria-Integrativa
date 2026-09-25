@@ -386,8 +386,8 @@ nav a:hover::after {
 
 .hero-text h1 span {
     color: var(--primary-color);
-    font-size: 0.60em;
-    font-weight: 600;
+    font-size: 0.45em;
+    font-weight: 500;
     display: block;
     margin-top: 10px; 
 }
