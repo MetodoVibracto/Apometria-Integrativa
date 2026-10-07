@@ -374,8 +374,7 @@
     </div>
 </section>
 
-    <!-- Seção Terapeuta -->
-<section id="terapeuta" class="therapist">
+    <section id="terapeuta" class="therapist">
     <div class="container">
         <div class="therapist-grid">
             <div class="therapist-image">
@@ -394,7 +393,7 @@
                 
                 <p>Em busca de respostas profundas, especializei-me em Terapia Comportamental, Reiki, Apometria e terapias energéticas integrativas.</p>
                 
-                <p>A síntese dessa bagagem deu origem ao <strong>Método Vibracto</strong> — uma abordagem exclusiva projetada para identificar e destravar áreas como relacionamentos, prosperidade, autoestima e equilíbrio emocional. conduzindo processos de reconexão e alinhamento espiritual com ética e responsabilidade.</p>
+                <p>A síntese dessa bagagem deu origem ao <strong>Método Vibracto</strong> — uma abordagem exclusiva projetada para identificar e destravar áreas como relacionamentos, prosperidade, autoestima e equilíbrio emocional, conduzindo processos de reconexão e alinhamento espiritual com ética e responsabilidade.</p>
                 
                 <p>Hoje, através de atendimentos individuais, cursos e vivências, ofereço um espaço seguro e acolhedor para você se reconectar com a sua verdadeira essência.</p>
             <div style="margin-top: 2.5rem;">
@@ -407,43 +406,45 @@
     </div>
 </section>
 
+<!-- Subseção de Formação e Certificados -->
 <section class="formacao-section">
-  <div class="therapist-grid">
+  <div class="container">
+    <div class="therapist-grid">
 
-    <!-- Coluna Esquerda: Informações de Formação -->
-    <div class="therapist-info">
-      <span class="subtitulo-tag">FORMAÇÃO</span>
-      <h2>Fundamentação teórica e prática técnica.</h2>
-      <p>Um trabalho construido com dedicação, estudo formal e conhecimento constante ao longo de minha trajetória.</p>
-      <p>Minha formação reúne Apometria, Reiki (Nível Mestre), terapia vibracional e emocional.</p>
-    </div>
+      <!-- Coluna Esquerda: Informações de Formação -->
+      <div class="therapist-info">
+        <span class="subtitulo-tag" style="color: #D4AF37; font-weight: 700; letter-spacing: 1px; font-size: 0.9rem;">FORMAÇÃO</span>
+        <h2 style="margin-top: 10px;">Fundamentação teórica e prática técnica.</h2>
+        <p>Um trabalho construído com dedicação, estudo formal e conhecimento constante ao longo de minha trajetória.</p>
+        <p>Minha formação reúne Apometria, Reiki (Nível Mestre), terapia vibracional e emocional.</p>
+      </div>
 
-    <!-- Coluna Direita: Imagem Principal em Destaque + Miniaturas -->
-    <div class="therapist-image">
-      <!-- Certificado Principal em Destaque -->
-      <img id="certificado-destaque" src="certificado1.png" alt="Certificado em Destaque">
-      
-      <!-- Carrossel de Miniaturas -->
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <img class="mini-cert" src="certificado1.png" alt="Certificado 1" onclick="trocarDestaqueManualmente(0)">
-          <img class="mini-cert" src="certificado2.png" alt="Certificado 2" onclick="trocarDestaqueManualmente(1)">
-          <img class="mini-cert" src="certificado3.png" alt="Certificado 3" onclick="trocarDestaqueManualmente(2)">
-          <img class="mini-cert" src="certificado4.png" alt="Certificado 4" onclick="trocarDestaqueManualmente(3)">
-          <img class="mini-cert" src="certificado5.png" alt="Certificado 5" onclick="trocarDestaqueManualmente(4)">
-          <img class="mini-cert" src="certificado6.png" alt="Certificado 6" onclick="trocarDestaqueManualmente(5)">
-          <img class="mini-cert" src="certificado7.png" alt="Certificado 7" onclick="trocarDestaqueManualmente(6)">
-          <img class="mini-cert" src="certificado8.png" alt="Certificado 8" onclick="trocarDestaqueManualmente(7)">
+      <!-- Coluna Direita: Imagem Principal em Destaque + Miniaturas -->
+      <div class="therapist-image">
+        <!-- Certificado Principal em Destaque -->
+        <img id="certificado-destaque" src="certificado1.png" alt="Certificado em Destaque" style="width: 100%; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+        
+        <!-- Carrossel de Miniaturas -->
+        <div class="carousel-container" style="margin-top: 15px; overflow-x: auto;">
+          <div class="carousel-track" style="display: flex; gap: 10px;">
+            <img class="mini-cert" src="certificado1.png" alt="Certificado 1" onclick="trocarDestaqueManualmente(0)" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 6px;">
+            <img class="mini-cert" src="certificado2.png" alt="Certificado 2" onclick="trocarDestaqueManualmente(1)" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 6px;">
+            <img class="mini-cert" src="certificado3.png" alt="Certificado 3" onclick="trocarDestaqueManualmente(2)" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 6px;">
+            <img class="mini-cert" src="certificado4.png" alt="Certificado 4" onclick="trocarDestaqueManualmente(3)" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 6px;">
+            <img class="mini-cert" src="certificado5.png" alt="Certificado 5" onclick="trocarDestaqueManualmente(4)" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 6px;">
+            <img class="mini-cert" src="certificado6.png" alt="Certificado 6" onclick="trocarDestaqueManualmente(5)" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 6px;">
+            <img class="mini-cert" src="certificado7.png" alt="Certificado 7" onclick="trocarDestaqueManualmente(6)" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 6px;">
+            <img class="mini-cert" src="certificado8.png" alt="Certificado 8" onclick="trocarDestaqueManualmente(7)" style="width: 60px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 6px;">
+          </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
 
-<!-- Script de Controle Automático e Manual -->
+<!-- Script de Controle Automático e Manual dos Certificados -->
 <script>
-  // Lista com o nome exato das suas imagens (respeite maiúsculas/minúsculas)
   const listaCertificados = [
     "certificado1.png",
     "certificado2.png",
@@ -466,11 +467,10 @@
       imgDestaque.src = listaCertificados[index];
     }
 
-    // Marca a miniatura correspondente com borda ativa
     miniaturas.forEach((mini, i) => {
       if (i === index) {
         mini.style.opacity = "1";
-        mini.style.border = "2px solid #00ff88";
+        mini.style.border = "2px solid #D4AF37";
       } else {
         mini.style.opacity = "0.6";
         mini.style.border = "none";
@@ -486,12 +486,10 @@
   function trocarDestaqueManualmente(index) {
     indiceAtual = index;
     atualizarCertificado(indiceAtual);
-    // Reinicia o tempo automático quando o usuário clica
     clearInterval(temporizadorSlide);
     temporizadorSlide = setInterval(proximoSlide, 3500);
   }
 
-  // Inicia a troca automática a cada 3,5 segundos
   window.addEventListener('DOMContentLoaded', () => {
     atualizarCertificado(0);
     temporizadorSlide = setInterval(proximoSlide, 3500);
